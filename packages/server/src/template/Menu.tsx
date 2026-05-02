@@ -7,8 +7,8 @@ export const Menu = () => (
 Array
 (
     [e6b4683750293b863378f96340bc9d8e] => 
-    [proc] => history
-    [ctrl] => remember
+    [proc] => menu
+    [ctrl] => number
     [sub_ctrl] => 
     [cur_lang] => 1
     [message] => 
@@ -139,12 +139,12 @@ SESSION ID: ct9l2l29bk60na8pecl32os72b
       <link
         rel="stylesheet"
         type="text/css"
-        href="./src/page/css/base.css.php?SN=525&amp;LG=1&amp;DD=6954a6cb59831"
+        href="./src/page/css/base.css.php?SN=525&amp;LG=1&amp;DD=6954a673b87c4"
       />
       <link
         rel="stylesheet"
         type="text/css"
-        href="./src/page/css/history.css?DD=6954a6cb59832"
+        href="./src/page/css/menu.css?DD=6954a673b87c5"
       />
       <link
         rel="stylesheet"
@@ -164,51 +164,125 @@ SESSION ID: ct9l2l29bk60na8pecl32os72b
         <div class="inner-wrap portrait">
           <form
             id="frm_ctrl"
-            class="history-page"
+            class="menu-page"
             action={`./?${crypto.randomUUID()}`}
             method="post"
           >
-            <input type="hidden" id="proc" name="proc" value="history" />
-            <input type="hidden" id="ctrl" name="ctrl" value="" />
+            <input type="hidden" id="proc" name="proc" value="menu" />
+            <input type="hidden" id="ctrl" name="ctrl" value="number" />
             <input type="hidden" id="sub_ctrl" name="sub_ctrl" value="" />
             <input type="hidden" id="cur_lang" name="cur_lang" value="1" />
             <input type="hidden" id="message" name="message" value="" />
             <div id="header" class="float-clear">
-              <h1 class="blinking">注文内容をご確認ください</h1>
-            </div>{' '}
+              <h1 class="blinking">メニューブックから番号を入力してください</h1>
+            </div>
             <input type="hidden" id="shop-id" value="525" />
-            <input type="hidden" id="code" name="code" value="" />
-            <div id="body-section" style="height: 772.345px;">
-              <div class="list-base" style="height: 629.227px;">
-                <ul class="header">
-                  <li>メニュー名</li>
-                  <li>数量</li>
-                  <li>価格</li>
-                  <li>&nbsp;</li>
-                </ul>
-                <div class="list" style="height: 577.311px;">
-                  <table>
-                    <tbody> このページをアーカイブし忘れた！！！！！</tbody>
-                  </table>
+            <input type="hidden" id="table-no" value="51" />
+            <input type="hidden" id="session-id" value="ct9l2l29bk60na8pecl32os72b" />
+            <input type="hidden" id="number" value="2" />
+            <input type="hidden" id="drinkbar-cnt" name="drinkbar-cnt" value="0" />
+            <input type="hidden" id="alcohol-cnt" name="alcohol-cnt" value="0" />
+            <input type="hidden" id="ord-drkbar-cnt" name="ord-drkbar-cnt" value="0" />
+            <input type="hidden" id="is_reorder" name="is_reorder" value="0" />
+            <input type="hidden" id="order-time" name="order-time" value="" />
+            <input
+              type="hidden"
+              id="token"
+              name="token"
+              value="6954a673b87de4.98894231"
+            />
+
+            <div id="body-section" class="base">
+              <div class="menu">
+                <div class="command">
+                  <div class="name">&nbsp;</div>
+                  <div id="order" class="btn red">注文</div>
+                </div>
+                <div class="logo">
+                  <img src="./data/525/img/logo-mini.png" alt="Saizeriya" />
+                </div>
+                <div class="code">
+                  <p id="enter">&nbsp;</p>
+                </div>
+                <div class="tenkey">
+                  <ul>
+                    <li class="btn gray" data-val="1">1</li>
+                    <li class="btn gray" data-val="2">2</li>
+                    <li class="btn gray" data-val="3">3</li>
+                    <li class="btn gray" data-val="4">4</li>
+                    <li class="btn gray" data-val="5">5</li>
+                    <li class="btn gray" data-val="6">6</li>
+                    <li class="btn gray" data-val="7">7</li>
+                    <li class="btn gray" data-val="8">8</li>
+                    <li class="btn gray" data-val="9">9</li>
+                    <li class="clear">&nbsp;</li>
+                    <li class="btn gray" data-val="0">0</li>
+                    <li class="btn green del">削除</li>
+                  </ul>
+                </div>
+                <div class="notice-balloon">
+                  <div class="balloon-arrow"></div>
+                  <div class="msg-base">
+                    <img src="./src/page/img/info.svg" alt="" />
+                    <span></span>
+                  </div>
                 </div>
               </div>
 
-              <div class="message">
-                注文の反映には数分かかることがございます
-              </div>
-
-              <div class="amount">
-                <p class="count">
-                  <span>0</span>点
-                </p>
-                <p class="amount">
-                  合計&nbsp;<span>0</span>円 (税込)
-                </p>
+              <div class="detail">
+                <div class="main">
+                  <input type="hidden" id="code" name="code" value="" />
+                  <dl class="name">
+                    <dt>&nbsp;</dt>
+                    <dd>0円</dd>
+                  </dl>
+                  <ul class="amount">
+                    <li class="cmd" id="minus">－</li>
+                    <li>
+                      <input id="amount" name="amount" type="number" value="1" readonly />
+                    </li>
+                    <li class="cmd" id="plus">＋</li>
+                  </ul>
+                </div>
+                <div class="mod" style="display: none;">
+                  <input type="hidden" id="mod_code" name="mod_code" value="" />
+                  <dl class="name">
+                    <dt>&nbsp;</dt>
+                    <dd></dd>
+                  </dl>
+                  <ul class="amount">
+                    <li class="cmd" id="minus">－</li>
+                    <li>
+                      <input
+                        id="mod_amount"
+                        name="mod_amount"
+                        type="number"
+                        value="0"
+                        readonly
+                      />
+                    </li>
+                    <li class="cmd" id="plus">＋</li>
+                  </ul>
+                  <div id="guide" style="display: none;">
+                    <div class="balloon-arrow"></div>
+                    <div class="msg-base">
+                      <img src="./src/page/img/info.svg" alt="" />
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="command">
+                  <div id="back" class="btn gray">もどる</div>
+                  <div id="deside" class="btn red">確定</div>
+                </div>
               </div>
             </div>
+            <audio id="notice-sound" preload="auto">
+              <source src="./src/page/sound/notice.wav" type="audio/wav" />
+            </audio>
             <div id="footer">
               <ul id="menu">
-                <li id="order-add">
+                <li id="order-add" class="disabled selected">
                   <p>
                     注文
                     <br />
@@ -222,7 +296,7 @@ SESSION ID: ct9l2l29bk60na8pecl32os72b
                     かご
                   </p>
                 </li>
-                <li id="order-history" class="disabled selected">
+                <li id="order-history">
                   <p>
                     注文
                     <br />
@@ -270,7 +344,7 @@ SESSION ID: ct9l2l29bk60na8pecl32os72b
       ></script>
       <script
         type="text/javascript"
-        src="./src/page/js/base.js.php?JS=history.js.php&amp;SN=525&amp;LG=1&amp;DD=6954a6cb5987e"
+        src="./src/page/js/base.js.php?JS=menu.js.php&amp;SN=525&amp;LG=1&amp;DD=6954a673b8841c"
       ></script>
     </body>
   </html>

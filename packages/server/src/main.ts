@@ -6,14 +6,13 @@ import { History } from './template/History'
 import { Menu } from './template/Menu'
 import { Account } from './template/Account'
 import { Call } from './template/Call'
-import { html } from 'hono/html'
 
 const urlIds = new Map<string, Page>()
 
 type Page = 'history' | 'main' | 'top' | 'number' | 'menu' | 'call' | 'account'
 interface Data {
-  proc: 'history' | 'main' | 'top' | 'number' | 'menu'
-  ctrl: 'remember'
+  proc: Page
+  ctrl: string
   sub_ctrl: ''
   cur_lang: '1'
   message: ''
@@ -23,6 +22,24 @@ interface Data {
   'ord-drkbar-cnt': '0'
   token: '6954a6a3c646a5.93625306'
 }
+
+const sampleItems = new Map([
+  ['1202', { name: '辛味ﾁｷﾝ', price: 300 }],
+  ['3101', { name: '小ｴﾋﾞのｻﾗﾀﾞ', price: 350 }],
+  ['3201', { name: 'たまねぎのｽﾞｯﾊﾟ', price: 300 }],
+  ['3215', { name: '半熟卵のﾍﾟﾍﾟﾛﾝﾁｰﾉ', price: 350 }],
+  ['4307', { name: 'ﾍﾟﾝﾈｱﾗﾋﾞｱｰﾀ', price: 430 }],
+  ['5201', { name: 'ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ', price: 500 }],
+  ['8401', { name: 'ﾃｨﾗﾐｽｸﾗｼｺ', price: 300 }],
+])
+
+const json = (value: unknown) =>
+  new Response(JSON.stringify(value), {
+    headers: {
+      'content-type': 'application/json; charset=UTF-8',
+    },
+  })
+
 const saizeriyaApp = new Hono()
   .get('/qr', (c) => {
     const id = crypto.randomUUID()
@@ -67,6 +84,56 @@ const saizeriyaApp = new Hono()
       return c.html(Account())
     }
     return c.notFound()
+  })
+  .post('/src/cmd/check_order.php', (c) => {
+    return c.json({ result: 'OK' })
+  })
+  .post('/src/cmd/check_lastorder.php', (c) => {
+    return c.json({ result: 'OK', lastorder: false })
+  })
+  .post('/src/cmd/check_midnight.php', (c) => {
+    return c.json({ result: 'OK' })
+  })
+  .post('/src/cmd/put_alcohol.php', (c) => {
+    return c.json({ result: 'OK' })
+  })
+  .post('/src/cmd/tbl_call.php', (c) => {
+    return c.json({ result: 'OK' })
+  })
+  .post('/src/cmd/get_item.php', async (c) => {
+    const form = await c.req.formData()
+    const id = String(form.get('id') ?? '')
+    const item = sampleItems.get(id)
+
+    if (!item) {
+      return json({ result: 'NG' })
+    }
+
+    return json({
+      result: 'OK',
+      alcohol_check: 0,
+      item_data: {
+        id,
+        name: item.name,
+        price: item.price,
+        messages: ['0', '2'],
+        mod_id: '',
+        mod_name: '',
+        mod_price: 0,
+        mod_ini_cnt: 0,
+        mod_guid: '',
+        drk_id: '',
+        drk_name: '',
+        drk_price: 0,
+        drk_guid: '',
+        popup: '',
+        notice: '',
+        arc_type: 0,
+        drk_type: 0,
+        main_type: 0,
+        state: 2,
+      },
+    })
   })
 
   .get('/src/page/js/base.js.php', async (c) => {
@@ -113,4 +180,6 @@ const saizeriyaApp = new Hono()
     return c.body(file.stream())
   })
 
-export default new Hono().route('/saizeriya3/', saizeriyaApp)
+export default new Hono()
+  .route('/saizeriya2/', saizeriyaApp)
+  .route('/saizeriya3/', saizeriyaApp)
