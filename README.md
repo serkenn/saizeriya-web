@@ -1,22 +1,35 @@
 # saizeriya
 
-This repository is a Bun monorepo. The pseudo server lives in `apps/server`.
+This repository includes a saizeriya-compatible server, client library, and client app.
 
-## Install dependencies
+## Setup
 
 ```bash
-bun install
+bun i
 ```
 
-## Run the pseudo server
+## Compatible Server
 
 ```bash
-bun run dev
+cd packages/server
+bun dev
 ```
 
-Or, from the app directory:
+You can see the dashboard at `/dashboard`.
+
+## Client Library
+
+A saizeriya client library written in JS/TS.
 
 ```bash
-cd apps/server
-bun run dev
+cd packages/client
+```
+
+## Betterzeriya: Client App
+
+Betterzeriya is a 3rd-party client for saizeriya, with better UX and performance.
+
+```bash
+cd apps/betterzeriya
+bun dev
 ```
