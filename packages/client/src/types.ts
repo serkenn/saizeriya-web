@@ -2,9 +2,10 @@ import type { FetchSource } from './utils/fetch'
 import type { PageKind } from './utils/page-parser'
 
 export interface ClientInit {
-  qrURLSource: string
+  qrURLSource?: string
   fetchSource?: FetchSource
-  peopleCount: number
+  peopleCount?: number
+  initialState?: ClientState
 }
 
 export interface ItemData {
@@ -54,6 +55,25 @@ export interface AddItemOptions {
 
 export interface CallOptions {
   after?: boolean
+}
+
+export interface AccountLine {
+  name: string
+  count: number
+  price: number
+}
+
+export interface AccountSummary {
+  lines: AccountLine[]
+  count: number
+  total: number
+  controlNo?: string
+  dummyNo?: string
+}
+
+export interface ReceiptSummary {
+  barcodeValue?: string
+  barcodeImageSrc?: string
 }
 
 export interface ClientState {

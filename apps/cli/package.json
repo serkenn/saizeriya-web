@@ -1,0 +1,23 @@
+{
+  "name": "@repo/cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "cli": "./src/index.ts"
+  },
+  "scripts": {
+    "cli": "bun src/index.ts",
+    "start": "bun src/index.ts start"
+  },
+  "dependencies": {
+    "@repo/client": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

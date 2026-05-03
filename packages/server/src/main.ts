@@ -5,7 +5,9 @@ import { History } from './template/History'
 import { Main } from './template/Main'
 import { Menu } from './template/Menu'
 import { PeopleNumber } from './template/Number'
+import { Receipt } from './template/Receipt'
 import { Top } from './template/Top'
+import menuData from './data/menu.json'
 
 export type Page =
   | 'history'
@@ -59,12 +61,30 @@ export interface MenuItem {
   alcohol_check?: number
 }
 
+interface MenuSeedItem {
+  code: string
+  name: string
+  price: number
+}
+
+interface FetchedMenuItem {
+  item_data?: MenuItem
+  alcohol_check?: number
+}
+
 export interface CartLine {
   id: string
   count: number
   reorder: 0 | 1
   modId: string
   modCount: number | ''
+}
+
+interface OrderDisplayLine {
+  id: string
+  name: string
+  count: number
+  price: number
 }
 
 export interface TableState {
@@ -88,15 +108,26 @@ export interface ServerOptions {
   menuItems?: MenuItem[]
 }
 
-const defaultMenuItems: MenuItem[] = [
-  { id: '1202', name: '辛味ﾁｷﾝ', price: 300 },
-  { id: '3101', name: '小ｴﾋﾞのｻﾗﾀﾞ', price: 350 },
-  { id: '3201', name: 'たまねぎのｽﾞｯﾊﾟ', price: 300 },
-  { id: '3215', name: '半熟卵のﾍﾟﾍﾟﾛﾝﾁｰﾉ', price: 350 },
-  { id: '4307', name: 'ﾍﾟﾝﾈｱﾗﾋﾞｱｰﾀ', price: 430 },
-  { id: '5201', name: 'ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ', price: 500 },
-  { id: '8401', name: 'ﾃｨﾗﾐｽｸﾗｼｺ', price: 300 },
-]
+const defaultMenuItems: MenuItem[] = (menuData as (MenuSeedItem | FetchedMenuItem)[])
+  .map((item) => {
+    if ('item_data' in item && item.item_data) {
+      return {
+        ...item.item_data,
+        alcohol_check: item.alcohol_check ?? item.item_data.alcohol_check,
+      }
+    }
+
+    if (!('code' in item)) {
+      return
+    }
+
+    return {
+      id: item.code,
+      name: item.name,
+      price: item.price,
+    }
+  })
+  .filter((item): item is MenuItem => Boolean(item?.id && item.name))
 
 const json = (value: unknown) =>
   new Response(JSON.stringify(value), {
@@ -121,7 +152,7 @@ const pageComponents = {
   main: Main,
   menu: Menu,
   number: PeopleNumber,
-  receipt: Account,
+  receipt: Receipt,
   top: Top,
 } satisfies Record<Exclude<Page, 'order'>, () => unknown>
 
@@ -146,6 +177,8 @@ const escapeHTML = (value: unknown) =>
     .replaceAll("'", '&#39;')
 
 const checked = (value: boolean) => (value ? ' checked' : '')
+
+const formatAmount = (value: number) => value.toLocaleString('ja-JP')
 
 const parseNumberField = (value: unknown, fallback: number) => {
   const parsed = Number.parseInt(String(value ?? ''), 10)
@@ -591,7 +624,107 @@ export class Server {
     )
     rewritten = setNamedInputValue(rewritten, 'token', table.state.token)
 
+    if (rewritten.includes('history-page')) {
+      rewritten = this.#rewriteOrderList(rewritten, table, 'history')
+    }
+    if (rewritten.includes('account-page')) {
+      rewritten = this.#rewriteOrderList(rewritten, table, 'account')
+    }
+    if (rewritten.includes('receipt-page')) {
+      rewritten = this.#rewriteReceipt(rewritten, table)
+    }
+
     return rewritten
+  }
+
+  #createReceiptBarcode(table: Table) {
+    const control = table.state.sessionId
+      .split('')
+      .map((char) => char.charCodeAt(0) % 10)
+      .join('')
+      .slice(0, 6)
+      .padEnd(6, '0')
+    return `${table.state.shopId.toString().padStart(3, '0')}${table.state.tableId
+      .toString()
+      .padStart(3, '0')}${control}`.slice(0, 12)
+  }
+
+  #getSubmittedOrderLines(table: Table) {
+    const lines = new Map<string, OrderDisplayLine>()
+
+    for (const item of table.state.submittedOrders.flat()) {
+      const menuItem = this.menuItems.get(item.id)
+      const modifier = item.modId ? this.menuItems.get(item.modId) : undefined
+      const modCount =
+        typeof item.modCount === 'number' && Number.isFinite(item.modCount)
+          ? item.modCount
+          : 0
+      const unitPrice =
+        (menuItem?.price ?? 0) + (modifier ? modifier.price * modCount : 0)
+      const name = [menuItem?.name ?? item.id, modifier?.name]
+        .filter(Boolean)
+        .join(' ')
+      const key = `${item.id}:${item.modId}:${modCount}`
+      const current = lines.get(key)
+
+      if (current) {
+        current.count += item.count
+        current.price += unitPrice * item.count
+      } else {
+        lines.set(key, {
+          id: item.id,
+          name,
+          count: item.count,
+          price: unitPrice * item.count,
+        })
+      }
+    }
+
+    return [...lines.values()]
+  }
+
+  #rewriteOrderList(
+    html: string,
+    table: Table,
+    page: 'account' | 'history',
+  ) {
+    const lines = this.#getSubmittedOrderLines(table)
+    const count = lines.reduce((sum, line) => sum + line.count, 0)
+    const total = lines.reduce((sum, line) => sum + line.price, 0)
+    const rows = lines
+      .map((line) =>
+        page === 'history'
+          ? `<tr><td>${escapeHTML(line.name)}</td><td>${escapeHTML(line.count)}</td><td>${escapeHTML(formatAmount(line.price))}</td><td><div class="reorder red" data-id="${escapeHTML(line.id)}">再注文</div></td></tr>`
+          : `<tr><td>${escapeHTML(line.name)}</td><td>${escapeHTML(line.count)}</td><td>${escapeHTML(formatAmount(line.price))}</td></tr>`,
+      )
+      .join('')
+
+    return html
+      .replace(
+        /(<div class="list"[^>]*>\s*<table>\s*<tbody>)[\s\S]*?(<\/tbody>)/,
+        `$1${rows}$2`,
+      )
+      .replace(
+        /(<p class="count">\s*<span>)[\s\S]*?(<\/span>点<\/p>)/,
+        `$1${count}$2`,
+      )
+      .replace(
+        /(<p class="amount">[\s\S]*?合計(?:&nbsp;|\s|\u00a0)*<span>)[\s\S]*?(<\/span>\s*円 \(税込\)\s*<\/p>)/,
+        `$1${formatAmount(total)}$2`,
+      )
+  }
+
+  #rewriteReceipt(html: string, table: Table) {
+    const barcode = this.#createReceiptBarcode(table)
+    return html
+      .replace(
+        /(<p class="table">)[\s\S]*?(<\/p>)/,
+        `$1${escapeHTML(table.state.tableId)}$2`,
+      )
+      .replace(
+        /(<div class="barcode">\s*<img[\s\S]*?\/>\s*<p>)[\s\S]*?(<\/p>)/,
+        `$1${escapeHTML(barcode)}$2`,
+      )
   }
 
   #renderDashboard() {

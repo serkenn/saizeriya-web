@@ -22,5 +22,7 @@ export const processQR = async (
     baseURL: `${nextLocation.origin}${nextLocation.pathname}`,
     shopId: parser.getShopId(),
     tableNo: parser.getTableNo(),
+    peopleCount: parser.getPeopleCount(),
+    pageKind: parser.getPageKind(),
   }
 }

@@ -6,12 +6,16 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "bun --cwd packages/server --watch src/main.ts"
+    "dev": "bun --cwd packages/server --watch src/main.ts",
+    "cli": "bun --cwd apps/cli src/index.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.10"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "p-limit": "^7.3.0"
   }
 }

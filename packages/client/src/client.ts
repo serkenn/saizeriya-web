@@ -6,6 +6,8 @@ import type {
   ClientState,
   LookupItemResult,
   PageSubmitFields,
+  AccountSummary,
+  ReceiptSummary,
 } from './types'
 import { createFetch } from './utils/fetch'
 import {
@@ -19,32 +21,43 @@ import { createQueueLocker } from './utils/queue-locker'
 
 export type {
   AddItemOptions,
+  AccountLine,
+  AccountSummary,
   CallOptions,
   CartItem,
   ClientInit,
   ClientState,
   ItemData,
   LookupItemResult,
+  ReceiptSummary,
 } from './types'
 
 export const createClient = async ({
   qrURLSource,
   fetchSource,
   peopleCount,
+  initialState,
 }: ClientInit) => {
   const fetch = createFetch(fetchSource)
-  const qrURL = new URL(qrURLSource)
-
-  const processedQR = await processQR(qrURL.toString(), fetch)
+  const processedQR = initialState
+    ? undefined
+    : await processQR(new URL(qrURLSource ?? '').toString(), fetch)
   const locker = createQueueLocker()
   const state: ClientState = {
-    baseURL: processedQR.baseURL,
-    nextId: processedQR.id,
-    shopId: processedQR.shopId,
-    tableNo: processedQR.tableNo,
-    peopleCount,
-    pageKind: 'top',
-    cart: [],
+    ...(initialState
+      ? {
+          ...initialState,
+          cart: initialState.cart.map((item) => ({ ...item })),
+        }
+      : {
+          baseURL: processedQR!.baseURL,
+          nextId: processedQR!.id,
+          shopId: processedQR!.shopId,
+          tableNo: processedQR!.tableNo,
+          peopleCount: peopleCount ?? processedQR!.peopleCount ?? 0,
+          pageKind: processedQR!.pageKind,
+          cart: [],
+        }),
   }
 
   const commandURL = (path: string) => new URL(path, state.baseURL)
@@ -221,10 +234,33 @@ export const createClient = async ({
       return getState()
     })
 
+  const getAccount = async () =>
+    await locker(async () => {
+      const parser = await submitPage(createBaseFields('account', state.token))
+      return {
+        state: getState(),
+        account: parser.getAccountSummary(),
+      } satisfies { state: ClientState; account: AccountSummary }
+    })
+
   const showReceipt = async () =>
     await locker(async () => {
       await submitPage(createBaseFields('receipt'))
       return getState()
+    })
+
+  const getReceipt = async () =>
+    await locker(async () => {
+      const parser = await submitPage(createBaseFields('receipt'))
+      return {
+        state: getState(),
+        account: parser.getAccountSummary(),
+        receipt: parser.getReceiptSummary(),
+      } satisfies {
+        state: ClientState
+        account: AccountSummary
+        receipt: ReceiptSummary
+      }
     })
 
   const reorder = async (code: string) =>
@@ -234,6 +270,15 @@ export const createClient = async ({
         ctrl: 'reorder',
         code,
       })
+      return getState()
+    })
+
+  const removeCartItem = async (index: number) =>
+    await locker(async () => {
+      if (!Number.isInteger(index) || index < 0 || index >= state.cart.length) {
+        throw new Error('Cart item was not found')
+      }
+      state.cart.splice(index, 1)
       return getState()
     })
 
@@ -316,7 +361,9 @@ export const createClient = async ({
     cart: state.cart.map((item) => ({ ...item })),
   })
 
-  await setPeopleCount(peopleCount)
+  if (peopleCount !== undefined) {
+    await setPeopleCount(peopleCount)
+  }
 
   return {
     getState,
@@ -328,8 +375,11 @@ export const createClient = async ({
     goToCart,
     goToHistory,
     goToAccount,
+    getAccount,
     showReceipt,
+    getReceipt,
     reorder,
+    removeCartItem,
     call,
     callStaff,
     callDessert,
