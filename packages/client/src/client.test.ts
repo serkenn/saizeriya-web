@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'bun:test'
+import { describe, expect, it } from 'vite-plus/test'
 import mockServer from '@repo/saizeriya-server'
 import { createClient } from './client'
 
@@ -34,10 +34,7 @@ describe('createClient', () => {
       peopleCount: 3,
     })
 
-    await Promise.all([
-      client.addItem('1202', { count: 2 }),
-      client.addItem('3201'),
-    ])
+    await Promise.all([client.addItem('1202', { count: 2 }), client.addItem('3201')])
 
     expect(client.getState().cart).toMatchObject([
       { id: '1202', count: 2, name: '小ｴﾋﾞのｻﾗﾀﾞ' },
@@ -45,9 +42,7 @@ describe('createClient', () => {
     ])
 
     await client.removeCartItem(0)
-    expect(client.getState().cart).toMatchObject([
-      { id: '3201', count: 1, name: 'ﾃｨﾗﾐｽｸﾗｼｺ' },
-    ])
+    expect(client.getState().cart).toMatchObject([{ id: '3201', count: 1, name: 'ﾃｨﾗﾐｽｸﾗｼｺ' }])
     expect(client.getState().pageKind).toBe('main')
 
     await expect(client.lookupItem('3215')).resolves.toMatchObject({
@@ -91,6 +86,6 @@ describe('createClient', () => {
     const result = await client.getReceipt()
     expect(result.state.pageKind).toBe('receipt')
     expect(result.receipt.barcodeValue).toMatch(/^\d+$/)
-    expect(result.receipt.barcodeImageSrc).toStartWith('data:image/png;base64,')
+    expect(result.receipt.barcodeImageSrc).toMatch(/^data:image\/png;base64,/)
   })
 })

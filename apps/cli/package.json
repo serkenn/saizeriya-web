@@ -2,10 +2,10 @@
   "name": "@repo/cli",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "bin": {
     "cli": "./src/index.ts"
   },
+  "type": "module",
   "scripts": {
     "cli": "bun src/index.ts",
     "start": "bun src/index.ts start"

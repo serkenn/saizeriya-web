@@ -23,8 +23,7 @@ interface SessionSnapshot {
   updatedAt: number
 }
 
-const cliHome =
-  process.env.SAIZERIYA_CLI_HOME ?? join(homedir(), '.saizeriya-cli')
+const cliHome = process.env.SAIZERIYA_CLI_HOME ?? join(homedir(), '.saizeriya-cli')
 const sessionsPath = join(cliHome, 'sessions.json')
 
 const usage = `Usage:
@@ -99,10 +98,7 @@ const storeSetCookie = (cookies: Map<string, string>, response: Response) => {
     const [pair] = cookie.split(';')
     const separator = pair?.indexOf('=') ?? -1
     if (pair && separator > 0) {
-      cookies.set(
-        pair.slice(0, separator).trim(),
-        pair.slice(separator + 1).trim(),
-      )
+      cookies.set(pair.slice(0, separator).trim(), pair.slice(separator + 1).trim())
     }
   }
 }
@@ -211,9 +207,7 @@ const printCart = (state: ClientState) => {
 
   state.cart.forEach((item, index) => {
     const price = item.price === undefined ? '' : ` ${item.price}yen`
-    console.log(
-      `${index + 1}. ${item.id} x${item.count} ${item.name ?? ''}${price}`,
-    )
+    console.log(`${index + 1}. ${item.id} x${item.count} ${item.name ?? ''}${price}`)
   })
 }
 
@@ -239,10 +233,7 @@ const requireArg = (args: string[], index: number, name: string) => {
   return value
 }
 
-const runCommand = async (
-  client: OfficialClient,
-  args: string[],
-): Promise<'continue' | 'exit'> => {
+const runCommand = async (client: OfficialClient, args: string[]): Promise<'continue' | 'exit'> => {
   const command = args[0]
 
   switch (command) {
@@ -306,10 +297,7 @@ const runCommand = async (
     }
     case 'call': {
       const target = args[1] ?? 'staff'
-      const result =
-        target === 'dessert'
-          ? await client.callDessert()
-          : await client.callStaff()
+      const result = target === 'dessert' ? await client.callDessert() : await client.callStaff()
       console.log(result)
       return 'continue'
     }

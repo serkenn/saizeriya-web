@@ -4,10 +4,7 @@
       "id": "1120",
       "name": "ﾗﾝﾁ)ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -32,10 +29,7 @@
       "id": "1116",
       "name": "ﾗﾝﾁ)ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -60,10 +54,7 @@
       "id": "1140",
       "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
       "price": 600,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -88,10 +79,7 @@
       "id": "1135",
       "name": "ﾗﾝﾁ)ﾀﾗｺｿｰｽｼｼﾘｰ風",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -116,10 +104,7 @@
       "id": "1141",
       "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
       "price": 650,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -144,10 +129,7 @@
       "id": "1145",
       "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾌｫｯｶ)",
       "price": 600,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -172,10 +154,7 @@
       "id": "1175",
       "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌｫｯｶ)",
       "price": 600,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -200,10 +179,7 @@
       "id": "1170",
       "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
       "price": 600,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -228,10 +204,7 @@
       "id": "1142",
       "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
       "price": 550,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -256,10 +229,7 @@
       "id": "1209",
       "name": "ﾁｷﾝのｻﾗﾀﾞ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -284,10 +254,7 @@
       "id": "1172",
       "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
       "price": 550,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -312,10 +279,7 @@
       "id": "1171",
       "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
       "price": 650,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -340,10 +304,7 @@
       "id": "1202",
       "name": "小ｴﾋﾞのｻﾗﾀﾞ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -368,10 +329,7 @@
       "id": "1205",
       "name": "わかめのｻﾗﾀﾞ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -396,10 +354,7 @@
       "id": "1307",
       "name": "たまねぎのｽﾞｯﾊﾟ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -424,10 +379,7 @@
       "id": "1301",
       "name": "ｺｰﾝｸﾘｰﾑｽｰﾌﾟ",
       "price": 150,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -452,10 +404,7 @@
       "id": "1305",
       "name": "田舎風ﾐﾈｽﾄﾛｰﾈ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -480,10 +429,7 @@
       "id": "1401",
       "name": "辛味ﾁｷﾝ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -508,10 +454,7 @@
       "id": "1403",
       "name": "ほうれん草のｿﾃｰ",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -536,10 +479,7 @@
       "id": "1402",
       "name": "ｱﾛｽﾃｨﾁｰﾆ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -564,10 +504,7 @@
       "id": "1407",
       "name": "ﾁｮﾘｿｰ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -592,10 +529,7 @@
       "id": "1405",
       "name": "ｴｽｶﾙｺﾞのｵｰﾌﾞﾝ焼き",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -620,10 +554,7 @@
       "id": "1404",
       "name": "ﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -648,10 +579,7 @@
       "id": "1406",
       "name": "小ｴﾋﾞのｶｸﾃﾙ",
       "price": 280,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -676,10 +604,7 @@
       "id": "1408",
       "name": "蒸し鶏の香味ｿｰｽ",
       "price": 280,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -704,10 +629,7 @@
       "id": "1410",
       "name": "ﾑｰﾙ貝のｶﾞｰﾘｯｸ焼き",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -732,10 +654,7 @@
       "id": "1413",
       "name": "ｷｬﾛｯﾄﾗﾍﾟ",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -760,10 +679,7 @@
       "id": "1417",
       "name": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗのｶﾌﾟﾚｰｾﾞ",
       "price": 430,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -788,10 +704,7 @@
       "id": "1416",
       "name": "ﾎﾟﾃﾄのｸﾞﾘﾙ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -816,10 +729,7 @@
       "id": "1425",
       "name": "柔らか青豆の温ｻﾗﾀﾞ",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -844,10 +754,7 @@
       "id": "1423",
       "name": "生ﾊﾑとﾓｯﾂｧﾚﾗ盛合せ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -872,10 +779,7 @@
       "id": "1422",
       "name": "生ﾊﾑ(ﾊﾓﾝ・ｾﾗｰﾉ)",
       "price": 320,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -900,10 +804,7 @@
       "id": "1452",
       "name": "(ﾀﾞﾌﾞﾙｻｲｽﾞ)ｱﾛｽﾃｨﾁｰﾆ",
       "price": 800,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -928,10 +829,7 @@
       "id": "2101",
       "name": "ﾐﾗﾉ風ﾄﾞﾘｱ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -956,10 +854,7 @@
       "id": "2110",
       "name": "ﾀﾗｺとﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟのﾄﾞﾘｱ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -984,10 +879,7 @@
       "id": "2103",
       "name": "半熟卵のﾐﾗﾉ風ﾄﾞﾘｱ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1012,10 +904,7 @@
       "id": "2108",
       "name": "焼ﾁｰｽﾞﾐﾗﾉ風ﾄﾞﾘｱ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1040,10 +929,7 @@
       "id": "2115",
       "name": "ﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟとﾀﾗｺのｸﾘｰﾑｸﾞﾗﾀﾝ",
       "price": 430,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1068,10 +954,7 @@
       "id": "2203",
       "name": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｱﾚﾗのﾋﾟｻﾞ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1096,10 +979,7 @@
       "id": "2206",
       "name": "たっぷりｺｰﾝのﾋﾟｻﾞ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1124,10 +1004,7 @@
       "id": "2208",
       "name": "ｿｰｾｰｼﾞﾋﾟｻﾞ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1152,10 +1029,7 @@
       "id": "2204",
       "name": "野菜ときのこのﾋﾟｻﾞ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1180,10 +1054,7 @@
       "id": "2306",
       "name": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1208,10 +1079,7 @@
       "id": "2303",
       "name": "ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1236,10 +1104,7 @@
       "id": "2305",
       "name": "ｶﾙﾎﾞﾅｰﾗ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1264,10 +1129,7 @@
       "id": "2304",
       "name": "ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1292,10 +1154,7 @@
       "id": "2301",
       "name": "ﾀﾗｺｿｰｽｼｼﾘｰ風",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1320,10 +1179,7 @@
       "id": "2310",
       "name": "ｽｰﾌﾟ入り塩味ﾎﾞﾝｺﾞﾚ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1348,10 +1204,7 @@
       "id": "2317",
       "name": "半熟卵ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1376,10 +1229,7 @@
       "id": "2318",
       "name": "半熟卵のｶﾙﾎﾞﾅｰﾗ",
       "price": 550,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1404,10 +1254,7 @@
       "id": "2320",
       "name": "小ｴﾋﾞのﾀﾗｺｿｰｽ",
       "price": 540,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1432,10 +1279,7 @@
       "id": "2316",
       "name": "半熟卵のﾐｰﾄｿｰｽ",
       "price": 450,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1460,10 +1304,7 @@
       "id": "2321",
       "name": "きのこのｸﾘｰﾑｽﾊﾟ",
       "price": 600,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1488,10 +1329,7 @@
       "id": "2328",
       "name": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1516,10 +1354,7 @@
       "id": "2407",
       "name": "ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1544,10 +1379,7 @@
       "id": "2402",
       "name": "若鶏のﾃﾞｨｱﾎﾞﾗ風",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1572,10 +1404,7 @@
       "id": "2406",
       "name": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1600,10 +1429,7 @@
       "id": "2403",
       "name": "ｲﾀﾘｱﾝﾊﾝﾊﾞｰｸﾞ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1628,10 +1454,7 @@
       "id": "2419",
       "name": "ﾋﾞｰﾌｽﾃｰｷ",
       "price": 1090,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1656,10 +1479,7 @@
       "id": "2418",
       "name": "ﾐｯｸｽｸﾞﾘﾙ",
       "price": 650,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1684,10 +1504,7 @@
       "id": "2404",
       "name": "柔らかﾁｷﾝのﾁｰｽﾞ焼き",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1712,10 +1529,7 @@
       "id": "3101",
       "name": "ﾗｲｽ",
       "price": 150,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1740,10 +1554,7 @@
       "id": "3102",
       "name": "ﾗｰｼﾞﾗｲｽ",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1768,10 +1579,7 @@
       "id": "3103",
       "name": "ｽﾓｰﾙﾗｲｽ",
       "price": 100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1796,10 +1604,7 @@
       "id": "3114",
       "name": "ﾁｰｽﾞﾌｫｯｶﾁｵ",
       "price": 250,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1824,10 +1629,7 @@
       "id": "3111",
       "name": "ｶﾞｰﾘｯｸﾌｫｯｶﾁｵ",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1852,10 +1654,7 @@
       "id": "3112",
       "name": "ｼﾅﾓﾝﾌｫｯｶﾁｵ",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1880,10 +1679,7 @@
       "id": "3110",
       "name": "ﾌｫｯｶﾁｵ",
       "price": 150,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1908,10 +1704,7 @@
       "id": "3201",
       "name": "ﾃｨﾗﾐｽｸﾗｼｺ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1936,10 +1729,7 @@
       "id": "3206",
       "name": "ｲﾀﾘｱﾝﾌﾟﾘﾝ",
       "price": 250,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1964,10 +1754,7 @@
       "id": "3207",
       "name": "ﾁｮｺﾚｰﾄｹｰｷ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -1992,10 +1779,7 @@
       "id": "3205",
       "name": "ﾐﾙｸｼﾞｪﾗｰﾄ",
       "price": 250,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2020,10 +1804,7 @@
       "id": "3212",
       "name": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2048,10 +1829,7 @@
       "id": "3213",
       "name": "ﾄﾘﾌｱｲｽｸﾘｰﾑ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2076,10 +1854,7 @@
       "id": "2325",
       "name": "ｱﾗﾋﾞｱｰﾀ(ﾍﾟﾝﾈ)",
       "price": 430,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2104,10 +1879,7 @@
       "id": "3215",
       "name": "ｺｰﾋｰｾﾞﾘｰ&ﾐﾙｸｼﾞｪﾗｰﾄ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2132,10 +1904,7 @@
       "id": "3221",
       "name": "ﾁｪﾘｰｿｰｽのﾃｨﾗﾐｽ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2160,10 +1929,7 @@
       "id": "3216",
       "name": "ﾁｮｺｹｰｷ＆ﾐﾙｸｼﾞｪﾗｰﾄ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2188,10 +1954,7 @@
       "id": "3214",
       "name": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌｫｯｶﾁｵ",
       "price": 450,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2216,10 +1979,7 @@
       "id": "3218",
       "name": "ﾁｪﾘｰｿｰｽのﾐﾙｸｼﾞｪﾗｰﾄ",
       "price": 450,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2244,10 +2004,7 @@
       "id": "3113",
       "name": "ﾀﾗｺﾌｫｯｶﾁｵ",
       "price": 250,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2272,10 +2029,7 @@
       "id": "3306",
       "name": "ｸﾞﾗｯﾊﾟ",
       "price": 300,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2300,10 +2054,7 @@
       "id": "3303",
       "name": "ｱｻﾋﾄﾞﾗｲｾﾞﾛ",
       "price": 250,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2328,10 +2079,7 @@
       "id": "3302",
       "name": "ｸﾞﾗｽﾋﾞｰﾙ",
       "price": 280,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2356,10 +2104,7 @@
       "id": "3301",
       "name": "中ｼﾞｮｯｷ",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2384,10 +2129,7 @@
       "id": "3304",
       "name": "氷結ﾚﾓﾝ",
       "price": 350,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2412,10 +2154,7 @@
       "id": "3419",
       "name": "ｷｬﾝﾃｨﾙﾌｨｰﾅﾘｾﾞﾙﾊﾞ",
       "price": 2200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2440,10 +2179,7 @@
       "id": "3407",
       "name": "赤ﾏｸﾞﾅﾑ1.5L",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2468,10 +2204,7 @@
       "id": "3402",
       "name": "白ｸﾞﾗｽﾜｲﾝ",
       "price": 100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2496,10 +2229,7 @@
       "id": "3401",
       "name": "赤ｸﾞﾗｽﾜｲﾝ",
       "price": 100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -2524,10 +2254,7 @@
       "id": "3404",
       "name": "白ﾃﾞｶﾝﾀ小",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2552,10 +2279,7 @@
       "id": "3412",
       "name": "ﾗﾝﾌﾞﾙｽｺﾛｾﾞ",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2580,10 +2304,7 @@
       "id": "3408",
       "name": "白ﾏｸﾞﾅﾑ1.5L",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2608,10 +2329,7 @@
       "id": "3406",
       "name": "白ﾃﾞｶﾝﾀ大",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2636,10 +2354,7 @@
       "id": "3421",
       "name": "ﾌﾞﾘｭｾｯﾃﾉｰﾃ",
       "price": 1650,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2664,10 +2379,7 @@
       "id": "3405",
       "name": "赤ﾃﾞｶﾝﾀ大",
       "price": 400,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2692,10 +2404,7 @@
       "id": "3423",
       "name": "ｲﾝｶﾝﾄﾇﾗｸﾞｽ",
       "price": 1650,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2720,10 +2429,7 @@
       "id": "3425",
       "name": "ｵｰﾘ",
       "price": 2600,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2748,10 +2454,7 @@
       "id": "3428",
       "name": "ﾗﾇｯﾁｮﾊﾞﾙﾍﾞｰﾗ",
       "price": 1650,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2776,10 +2479,7 @@
       "id": "3413",
       "name": "ﾄﾞﾝﾗﾌｧｴﾛ",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2804,10 +2504,7 @@
       "id": "3420",
       "name": "ﾗﾝﾌﾞﾙｽｺﾄﾞﾙﾁｪ",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2832,10 +2529,7 @@
       "id": "3416",
       "name": "ｷｬﾝﾃｨ",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2860,10 +2554,7 @@
       "id": "3424",
       "name": "ﾊﾞｹﾚｯﾄ",
       "price": 2200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2888,10 +2579,7 @@
       "id": "3403",
       "name": "赤ﾃﾞｶﾝﾀ小",
       "price": 200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2916,10 +2604,7 @@
       "id": "3415",
       "name": "ﾍﾞﾙﾃﾞｯｷｵ",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2944,10 +2629,7 @@
       "id": "3429",
       "name": "ｻﾘｰﾁｪｻﾚﾝﾃｨｰﾉﾘｾﾞﾙﾊﾞ",
       "price": 2200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -2972,10 +2654,7 @@
       "id": "3414",
       "name": "ﾗﾝﾌﾞﾙｽｺｾｯｺ",
       "price": 1100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "6136",
       "mod_name": "ｸﾞﾗｽ",
       "mod_price": 0,
@@ -3000,11 +2679,7 @@
       "id": "3907",
       "name": "ﾁｮｺﾚｰﾄｹｰｷ(あとで)",
       "price": 300,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3029,11 +2704,7 @@
       "id": "3913",
       "name": "ﾄﾘﾌｱｲｽｸﾘｰﾑ(あとで)",
       "price": 350,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3058,11 +2729,7 @@
       "id": "3905",
       "name": "ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
       "price": 250,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3087,11 +2754,7 @@
       "id": "3918",
       "name": "ﾁｪﾘｰｿｰｽのﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
       "price": 450,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3116,11 +2779,7 @@
       "id": "3914",
       "name": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌｫｯｶﾁｵ(あとで)",
       "price": 450,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3145,11 +2804,7 @@
       "id": "3916",
       "name": "ﾁｮｺｹｰｷ＆ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
       "price": 500,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3174,11 +2829,7 @@
       "id": "3912",
       "name": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ(あとで)",
       "price": 500,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3203,11 +2854,7 @@
       "id": "3915",
       "name": "ｺｰﾋｰｾﾞﾘｰ&ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
       "price": 350,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3232,11 +2879,7 @@
       "id": "3906",
       "name": "ｲﾀﾘｱﾝﾌﾟﾘﾝ(あとで)",
       "price": 250,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3261,11 +2904,7 @@
       "id": "3901",
       "name": "ﾃｨﾗﾐｽｸﾗｼｺ(あとで)",
       "price": 300,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3290,11 +2929,7 @@
       "id": "3921",
       "name": "ﾁｪﾘｰｿｰｽのﾃｨﾗﾐｽ(あとで)",
       "price": 500,
-      "messages": [
-        "0",
-        "2",
-        "4"
-      ],
+      "messages": ["0", "2", "4"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3319,10 +2954,7 @@
       "id": "4301",
       "name": "ﾄｯﾋﾟﾝｸﾞ半熟卵",
       "price": 50,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3347,10 +2979,7 @@
       "id": "4304",
       "name": "ﾄｯﾋﾟﾝｸﾞ野菜ｿｰｽ",
       "price": 100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3375,10 +3004,7 @@
       "id": "4307",
       "name": "ﾄｯﾋﾟﾝｸﾞ粉ﾁｰｽﾞ(ｸﾞﾗﾝﾓﾗﾋﾞｱ)",
       "price": 100,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3403,10 +3029,7 @@
       "id": "4306",
       "name": "やみつきｽﾊﾟｲｽ",
       "price": 50,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3431,11 +3054,7 @@
       "id": "5102",
       "name": "ｷｯｽﾞﾄﾞﾘﾝｸﾊﾞｰ100",
       "price": 100,
-      "messages": [
-        "0",
-        "2",
-        "1"
-      ],
+      "messages": ["0", "2", "1"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3460,11 +3079,7 @@
       "id": "5103",
       "name": "単品ﾄﾞﾘﾝｸﾊﾞｰ300",
       "price": 300,
-      "messages": [
-        "0",
-        "2",
-        "1"
-      ],
+      "messages": ["0", "2", "1"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3489,11 +3104,7 @@
       "id": "5101",
       "name": "ｾｯﾄﾄﾞﾘﾝｸﾊﾞｰ200",
       "price": 200,
-      "messages": [
-        "0",
-        "2",
-        "1"
-      ],
+      "messages": ["0", "2", "1"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3518,10 +3129,7 @@
       "id": "5302",
       "name": "(TO)ｲﾀﾘｱﾝﾌﾟﾘﾝ",
       "price": 240,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3546,10 +3154,7 @@
       "id": "5301",
       "name": "(TO)冷凍辛味ﾁｷﾝ1.5kg",
       "price": 2200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3574,10 +3179,7 @@
       "id": "5305",
       "name": "(TO)ﾄﾞﾚｯｼﾝｸﾞ",
       "price": 500,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,
@@ -3602,10 +3204,7 @@
       "id": "5306",
       "name": "(TO)ｵﾘｰﾌﾞｵｲﾙ",
       "price": 1200,
-      "messages": [
-        "0",
-        "2"
-      ],
+      "messages": ["0", "2"],
       "mod_id": "",
       "mod_name": "",
       "mod_price": 0,

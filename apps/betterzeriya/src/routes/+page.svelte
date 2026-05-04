@@ -48,10 +48,10 @@
 	let cameras = $state<CameraOption[]>([]);
 	let selectedCameraId = $state('');
 	let cameraBusy = $state(false);
-	let video: HTMLVideoElement;
-	let confirmDialog: HTMLDialogElement;
-	let peopleDialog: HTMLDialogElement;
-	let manualDialog: HTMLDialogElement;
+	let video: HTMLVideoElement | null = null;
+	let confirmDialog: HTMLDialogElement | null = null;
+	let peopleDialog: HTMLDialogElement | null = null;
+	let manualDialog: HTMLDialogElement | null = null;
 	let scanner: QrScanner | null = null;
 
 	const officialSessionStorageKey = (id: string) => `betterzeriya:${id}:official-session`;
@@ -84,7 +84,7 @@
 
 	const openManualDialog = () => {
 		error = '';
-		manualDialog.showModal();
+		manualDialog?.showModal();
 	};
 
 	const prepareSession = async (value: string) => {
@@ -115,10 +115,10 @@
 				peopleCount = result.state.peopleCount;
 			}
 			await stopScanner();
-			if (manualDialog.open) {
+			if (manualDialog?.open) {
 				manualDialog.close();
 			}
-			confirmDialog.showModal();
+			confirmDialog?.showModal();
 		} catch {}
 	};
 
@@ -138,19 +138,19 @@
 		if (!pendingSession) {
 			return;
 		}
-		confirmDialog.close();
+		confirmDialog?.close();
 		if (pendingSession.state.peopleCount > 0) {
 			await selectPeopleCount(pendingSession.state.peopleCount);
 			return;
 		}
-		peopleDialog.showModal();
+		peopleDialog?.showModal();
 	};
 
 	const openPeopleDialog = () => {
-		if (confirmDialog.open) {
+		if (confirmDialog?.open) {
 			confirmDialog.close();
 		}
-		peopleDialog.showModal();
+		peopleDialog?.showModal();
 	};
 
 	const selectPeopleCount = async (count: number) => {
@@ -171,10 +171,10 @@
 
 	const cancelSession = async () => {
 		pendingSession = null;
-		if (confirmDialog.open) {
+		if (confirmDialog?.open) {
 			confirmDialog.close();
 		}
-		if (peopleDialog.open) {
+		if (peopleDialog?.open) {
 			peopleDialog.close();
 		}
 		await startScanner();
@@ -223,6 +223,10 @@
 	const startScanner = async () => {
 		error = '';
 		if (scannerActive || busy || pendingSession) {
+			return;
+		}
+		if (!video) {
+			error = 'カメラを開始できませんでした。下部から URL を入力してください。';
 			return;
 		}
 
@@ -388,7 +392,7 @@
 				<input bind:value={peopleCount} type="number" min="1" max="99" />
 			</label>
 			<div class="dialog-actions">
-				<button class="secondary" type="button" onclick={() => peopleDialog.close()}>戻る</button>
+				<button class="secondary" type="button" onclick={() => peopleDialog?.close()}>戻る</button>
 				<button class="primary" type="button" onclick={() => selectPeopleCount(peopleCount)} disabled={busy}>
 					確定
 				</button>
@@ -406,7 +410,7 @@
 			<input bind:value={qrURL} placeholder="https://ioes.saizeriya.co.jp/..." inputmode="url" />
 		</label>
 		<div class="dialog-actions">
-			<button class="secondary" type="button" onclick={() => manualDialog.close()}>閉じる</button>
+			<button class="secondary" type="button" onclick={() => manualDialog?.close()}>閉じる</button>
 			<button class="primary" type="button" onclick={submitManualURL} disabled={busy}>接続</button>
 		</div>
 	</form>

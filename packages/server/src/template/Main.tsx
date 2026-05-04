@@ -13,22 +13,10 @@ export const Main = () => (
       <OrderList />
       <AmountSummary />
       <div class="command">
-        <button
-          id="menu"
-          type="submit"
-          name="proc"
-          value="menu"
-          class="btn green"
-        >
+        <button id="menu" type="submit" name="proc" value="menu" class="btn green">
           追　加
         </button>
-        <button
-          id="order"
-          type="submit"
-          name="proc"
-          value="order"
-          class="btn red"
-        >
+        <button id="order" type="submit" name="proc" value="order" class="btn red">
           注文する
         </button>
       </div>

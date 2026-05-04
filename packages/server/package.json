@@ -1,21 +1,21 @@
 {
   "name": "@repo/saizeriya-server",
   "private": true,
+  "exports": {
+    ".": "./src/main.ts"
+  },
   "scripts": {
     "dev": "bun --watch src/main.ts"
   },
-  "exports": {
-    ".": "./src/main.ts"
+  "dependencies": {
+    "hono": "^4.11.3",
+    "node-console-progress-bar-tqdm": "^1.0.4",
+    "p-limit": "^7.2.0"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "hono": "^4.11.3",
-    "node-console-progress-bar-tqdm": "^1.0.4",
-    "p-limit": "^7.2.0"
   }
 }

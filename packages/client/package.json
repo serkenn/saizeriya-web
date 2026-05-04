@@ -1,19 +1,20 @@
 {
   "name": "@repo/client",
-  "module": "index.ts",
-  "type": "module",
   "private": true,
+  "type": "module",
+  "module": "index.ts",
   "scripts": {
-    "test:watch": "bun test --watch"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@repo/saizeriya-server": "workspace:*"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+    "test": "vp test",
+    "test:watch": "vp test watch"
   },
   "dependencies": {
     "node-html-parser": "^7.0.2"
+  },
+  "devDependencies": {
+    "@repo/saizeriya-server": "workspace:*",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }

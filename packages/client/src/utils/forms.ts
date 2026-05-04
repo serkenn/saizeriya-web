@@ -6,10 +6,7 @@ export const nowOrderTime = () => {
   return `${now.getFullYear()}/${pad(now.getMonth() + 1)}/${pad(now.getDate())},${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
 }
 
-export const createBaseFields = (
-  proc: string,
-  token?: string,
-): Record<string, string> => ({
+export const createBaseFields = (proc: string, token?: string): Record<string, string> => ({
   proc,
   ctrl: '',
   sub_ctrl: '',

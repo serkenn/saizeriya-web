@@ -31,17 +31,11 @@ export class PageParser {
   }
 
   getShopId(): number {
-    return Number.parseInt(
-      this.getInputValue('input[id="shop-id"]', 'Shop ID'),
-      10,
-    )
+    return Number.parseInt(this.getInputValue('input[id="shop-id"]', 'Shop ID'), 10)
   }
 
   getTableNo(): number {
-    return Number.parseInt(
-      this.getInputValue('input[id="table-no"]', 'Table number'),
-      10,
-    )
+    return Number.parseInt(this.getInputValue('input[id="table-no"]', 'Table number'), 10)
   }
 
   getToken(): string | undefined {
@@ -116,34 +110,27 @@ export class PageParser {
         const cells = row.querySelectorAll('td')
         const name = cells[0]?.text.trim() ?? ''
         const count = Number.parseInt(cells[1]?.text.trim() ?? '0', 10)
-        const price = Number.parseInt(
-          (cells[2]?.text.trim() ?? '0').replace(/,/g, ''),
-          10,
-        )
+        const price = Number.parseInt((cells[2]?.text.trim() ?? '0').replace(/,/g, ''), 10)
         return { name, count, price }
       })
       .filter((line) => line.name && Number.isFinite(line.count))
 
     const count = Number.parseInt(
-      this.root.querySelector('#body-section .amount .count span')?.text.trim() ??
-        '0',
+      this.root.querySelector('#body-section .amount .count span')?.text.trim() ?? '0',
       10,
     )
     const total = Number.parseInt(
-      (
-        this.root
-          .querySelector('#body-section .amount .amount span')
-          ?.text.trim() ?? '0'
-      ).replace(/,/g, ''),
+      (this.root.querySelector('#body-section .amount .amount span')?.text.trim() ?? '0').replace(
+        /,/g,
+        '',
+      ),
       10,
     )
 
     return {
       lines,
       count: Number.isFinite(count) ? count : lines.reduce((sum, line) => sum + line.count, 0),
-      total: Number.isFinite(total)
-        ? total
-        : lines.reduce((sum, line) => sum + line.price, 0),
+      total: Number.isFinite(total) ? total : lines.reduce((sum, line) => sum + line.price, 0),
       controlNo,
       dummyNo,
     }

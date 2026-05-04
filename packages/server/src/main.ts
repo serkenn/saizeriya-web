@@ -111,9 +111,7 @@ export interface ServerOptions {
   menuItems?: MenuItem[]
 }
 
-const defaultMenuItems: MenuItem[] = (
-  menuData as (MenuSeedItem | FetchedMenuItem)[]
-)
+const defaultMenuItems: MenuItem[] = (menuData as (MenuSeedItem | FetchedMenuItem)[])
   .map((item) => {
     if ('item_data' in item && item.item_data) {
       return {
@@ -145,8 +143,7 @@ const toId = (value: unknown) => String(value)
 
 const cloneCart = (cart: CartLine[]) => cart.map((item) => ({ ...item }))
 
-const assetFile = (path: string) =>
-  Bun.file(new URL(`../assets/${path}`, import.meta.url))
+const assetFile = (path: string) => Bun.file(new URL(`../assets/${path}`, import.meta.url))
 
 const pageComponents = {
   account: Account,
@@ -160,16 +157,10 @@ const pageComponents = {
 } satisfies Record<Exclude<Page, 'order'>, () => unknown>
 
 const setInputValue = (html: string, id: string, value: string) =>
-  html.replace(
-    new RegExp(`(<input[^>]*id="${id}"[^>]*value=")[^"]*(")`, 'g'),
-    `$1${value}$2`,
-  )
+  html.replace(new RegExp(`(<input[^>]*id="${id}"[^>]*value=")[^"]*(")`, 'g'), `$1${value}$2`)
 
 const setNamedInputValue = (html: string, name: string, value: string) =>
-  html.replace(
-    new RegExp(`(<input[^>]*name="${name}"[^>]*value=")[^"]*(")`, 'g'),
-    `$1${value}$2`,
-  )
+  html.replace(new RegExp(`(<input[^>]*name="${name}"[^>]*value=")[^"]*(")`, 'g'), `$1${value}$2`)
 
 const escapeHTML = (value: unknown) =>
   String(value)
@@ -281,10 +272,7 @@ export class Server {
         if (table) {
           const form = await c.req.formData()
           const data = Object.fromEntries(form.entries()) as DashboardTableData
-          table.state.peopleCount = parseNumberField(
-            data.peopleCount,
-            table.state.peopleCount,
-          )
+          table.state.peopleCount = parseNumberField(data.peopleCount, table.state.peopleCount)
           table.state.page = data.page ?? table.state.page
           table.state.lastOrderClosed = data.lastOrderClosed === 'on'
           table.state.midnightCharge = data.midnightCharge === 'on'
@@ -358,8 +346,7 @@ export class Server {
       .get('/qr', (c) => {
         const tableId = c.req.query('table')
         const table =
-          (tableId ? this.tables.get(tableId) : undefined) ??
-          this.createNewTable(525, 51)
+          (tableId ? this.tables.get(tableId) : undefined) ?? this.createNewTable(525, 51)
         const id = this.#createURLId(table, 'top')
         return c.redirect(`./?${id}`)
       })
@@ -372,8 +359,7 @@ export class Server {
         }
 
         const requestId = url.search.slice(1)
-        const table =
-          this.#urlIds.get(requestId) ?? this.createNewTable(525, 51)
+        const table = this.#urlIds.get(requestId) ?? this.createNewTable(525, 51)
         let page = table.state.page
 
         if (c.req.method === 'POST') {
@@ -405,10 +391,7 @@ export class Server {
       })
       .post('/src/cmd/tbl_call.php', async (c) => {
         const form = await c.req.formData()
-        const table = this.#findTableByShopAndTable(
-          form.get('sid'),
-          form.get('tbl'),
-        )
+        const table = this.#findTableByShopAndTable(form.get('sid'), form.get('tbl'))
         const after = String(form.get('aft')) === 'true'
         if (table) {
           if (after) {
@@ -480,18 +463,14 @@ export class Server {
 
   async #findTableFromForm(formPromise: Promise<FormData>) {
     const form = await formPromise
-    return this.#findTableByShopAndTable(
-      form.get('sid'),
-      form.get('tno') ?? form.get('tbl'),
-    )
+    return this.#findTableByShopAndTable(form.get('sid'), form.get('tno') ?? form.get('tbl'))
   }
 
   #findTableByShopAndTable(shopIdSource: unknown, tableIdSource: unknown) {
     const shopId = Number.parseInt(String(shopIdSource ?? ''), 10)
     const tableId = Number.parseInt(String(tableIdSource ?? ''), 10)
     return [...this.tables.values()].find(
-      (table) =>
-        table.state.shopId === shopId && table.state.tableId === tableId,
+      (table) => table.state.shopId === shopId && table.state.tableId === tableId,
     )
   }
 
@@ -502,12 +481,7 @@ export class Server {
     return id
   }
 
-  #applyPostedPage(
-    table: Table,
-    page: Page,
-    data: PostedPageData,
-    form: FormData,
-  ) {
+  #applyPostedPage(table: Table, page: Page, data: PostedPageData, form: FormData) {
     table.state.page = page
     table.state.token = `${crypto.randomUUID()}.${Math.random().toString().slice(2)}`
 
@@ -541,8 +515,7 @@ export class Server {
       return
     }
 
-    const submitted =
-      order && order.length > 0 ? order : cloneCart(table.state.cart)
+    const submitted = order && order.length > 0 ? order : cloneCart(table.state.cart)
     if (submitted.length > 0) {
       table.state.submittedOrders.push(submitted)
     }
@@ -580,22 +553,10 @@ export class Server {
       .replace(/data-shop="[^"]*"/g, `data-shop="${table.state.shopId}"`)
       .replace(/data-tbl="[^"]*"/g, `data-tbl="${table.state.tableId}"`)
 
-    rewritten = setInputValue(
-      rewritten,
-      'shop-id',
-      table.state.shopId.toString(),
-    )
-    rewritten = setInputValue(
-      rewritten,
-      'table-no',
-      table.state.tableId.toString(),
-    )
+    rewritten = setInputValue(rewritten, 'shop-id', table.state.shopId.toString())
+    rewritten = setInputValue(rewritten, 'table-no', table.state.tableId.toString())
     rewritten = setInputValue(rewritten, 'session-id', table.state.sessionId)
-    rewritten = setInputValue(
-      rewritten,
-      'number',
-      table.state.peopleCount.toString(),
-    )
+    rewritten = setInputValue(rewritten, 'number', table.state.peopleCount.toString())
     rewritten = setNamedInputValue(rewritten, 'token', table.state.token)
 
     if (rewritten.includes('history-page')) {
@@ -633,14 +594,9 @@ export class Server {
       const menuItem = this.menuItems.get(item.id)
       const modifier = item.modId ? this.menuItems.get(item.modId) : undefined
       const modCount =
-        typeof item.modCount === 'number' && Number.isFinite(item.modCount)
-          ? item.modCount
-          : 0
-      const unitPrice =
-        (menuItem?.price ?? 0) + (modifier ? modifier.price * modCount : 0)
-      const name = [menuItem?.name ?? item.id, modifier?.name]
-        .filter(Boolean)
-        .join(' ')
+        typeof item.modCount === 'number' && Number.isFinite(item.modCount) ? item.modCount : 0
+      const unitPrice = (menuItem?.price ?? 0) + (modifier ? modifier.price * modCount : 0)
+      const name = [menuItem?.name ?? item.id, modifier?.name].filter(Boolean).join(' ')
       const key = `${item.id}:${item.modId}:${modCount}`
       const current = lines.get(key)
 
@@ -689,18 +645,12 @@ export class Server {
       .join('')
 
     return html
-      .replace(
-        /(<input type="hidden" id="is-first-order" value="YES" \/>)/,
-        `$1${hiddenFields}`,
-      )
+      .replace(/(<input type="hidden" id="is-first-order" value="YES" \/>)/, `$1${hiddenFields}`)
       .replace(
         /(<div class="list-base"[^>]*>\s*<div class="list"[^>]*>\s*<table>\s*<tbody>)[\s\S]*?(<\/tbody>)/,
         `$1${rows}$2`,
       )
-      .replace(
-        /(<p class="count">\s*<span>)[\s\S]*?(<\/span>点<\/p>)/,
-        `$1${count}$2`,
-      )
+      .replace(/(<p class="count">\s*<span>)[\s\S]*?(<\/span>点<\/p>)/, `$1${count}$2`)
       .replace(
         /(<p class="amount">[\s\S]*?合計(?:&nbsp;|\s|\u00a0)*<span>)[\s\S]*?(<\/span>\s*円 \(税込\)\s*<\/p>)/,
         `$1${formatAmount(total)}$2`,
@@ -720,14 +670,8 @@ export class Server {
       .join('')
 
     return html
-      .replace(
-        /(<div class="list"[^>]*>\s*<table>\s*<tbody>)[\s\S]*?(<\/tbody>)/,
-        `$1${rows}$2`,
-      )
-      .replace(
-        /(<p class="count">\s*<span>)[\s\S]*?(<\/span>点<\/p>)/,
-        `$1${count}$2`,
-      )
+      .replace(/(<div class="list"[^>]*>\s*<table>\s*<tbody>)[\s\S]*?(<\/tbody>)/, `$1${rows}$2`)
+      .replace(/(<p class="count">\s*<span>)[\s\S]*?(<\/span>点<\/p>)/, `$1${count}$2`)
       .replace(
         /(<p class="amount">[\s\S]*?合計(?:&nbsp;|\s|\u00a0)*<span>)[\s\S]*?(<\/span>\s*円 \(税込\)\s*<\/p>)/,
         `$1${formatAmount(total)}$2`,
@@ -737,10 +681,7 @@ export class Server {
   #rewriteReceipt(html: string, table: Table) {
     const barcode = this.#createReceiptBarcode(table)
     return html
-      .replace(
-        /(<p class="table">)[\s\S]*?(<\/p>)/,
-        `$1${escapeHTML(table.state.tableId)}$2`,
-      )
+      .replace(/(<p class="table">)[\s\S]*?(<\/p>)/, `$1${escapeHTML(table.state.tableId)}$2`)
       .replace(
         /(<div class="barcode">\s*<img[\s\S]*?\/>\s*<p>)[\s\S]*?(<\/p>)/,
         `$1${escapeHTML(barcode)}$2`,
@@ -768,10 +709,7 @@ export class Server {
           .map(
             (order, index) =>
               `#${index + 1}: ${order
-                .map(
-                  (item) =>
-                    `${escapeHTML(item.id)} x ${escapeHTML(item.count)}`,
-                )
+                .map((item) => `${escapeHTML(item.id)} x ${escapeHTML(item.count)}`)
                 .join(', ')}`,
           )
           .join('<br>')

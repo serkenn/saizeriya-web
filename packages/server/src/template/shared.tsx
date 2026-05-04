@@ -241,20 +241,8 @@ const tabClass = (page: TemplatePage, id: string) => {
     main: ['order-add', 'do-account'],
     top: ['order-list'],
     menu: ['order-add'],
-    number: [
-      'order-add',
-      'order-list',
-      'order-history',
-      'after-call',
-      'do-account',
-    ],
-    receipt: [
-      'order-add',
-      'order-list',
-      'order-history',
-      'after-call',
-      'do-account',
-    ],
+    number: ['order-add', 'order-list', 'order-history', 'after-call', 'do-account'],
+    receipt: ['order-add', 'order-list', 'order-history', 'after-call', 'do-account'],
   }
   return [
     disabledByPage[page]?.includes(id) ? 'disabled' : '',
@@ -281,12 +269,7 @@ const FooterTab = ({
   const className = tabClass(page, id)
   return (
     <li id={id} class={className}>
-      <button
-        type="submit"
-        name="proc"
-        value={proc}
-        disabled={tabDisabled(page, id)}
-      >
+      <button type="submit" name="proc" value={proc} disabled={tabDisabled(page, id)}>
         <p>{children}</p>
       </button>
     </li>

@@ -1,3 +1,3 @@
 export const load = ({ params }) => ({
-	sessionId: params.id
-});
+  sessionId: params.id,
+})

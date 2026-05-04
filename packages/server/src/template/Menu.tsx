@@ -3,11 +3,7 @@
 import { BrandLogo, Shell } from './shared'
 
 export const Menu = () => (
-  <Shell
-    page="menu"
-    title="メニューブックから番号を入力してください"
-    ctrl="number"
-  >
+  <Shell page="menu" title="メニューブックから番号を入力してください" ctrl="number">
     <input type="hidden" id="drinkbar-cnt" name="drinkbar-cnt" value="0" />
     <input type="hidden" id="alcohol-cnt" name="alcohol-cnt" value="0" />
     <input type="hidden" id="ord-drkbar-cnt" name="ord-drkbar-cnt" value="0" />
@@ -82,13 +78,7 @@ export const Menu = () => (
               -
             </li>
             <li>
-              <input
-                id="amount"
-                name="amount"
-                type="number"
-                value="1"
-                readonly
-              />
+              <input id="amount" name="amount" type="number" value="1" readonly />
             </li>
             <li class="cmd" id="plus">
               +
@@ -106,13 +96,7 @@ export const Menu = () => (
               -
             </li>
             <li>
-              <input
-                id="mod_amount"
-                name="mod_amount"
-                type="number"
-                value="0"
-                readonly
-              />
+              <input id="mod_amount" name="mod_amount" type="number" value="0" readonly />
             </li>
             <li class="cmd" id="plus">
               +
@@ -126,22 +110,10 @@ export const Menu = () => (
           </div>
         </div>
         <div class="command">
-          <button
-            type="submit"
-            name="proc"
-            value="menu"
-            id="back"
-            class="btn gray"
-          >
+          <button type="submit" name="proc" value="menu" id="back" class="btn gray">
             もどる
           </button>
-          <button
-            type="submit"
-            name="proc"
-            value="main"
-            id="deside"
-            class="btn red"
-          >
+          <button type="submit" name="proc" value="main" id="deside" class="btn red">
             確 定
           </button>
         </div>

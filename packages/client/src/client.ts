@@ -43,22 +43,19 @@ export const createClient = async ({
     ? undefined
     : await processQR(new URL(qrURLSource ?? '').toString(), fetch)
   const locker = createQueueLocker()
-  const state: ClientState = {
-    ...(initialState
-      ? {
-          ...initialState,
-          cart: initialState.cart.map((item) => ({ ...item })),
-        }
-      : {
-          baseURL: processedQR!.baseURL,
-          nextId: processedQR!.id,
-          shopId: processedQR!.shopId,
-          tableNo: processedQR!.tableNo,
-          peopleCount: peopleCount ?? processedQR!.peopleCount ?? 0,
-          pageKind: processedQR!.pageKind,
-          cart: [],
-        }),
-  }
+  const state: ClientState = initialState
+    ? Object.assign({}, initialState, {
+        cart: initialState.cart.map((item) => ({ ...item })),
+      })
+    : {
+        baseURL: processedQR!.baseURL,
+        nextId: processedQR!.id,
+        shopId: processedQR!.shopId,
+        tableNo: processedQR!.tableNo,
+        peopleCount: peopleCount ?? processedQR!.peopleCount ?? 0,
+        pageKind: processedQR!.pageKind,
+        cart: [],
+      }
 
   const commandURL = (path: string) => new URL(path, state.baseURL)
   const pageURL = () => `${state.baseURL}?${state.nextId}`
@@ -131,17 +128,14 @@ export const createClient = async ({
         throw new Error('Item code must be 4 digits')
       }
 
-      const result = await postJSONCommand<LookupItemResult>(
-        './src/cmd/get_item.php',
-        {
-          sid: state.shopId,
-          tno: state.tableNo,
-          lng: '1',
-          id: code,
-          num: state.peopleCount,
-          ssid: state.sessionId ?? '',
-        },
-      )
+      const result = await postJSONCommand<LookupItemResult>('./src/cmd/get_item.php', {
+        sid: state.shopId,
+        tno: state.tableNo,
+        lng: '1',
+        id: code,
+        num: state.peopleCount,
+        ssid: state.sessionId ?? '',
+      })
 
       return result
     })
@@ -159,17 +153,14 @@ export const createClient = async ({
         throw new Error('Item count must be an integer between 1 and 99')
       }
 
-      const item = await postJSONCommand<LookupItemResult>(
-        './src/cmd/get_item.php',
-        {
-          sid: state.shopId,
-          tno: state.tableNo,
-          lng: '1',
-          id: code,
-          num: state.peopleCount,
-          ssid: state.sessionId ?? '',
-        },
-      )
+      const item = await postJSONCommand<LookupItemResult>('./src/cmd/get_item.php', {
+        sid: state.shopId,
+        tno: state.tableNo,
+        lng: '1',
+        id: code,
+        num: state.peopleCount,
+        ssid: state.sessionId ?? '',
+      })
 
       if (item.result !== 'OK' || !item.item_data) {
         throw new Error(`Item ${code} was not found`)
@@ -300,14 +291,11 @@ export const createClient = async ({
 
   const call = async (options: CallOptions = {}) =>
     await locker(async () => {
-      return await postJSONCommand<{ result: string }>(
-        './src/cmd/tbl_call.php',
-        {
-          sid: state.shopId,
-          tbl: state.tableNo,
-          aft: options.after ?? false,
-        },
-      )
+      return await postJSONCommand<{ result: string }>('./src/cmd/tbl_call.php', {
+        sid: state.shopId,
+        tbl: state.tableNo,
+        aft: options.after ?? false,
+      })
     })
 
   const callStaff = async () => await call({ after: false })
@@ -315,45 +303,33 @@ export const createClient = async ({
 
   const checkOrderStarted = async () =>
     await locker(async () => {
-      return await postJSONCommand<{ result: string }>(
-        './src/cmd/check_order.php',
-        {
-          sid: state.shopId,
-          tno: state.tableNo,
-        },
-      )
+      return await postJSONCommand<{ result: string }>('./src/cmd/check_order.php', {
+        sid: state.shopId,
+        tno: state.tableNo,
+      })
     })
 
   const checkLastOrder = async () =>
     await locker(async () => {
-      return await postJSONCommand<{ result: string }>(
-        './src/cmd/check_lastorder.php',
-        {
-          sid: state.shopId,
-        },
-      )
+      return await postJSONCommand<{ result: string }>('./src/cmd/check_lastorder.php', {
+        sid: state.shopId,
+      })
     })
 
   const checkMidnight = async () =>
     await locker(async () => {
-      return await postJSONCommand<{ result: string }>(
-        './src/cmd/check_midnight.php',
-        {
-          sid: state.shopId,
-        },
-      )
+      return await postJSONCommand<{ result: string }>('./src/cmd/check_midnight.php', {
+        sid: state.shopId,
+      })
     })
 
   const confirmAlcohol = async () =>
     await locker(async () => {
-      return await postJSONCommand<{ result: string }>(
-        './src/cmd/put_alcohol.php',
-        {
-          sid: state.shopId,
-          tno: state.tableNo,
-          ssid: state.sessionId ?? '',
-        },
-      )
+      return await postJSONCommand<{ result: string }>('./src/cmd/put_alcohol.php', {
+        sid: state.shopId,
+        tno: state.tableNo,
+        ssid: state.sessionId ?? '',
+      })
     })
 
   const getState = (): ClientState => ({

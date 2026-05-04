@@ -1,9 +1,6 @@
 import { PageParser } from './utils/page-parser'
 
-export const processQR = async (
-  qrURL: string,
-  fetch: typeof globalThis.fetch,
-) => {
+export const processQR = async (qrURL: string, fetch: typeof globalThis.fetch) => {
   const qrResponse = await fetch(qrURL, {
     redirect: 'manual',
   })
@@ -13,9 +10,7 @@ export const processQR = async (
   }
   const nextLocation = new URL(firstLocation, qrURL)
 
-  const parser = new PageParser(
-    await fetch(nextLocation.toString()).then((r) => r.text()),
-  )
+  const parser = new PageParser(await fetch(nextLocation.toString()).then((r) => r.text()))
 
   return {
     id: parser.getNextActionId(),
