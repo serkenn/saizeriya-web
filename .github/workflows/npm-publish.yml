@@ -44,8 +44,15 @@ jobs:
           fi
 
       - name: Set package version
-        working-directory: packages/client
-        run: npm version "$VERSION" --no-git-tag-version --allow-same-version
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile, writeFile } from 'node:fs/promises'
+
+          const packagePath = 'packages/client/package.json'
+          const packageJson = JSON.parse(await readFile(packagePath, 'utf8'))
+          packageJson.version = process.env.VERSION
+          await writeFile(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`)
+          NODE
 
       - name: Pack client
         run: bun --cwd packages/client pack
