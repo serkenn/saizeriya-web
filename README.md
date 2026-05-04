@@ -50,3 +50,13 @@ Betterzeriya is a 3rd-party client for saizeriya, with better UX and performance
 cd apps/betterzeriya
 bun dev
 ```
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=pnsk-lab%2Fsaizeriya&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=pnsk-lab/saizeriya&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=pnsk-lab/saizeriya&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=pnsk-lab/saizeriya&type=date&legend=top-left" />
+ </picture>
+</a>
