@@ -1,2 +1,2 @@
-* Use `bun check:fix` to format code
-* use `bun run test` to run test
+- Use `bun check:fix` to format code
+- use `bun run test` to run test

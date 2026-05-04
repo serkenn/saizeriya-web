@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vite-plus/test'
-import mockServer from '@repo/saizeriya-server'
+import mockServer from '../../server/src/main'
 import { createClient } from './client'
 
 describe('createClient', () => {

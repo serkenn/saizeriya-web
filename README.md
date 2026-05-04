@@ -22,8 +22,25 @@ You can see the dashboard at `/dashboard`.
 A saizeriya client library written in JS/TS.
 
 ```bash
-cd packages/client
+bun add saizeriya.js
 ```
+
+And this includes CLI.
+
+```bash
+bunx saizeriya.js
+# or
+bun add -g saizeriya.js
+saizeriya --help
+```
+
+## Agent Skills
+
+```bash
+bunx skills add pnsk-lab/saizeriya/skills
+```
+
+With agent skills, you can order dishes with AI Agents such as Claude Code and Codex.
 
 ## Betterzeriya: Client App
 

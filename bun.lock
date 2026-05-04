@@ -18,8 +18,8 @@
       "name": "betterzeriya",
       "version": "0.0.1",
       "dependencies": {
-        "@repo/client": "workspace:*",
         "qr-scanner": "^1.4.2",
+        "saizeriya.js": "workspace:*",
       },
       "devDependencies": {
         "@egoist/tailwindcss-icons": "^1.9.2",
@@ -36,31 +36,18 @@
         "vite": "^8.0.7",
       },
     },
-    "apps/cli": {
-      "name": "@repo/cli",
+    "packages/client": {
+      "name": "saizeriya.js",
       "version": "0.0.1",
       "bin": {
-        "cli": "./src/index.ts",
+        "saizeriya": "./dist/cli.mjs",
       },
-      "dependencies": {
-        "@repo/client": "workspace:*",
-      },
-      "devDependencies": {
-        "@types/bun": "latest",
-        "typescript": "^5",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
-      },
-    },
-    "packages/client": {
-      "name": "@repo/client",
       "dependencies": {
         "node-html-parser": "^7.0.2",
       },
       "devDependencies": {
-        "@repo/saizeriya-server": "workspace:*",
-        "@types/bun": "latest",
+        "@types/node": "^24.10.1",
+        "typescript": "^5",
       },
       "peerDependencies": {
         "typescript": "^5",
@@ -203,10 +190,6 @@
     "@oxlint/binding-win32-x64-msvc": ["@oxlint/binding-win32-x64-msvc@1.61.0", "", { "os": "win32", "cpu": "x64" }, "sha512-0xgSiyeqDLDZxXoe9CVJrOx3TUVsfyoOY7cNi03JbItNcC9WCZqrSNdrAbHONxhSPaVh/lzfnDcON1RqSUMhHw=="],
 
     "@polka/url": ["@polka/url@1.0.0-next.29", "", {}, "sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww=="],
-
-    "@repo/cli": ["@repo/cli@workspace:apps/cli"],
-
-    "@repo/client": ["@repo/client@workspace:packages/client"],
 
     "@repo/saizeriya-server": ["@repo/saizeriya-server@workspace:packages/server"],
 
@@ -461,6 +444,8 @@
     "rolldown": ["rolldown@1.0.0-rc.17", "", { "dependencies": { "@oxc-project/types": "=0.127.0", "@rolldown/pluginutils": "1.0.0-rc.17" }, "optionalDependencies": { "@rolldown/binding-android-arm64": "1.0.0-rc.17", "@rolldown/binding-darwin-arm64": "1.0.0-rc.17", "@rolldown/binding-darwin-x64": "1.0.0-rc.17", "@rolldown/binding-freebsd-x64": "1.0.0-rc.17", "@rolldown/binding-linux-arm-gnueabihf": "1.0.0-rc.17", "@rolldown/binding-linux-arm64-gnu": "1.0.0-rc.17", "@rolldown/binding-linux-arm64-musl": "1.0.0-rc.17", "@rolldown/binding-linux-ppc64-gnu": "1.0.0-rc.17", "@rolldown/binding-linux-s390x-gnu": "1.0.0-rc.17", "@rolldown/binding-linux-x64-gnu": "1.0.0-rc.17", "@rolldown/binding-linux-x64-musl": "1.0.0-rc.17", "@rolldown/binding-openharmony-arm64": "1.0.0-rc.17", "@rolldown/binding-wasm32-wasi": "1.0.0-rc.17", "@rolldown/binding-win32-arm64-msvc": "1.0.0-rc.17", "@rolldown/binding-win32-x64-msvc": "1.0.0-rc.17" }, "bin": { "rolldown": "bin/cli.mjs" } }, "sha512-ZrT53oAKrtA4+YtBWPQbtPOxIbVDbxT0orcYERKd63VJTF13zPcgXTvD4843L8pcsI7M6MErt8QtON6lrB9tyA=="],
 
     "sade": ["sade@1.8.1", "", { "dependencies": { "mri": "^1.1.0" } }, "sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A=="],
+
+    "saizeriya.js": ["saizeriya.js@workspace:packages/client"],
 
     "set-cookie-parser": ["set-cookie-parser@3.1.0", "", {}, "sha512-kjnC1DXBHcxaOaOXBHBeRtltsDG2nUiUni+jP92M9gYdW12rsmx92UsfpH7o5tDRs7I1ZZPSQJQGv3UaRfCiuw=="],
 

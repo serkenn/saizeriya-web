@@ -12,8 +12,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "dependencies": {
-    "@repo/client": "workspace:*",
-    "qr-scanner": "^1.4.2"
+    "qr-scanner": "^1.4.2",
+    "saizeriya.js": "workspace:*"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.9.2",

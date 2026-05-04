@@ -3,7 +3,7 @@ import {
   type AccountSummary,
   type ClientState,
   type LookupItemResult,
-} from '@repo/client'
+} from 'saizeriya.js'
 
 type OfficialClient = Awaited<ReturnType<typeof createClient>>
 type FetchSource = (request: Request) => Promise<Response> | Response

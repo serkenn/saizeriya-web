@@ -1,9 +1,37 @@
 {
-  "name": "@repo/client",
-  "private": true,
+  "name": "saizeriya.js",
+  "version": "0.0.1",
+  "description": "A research client library and CLI for Saizeriya's mobile ordering flow.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pnsk-lab/saizeriya.git",
+    "directory": "packages/client"
+  },
+  "bin": {
+    "saizeriya": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "type": "module",
-  "module": "index.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "build": "vp pack index.ts cli.ts --dts --clean",
+    "pack": "vp pack index.ts cli.ts --dts --clean",
+    "cli": "bun cli.ts",
     "test": "vp test",
     "test:watch": "vp test watch"
   },
@@ -11,8 +39,8 @@
     "node-html-parser": "^7.0.2"
   },
   "devDependencies": {
-    "@repo/saizeriya-server": "workspace:*",
-    "@types/bun": "latest"
+    "@types/node": "^24.10.1",
+    "typescript": "^5"
   },
   "peerDependencies": {
     "typescript": "^5"

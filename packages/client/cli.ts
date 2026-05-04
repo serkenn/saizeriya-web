@@ -1,10 +1,10 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 import {
   createClient,
   type AccountSummary,
   type ClientState,
   type LookupItemResult,
-} from '@repo/client'
+} from './src/client'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -27,10 +27,10 @@ const cliHome = process.env.SAIZERIYA_CLI_HOME ?? join(homedir(), '.saizeriya-cl
 const sessionsPath = join(cliHome, 'sessions.json')
 
 const usage = `Usage:
-  cli start <name> <qrurl> [--people <count>]
-  cli use <name>
-  cli list
-  cli rm <name>
+  saizeriya start <name> <qrurl> [--people <count>]
+  saizeriya use <name>
+  saizeriya list
+  saizeriya rm <name>
 
 After start/use, available commands:
   state
