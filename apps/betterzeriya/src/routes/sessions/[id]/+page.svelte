@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import defaultMenuData from '$lib/assets/data/menu.json';
+	import { filterMenuForServicePeriod, getMenuServicePeriod } from '$lib/menu-availability';
 	import { matchesMenuSearch } from '$lib/menu-search';
 	import { onMount } from 'svelte';
 
@@ -81,7 +82,7 @@
 	};
 
 	type ActiveTab = 'add' | 'cart' | 'history' | 'call' | 'checkout';
-	type MenuStatus = 'loading' | 'available' | 'unavailable' | 'error';
+	type MenuStatus = 'unchecked' | 'loading' | 'available' | 'unavailable' | 'error';
 
 	const menuImageModules = import.meta.glob('../../../lib/assets/image/*.webp', {
 		eager: true,
@@ -126,9 +127,10 @@
 	let checkout = $state<CheckoutPresentation | null>(null);
 	let menu = $state<MenuItem[]>(defaultMenuItems);
 	let menuStatuses = $state<Record<string, MenuStatus>>(
-		Object.fromEntries(defaultMenuItems.map((item) => [item.code, 'loading']))
+		Object.fromEntries(defaultMenuItems.map((item) => [item.code, 'unchecked']))
 	);
 	let menuDetectionSeq = $state<Record<string, number>>({});
+	let currentMenuPeriod = $state(getMenuServicePeriod());
 	let localCart = $state<CartItem[]>([]);
 	let selectedCategory = $state('すべて');
 	let search = $state('');
@@ -140,9 +142,10 @@
 
 	const cartStorageKey = $derived(`betterzeriya:${sessionId}:cart`);
 	const officialSessionStorageKey = $derived(`betterzeriya:${sessionId}:official-session`);
-	const categories = $derived(['すべて', ...new Set(menu.map((item) => item.category))]);
+	const serviceMenu = $derived(filterMenuForServicePeriod(menu, currentMenuPeriod));
+	const categories = $derived(['すべて', ...new Set(serviceMenu.map((item) => item.category))]);
 	const filteredMenu = $derived(
-		menu.filter((item) => {
+		serviceMenu.filter((item) => {
 			const categoryMatch = selectedCategory === 'すべて' || item.category === selectedCategory;
 			const queryMatch = matchesMenuSearch(item, search);
 			return categoryMatch && queryMatch;
@@ -203,7 +206,10 @@
 		if (status === 'error') {
 			return '確認失敗';
 		}
-		return '確認中';
+		if (status === 'loading') {
+			return '確認中';
+		}
+		return '未確認';
 	};
 
 	async function requestJSON<T>(path: string, body?: unknown): Promise<T> {
@@ -279,11 +285,18 @@
 			name: result.item_data.name,
 			kana: result.item_data.name,
 			price: result.item_data.price,
-			category: '入力済み',
-			tags: ['公式確認済み'],
-			imageUrl: null,
+			category: menu.find((item) => item.code === code)?.category ?? '入力済み',
+			tags: [...new Set([...(menu.find((item) => item.code === code)?.tags ?? []), '公式確認済み'])],
+			imageUrl: menu.find((item) => item.code === code)?.imageUrl ?? null,
 			source: 'official'
 		} satisfies MenuItem;
+	};
+
+	const upsertMenuItem = (item: MenuItem) => {
+		const existing = menu.find((entry) => entry.code === item.code);
+		menu = existing
+			? menu.map((entry) => (entry.code === item.code ? { ...entry, ...item } : entry))
+			: [...menu, item];
 	};
 
 	const detectMenuItem = async (code: string, priority = false) => {
@@ -291,6 +304,7 @@
 		menuStatuses = { ...menuStatuses, [code]: 'loading' };
 		try {
 			const item = await lookupOfficialMenuItem(code);
+			upsertMenuItem(item);
 			setMenuStatus(code, 'available', seq);
 			return item;
 		} catch (caught) {
@@ -305,23 +319,6 @@
 			}
 			throw caught;
 		}
-	};
-
-	const startLazyMenuDetection = async () => {
-		const codes = defaultMenuItems.map((item) => item.code);
-		let index = 0;
-		const workerCount = Math.min(4, codes.length);
-		await Promise.all(
-			Array.from({ length: workerCount }, async () => {
-				while (index < codes.length) {
-					const code = codes[index++];
-					if (!code) {
-						continue;
-					}
-					await detectMenuItem(code).catch(() => {});
-				}
-			})
-		);
 	};
 
 	const saveCart = () => {
@@ -490,11 +487,17 @@
 		} catch {}
 	};
 
-	onMount(async () => {
+	onMount(() => {
 		restoreOfficialSession();
 		restoreCart();
-		await loadState();
-		void startLazyMenuDetection();
+		void loadState();
+		const periodTimer = window.setInterval(() => {
+			currentMenuPeriod = getMenuServicePeriod();
+			if (!categories.includes(selectedCategory)) {
+				selectedCategory = 'すべて';
+			}
+		}, 60_000);
+		return () => window.clearInterval(periodTimer);
 	});
 </script>
 

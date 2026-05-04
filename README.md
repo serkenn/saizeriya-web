@@ -95,7 +95,6 @@ CLOUDFLARE=1 bun run build
 wrangler deploy
 ```
 
-
 ## Star History
 
 <a href="https://www.star-history.com/?repos=pnsk-lab%2Fsaizeriya&type=date&legend=top-left">
