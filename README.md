@@ -51,6 +51,39 @@ cd apps/betterzeriya
 bun dev
 ```
 
+
+### Run with Docker
+
+```bash
+docker pull ghcr.io/pnsk-lab/betterzeriya:latest
+docker run --rm -p 3000:3000 ghcr.io/pnsk-lab/betterzeriya:latest
+```
+
+Then open `http://localhost:3000`.
+
+To run it in the background:
+
+```bash
+docker run -d --name betterzeriya -p 3000:3000 ghcr.io/pnsk-lab/betterzeriya:latest
+```
+
+To stop it:
+
+```bash
+docker stop betterzeriya
+```
+
+Use a different host port by changing the left side of `-p`. For example,
+`-p 8080:3000` serves the app at `http://localhost:8080`.
+
+### Run locally
+
+```bash
+cd apps/betterzeriya
+bun dev
+```
+
+
 ## Star History
 
 <a href="https://www.star-history.com/?repos=pnsk-lab%2Fsaizeriya&type=date&legend=top-left">
