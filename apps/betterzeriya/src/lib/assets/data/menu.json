@@ -1,10 +1,19 @@
 [
   {
-    "code": "1120",
-    "name": "ﾗﾝﾁ)ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
-    "kana": "ﾗﾝﾁ)ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
+    "code": "1110",
+    "name": "ﾗﾝﾁ)ほうれん草とﾊﾟﾝﾁｪｯﾀのｽﾊﾟｹﾞｯﾃｨ",
+    "kana": "ﾗﾝﾁ)ほうれん草とﾊﾟﾝﾁｪｯﾀのｽﾊﾟｹﾞｯﾃｨ",
     "price": 500,
-    "category": "メニュー",
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1115",
+    "name": "ﾗﾝﾁ)ｽﾊﾟｹﾞｯﾃｨﾎﾟﾓﾄﾞｰﾛ",
+    "kana": "ﾗﾝﾁ)ｽﾊﾟｹﾞｯﾃｨﾎﾟﾓﾄﾞｰﾛ",
+    "price": 500,
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
@@ -13,16 +22,16 @@
     "name": "ﾗﾝﾁ)ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
     "kana": "ﾗﾝﾁ)ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
     "price": 500,
-    "category": "メニュー",
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "1140",
-    "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
-    "kana": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
-    "price": 600,
-    "category": "メニュー",
+    "code": "1121",
+    "name": "ﾗﾝﾁ)ほうれん草とﾊﾟﾝﾁｪｯﾀのｽﾊﾟｹﾞｯﾃｨ",
+    "kana": "ﾗﾝﾁ)ほうれん草とﾊﾟﾝﾁｪｯﾀのｽﾊﾟｹﾞｯﾃｨ",
+    "price": 500,
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
@@ -31,79 +40,115 @@
     "name": "ﾗﾝﾁ)ﾀﾗｺｿｰｽｼｼﾘｰ風",
     "kana": "ﾗﾝﾁ)ﾀﾗｺｿｰｽｼｼﾘｰ風",
     "price": 500,
-    "category": "メニュー",
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "1141",
-    "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
-    "kana": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
-    "price": 650,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1145",
-    "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾌｫｯｶ)",
-    "kana": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾌｫｯｶ)",
-    "price": 600,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1175",
-    "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌｫｯｶ)",
-    "kana": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌｫｯｶ)",
-    "price": 600,
-    "category": "メニュー",
+    "code": "1160",
+    "name": "ﾗﾝﾁ)ﾀﾗｺとｴﾋﾞのﾄﾞﾘｱ",
+    "kana": "ﾗﾝﾁ)ﾀﾗｺとｴﾋﾞのﾄﾞﾘｱ",
+    "price": 500,
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
   {
     "code": "1170",
-    "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
-    "kana": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
     "price": 600,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1142",
-    "name": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
-    "kana": "ﾗﾝﾁ)ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
-    "price": 550,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1209",
-    "name": "ﾁｷﾝのｻﾗﾀﾞ",
-    "kana": "ﾁｷﾝのｻﾗﾀﾞ",
-    "price": 350,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1172",
-    "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
-    "kana": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
-    "price": 550,
-    "category": "メニュー",
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
   {
     "code": "1171",
-    "name": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
-    "kana": "ﾗﾝﾁ)ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
     "price": 650,
-    "category": "メニュー",
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1172",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "price": 550,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1173",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1174",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1190",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1191",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "price": 650,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1192",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "price": 550,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1193",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1194",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1199",
+    "name": "ﾗﾝﾁｽｰﾌﾟ",
+    "kana": "ﾗﾝﾁｽｰﾌﾟ",
+    "price": 100,
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
@@ -112,7 +157,16 @@
     "name": "小ｴﾋﾞのｻﾗﾀﾞ",
     "kana": "小ｴﾋﾞのｻﾗﾀﾞ",
     "price": 350,
-    "category": "メニュー",
+    "category": "サラダ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1203",
+    "name": "ﾁｷﾝのｻﾗﾀﾞ",
+    "kana": "ﾁｷﾝのｻﾗﾀﾞ",
+    "price": 350,
+    "category": "サラダ",
     "tags": [],
     "imageUrl": null
   },
@@ -121,16 +175,34 @@
     "name": "わかめのｻﾗﾀﾞ",
     "kana": "わかめのｻﾗﾀﾞ",
     "price": 350,
-    "category": "メニュー",
+    "category": "サラダ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "1307",
-    "name": "たまねぎのｽﾞｯﾊﾟ",
-    "kana": "たまねぎのｽﾞｯﾊﾟ",
-    "price": 300,
-    "category": "メニュー",
+    "code": "1207",
+    "name": "ﾓｯﾂｱﾚﾗのｻﾗﾀﾞ",
+    "kana": "ﾓｯﾂｱﾚﾗのｻﾗﾀﾞ",
+    "price": 400,
+    "category": "サラダ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1208",
+    "name": "ｸﾞﾘｰﾝｻﾗﾀﾞ(ﾗﾍﾟ入り)",
+    "kana": "ｸﾞﾘｰﾝｻﾗﾀﾞ(ﾗﾍﾟ入り)",
+    "price": 350,
+    "category": "サラダ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1209",
+    "name": "ﾁｷﾝのｻﾗﾀﾞ",
+    "kana": "ﾁｷﾝのｻﾗﾀﾞ",
+    "price": 350,
+    "category": "サラダ",
     "tags": [],
     "imageUrl": null
   },
@@ -139,7 +211,16 @@
     "name": "ｺｰﾝｸﾘｰﾑｽｰﾌﾟ",
     "kana": "ｺｰﾝｸﾘｰﾑｽｰﾌﾟ",
     "price": 150,
-    "category": "メニュー",
+    "category": "スープ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1303",
+    "name": "冷たいﾊﾟﾝﾌﾟｷﾝｽｰﾌﾟ",
+    "kana": "冷たいﾊﾟﾝﾌﾟｷﾝｽｰﾌﾟ",
+    "price": 150,
+    "category": "スープ",
     "tags": [],
     "imageUrl": null
   },
@@ -148,7 +229,16 @@
     "name": "田舎風ﾐﾈｽﾄﾛｰﾈ",
     "kana": "田舎風ﾐﾈｽﾄﾛｰﾈ",
     "price": 300,
-    "category": "メニュー",
+    "category": "スープ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1307",
+    "name": "たまねぎのｽﾞｯﾊﾟ",
+    "kana": "たまねぎのｽﾞｯﾊﾟ",
+    "price": 300,
+    "category": "スープ",
     "tags": [],
     "imageUrl": null
   },
@@ -157,16 +247,7 @@
     "name": "辛味ﾁｷﾝ",
     "kana": "辛味ﾁｷﾝ",
     "price": 300,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1403",
-    "name": "ほうれん草のｿﾃｰ",
-    "kana": "ほうれん草のｿﾃｰ",
-    "price": 200,
-    "category": "メニュー",
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
@@ -175,25 +256,16 @@
     "name": "ｱﾛｽﾃｨﾁｰﾆ",
     "kana": "ｱﾛｽﾃｨﾁｰﾆ",
     "price": 400,
-    "category": "メニュー",
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "1407",
-    "name": "ﾁｮﾘｿｰ",
-    "kana": "ﾁｮﾘｿｰ",
-    "price": 400,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1405",
-    "name": "ｴｽｶﾙｺﾞのｵｰﾌﾞﾝ焼き",
-    "kana": "ｴｽｶﾙｺﾞのｵｰﾌﾞﾝ焼き",
-    "price": 400,
-    "category": "メニュー",
+    "code": "1403",
+    "name": "ほうれん草のｿﾃｰ",
+    "kana": "ほうれん草のｿﾃｰ",
+    "price": 200,
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
@@ -202,7 +274,16 @@
     "name": "ﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟ",
     "kana": "ﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟ",
     "price": 300,
-    "category": "メニュー",
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1405",
+    "name": "ｴｽｶﾙｺﾞのｵｰﾌﾞﾝ焼き",
+    "kana": "ｴｽｶﾙｺﾞのｵｰﾌﾞﾝ焼き",
+    "price": 400,
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
@@ -211,7 +292,16 @@
     "name": "小ｴﾋﾞのｶｸﾃﾙ",
     "kana": "小ｴﾋﾞのｶｸﾃﾙ",
     "price": 280,
-    "category": "メニュー",
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1407",
+    "name": "ﾁｮﾘｿｰ",
+    "kana": "ﾁｮﾘｿｰ",
+    "price": 400,
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
@@ -220,7 +310,7 @@
     "name": "蒸し鶏の香味ｿｰｽ",
     "kana": "蒸し鶏の香味ｿｰｽ",
     "price": 280,
-    "category": "メニュー",
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
@@ -229,52 +319,52 @@
     "name": "ﾑｰﾙ貝のｶﾞｰﾘｯｸ焼き",
     "kana": "ﾑｰﾙ貝のｶﾞｰﾘｯｸ焼き",
     "price": 400,
-    "category": "メニュー",
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1411",
+    "name": "ｱｽﾊﾟﾗｶﾞｽの温ｻﾗﾀﾞ",
+    "kana": "ｱｽﾊﾟﾗｶﾞｽの温ｻﾗﾀﾞ",
+    "price": 300,
+    "category": "サラダ",
     "tags": [],
     "imageUrl": null
   },
   {
     "code": "1413",
-    "name": "ｷｬﾛｯﾄﾗﾍﾟ",
-    "kana": "ｷｬﾛｯﾄﾗﾍﾟ",
+    "name": "にんじんｻﾗﾀﾞ",
+    "kana": "にんじんｻﾗﾀﾞ",
     "price": 200,
-    "category": "メニュー",
+    "category": "サラダ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "1417",
-    "name": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗのｶﾌﾟﾚｰｾﾞ",
-    "kana": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗのｶﾌﾟﾚｰｾﾞ",
-    "price": 430,
-    "category": "メニュー",
+    "code": "1414",
+    "name": "ﾓｯﾂｱﾚﾗﾄﾏﾄ",
+    "kana": "ﾓｯﾂｱﾚﾗﾄﾏﾄ",
+    "price": 280,
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "1416",
-    "name": "ﾎﾟﾃﾄのｸﾞﾘﾙ",
-    "kana": "ﾎﾟﾃﾄのｸﾞﾘﾙ",
+    "code": "1415",
+    "name": "ｶﾘｯとﾎﾟﾃﾄ",
+    "kana": "ｶﾘｯとﾎﾟﾃﾄ",
+    "price": 280,
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1420",
+    "name": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗ",
+    "kana": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗ",
     "price": 300,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1425",
-    "name": "柔らか青豆の温ｻﾗﾀﾞ",
-    "kana": "柔らか青豆の温ｻﾗﾀﾞ",
-    "price": 200,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "1423",
-    "name": "生ﾊﾑとﾓｯﾂｧﾚﾗ盛合せ",
-    "kana": "生ﾊﾑとﾓｯﾂｧﾚﾗ盛合せ",
-    "price": 500,
-    "category": "メニュー",
+    "category": "前菜",
     "tags": [],
     "imageUrl": null
   },
@@ -283,7 +373,25 @@
     "name": "生ﾊﾑ(ﾊﾓﾝ・ｾﾗｰﾉ)",
     "kana": "生ﾊﾑ(ﾊﾓﾝ・ｾﾗｰﾉ)",
     "price": 320,
-    "category": "メニュー",
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1423",
+    "name": "生ﾊﾑとﾓｯﾂｧﾚﾗ盛合せ",
+    "kana": "生ﾊﾑとﾓｯﾂｧﾚﾗ盛合せ",
+    "price": 500,
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1425",
+    "name": "柔らか青豆の温ｻﾗﾀﾞ",
+    "kana": "柔らか青豆の温ｻﾗﾀﾞ",
+    "price": 200,
+    "category": "サラダ",
     "tags": [],
     "imageUrl": null
   },
@@ -292,7 +400,115 @@
     "name": "(ﾀﾞﾌﾞﾙｻｲｽﾞ)ｱﾛｽﾃｨﾁｰﾆ",
     "kana": "(ﾀﾞﾌﾞﾙｻｲｽﾞ)ｱﾛｽﾃｨﾁｰﾆ",
     "price": 800,
-    "category": "メニュー",
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1470",
+    "name": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗ(Wｻｲｽﾞ)",
+    "kana": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｧﾚﾗ(Wｻｲｽﾞ)",
+    "price": 600,
+    "category": "前菜",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1920",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1921",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "price": 650,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1922",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "price": 550,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1923",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1924",
+    "name": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "kana": "ﾗﾝﾁ)牛ｵﾆｵﾝﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1930",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1931",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ大)",
+    "price": 650,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1932",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾗｲｽ小)",
+    "price": 550,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1933",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾐﾆﾌｨｾﾙ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1934",
+    "name": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "kana": "ﾗﾝﾁ)牛ﾃﾞﾐﾊﾝﾊﾞｰｸﾞ(ﾌﾟﾁﾌｫｯｶ)",
+    "price": 600,
+    "category": "ランチ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "1999",
+    "name": "ﾗﾝﾁｻﾗﾀﾞ",
+    "kana": "ﾗﾝﾁｻﾗﾀﾞ",
+    "price": 100,
+    "category": "ランチ",
     "tags": [],
     "imageUrl": null
   },
@@ -301,16 +517,7 @@
     "name": "ﾐﾗﾉ風ﾄﾞﾘｱ",
     "kana": "ﾐﾗﾉ風ﾄﾞﾘｱ",
     "price": 300,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2110",
-    "name": "ﾀﾗｺとﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟのﾄﾞﾘｱ",
-    "kana": "ﾀﾗｺとﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟのﾄﾞﾘｱ",
-    "price": 400,
-    "category": "メニュー",
+    "category": "ドリア・グラタン",
     "tags": [],
     "imageUrl": null
   },
@@ -319,7 +526,25 @@
     "name": "半熟卵のﾐﾗﾉ風ﾄﾞﾘｱ",
     "kana": "半熟卵のﾐﾗﾉ風ﾄﾞﾘｱ",
     "price": 350,
-    "category": "メニュー",
+    "category": "ドリア・グラタン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2106",
+    "name": "ﾀﾗｺとｴﾋﾞのﾄﾞﾘｱ",
+    "kana": "ﾀﾗｺとｴﾋﾞのﾄﾞﾘｱ",
+    "price": 400,
+    "category": "ドリア・グラタン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2107",
+    "name": "ｴﾋﾞｸﾘｰﾑｸﾞﾗﾀﾝ",
+    "kana": "ｴﾋﾞｸﾘｰﾑｸﾞﾗﾀﾝ",
+    "price": 400,
+    "category": "ドリア・グラタン",
     "tags": [],
     "imageUrl": null
   },
@@ -328,43 +553,34 @@
     "name": "焼ﾁｰｽﾞﾐﾗﾉ風ﾄﾞﾘｱ",
     "kana": "焼ﾁｰｽﾞﾐﾗﾉ風ﾄﾞﾘｱ",
     "price": 350,
-    "category": "メニュー",
+    "category": "ドリア・グラタン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2115",
-    "name": "ﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟとﾀﾗｺのｸﾘｰﾑｸﾞﾗﾀﾝ",
-    "kana": "ﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟとﾀﾗｺのｸﾘｰﾑｸﾞﾗﾀﾝ",
+    "code": "2109",
+    "name": "ｴﾋﾞとﾀﾗｺｸﾘｰﾑｸﾞﾗﾀﾝ",
+    "kana": "ｴﾋﾞとﾀﾗｺｸﾘｰﾑｸﾞﾗﾀﾝ",
     "price": 430,
-    "category": "メニュー",
+    "category": "ドリア・グラタン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2203",
+    "code": "2201",
+    "name": "ﾏﾙｹﾞﾘｰﾀﾋﾟｻﾞ",
+    "kana": "ﾏﾙｹﾞﾘｰﾀﾋﾟｻﾞ",
+    "price": 400,
+    "category": "ピザ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2202",
     "name": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｱﾚﾗのﾋﾟｻﾞ",
     "kana": "ﾊﾞｯﾌｧﾛｰﾓｯﾂｱﾚﾗのﾋﾟｻﾞ",
-    "price": 400,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2206",
-    "name": "たっぷりｺｰﾝのﾋﾟｻﾞ",
-    "kana": "たっぷりｺｰﾝのﾋﾟｻﾞ",
-    "price": 400,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2208",
-    "name": "ｿｰｾｰｼﾞﾋﾟｻﾞ",
-    "kana": "ｿｰｾｰｼﾞﾋﾟｻﾞ",
-    "price": 400,
-    "category": "メニュー",
+    "price": 500,
+    "category": "ピザ",
     "tags": [],
     "imageUrl": null
   },
@@ -373,43 +589,70 @@
     "name": "野菜ときのこのﾋﾟｻﾞ",
     "kana": "野菜ときのこのﾋﾟｻﾞ",
     "price": 400,
-    "category": "メニュー",
+    "category": "ピザ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2306",
-    "name": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
-    "kana": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
+    "code": "2206",
+    "name": "たっぷりｺｰﾝのﾋﾟｻﾞ",
+    "kana": "たっぷりｺｰﾝのﾋﾟｻﾞ",
     "price": 400,
-    "category": "メニュー",
+    "category": "ピザ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2303",
-    "name": "ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
-    "kana": "ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
-    "price": 300,
-    "category": "メニュー",
+    "code": "2208",
+    "name": "ｿｰｾｰｼﾞﾋﾟｻﾞ",
+    "kana": "ｿｰｾｰｼﾞﾋﾟｻﾞ",
+    "price": 400,
+    "category": "ピザ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2305",
-    "name": "ｶﾙﾎﾞﾅｰﾗ",
-    "kana": "ｶﾙﾎﾞﾅｰﾗ",
+    "code": "2251",
+    "name": "(Wﾁｰｽﾞ)ﾏﾙｹﾞﾘｰﾀﾋﾟｻﾞ",
+    "kana": "(Wﾁｰｽﾞ)ﾏﾙｹﾞﾘｰﾀﾋﾟｻﾞ",
     "price": 500,
-    "category": "メニュー",
+    "category": "ピザ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2304",
-    "name": "ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
-    "kana": "ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
-    "price": 400,
-    "category": "メニュー",
+    "code": "2252",
+    "name": "(Wﾁｰｽﾞ)ﾓｯﾂｱﾚﾗﾋﾟｻﾞ",
+    "kana": "(Wﾁｰｽﾞ)ﾓｯﾂｱﾚﾗﾋﾟｻﾞ",
+    "price": 600,
+    "category": "ピザ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2254",
+    "name": "(Wﾁｰｽﾞ)野菜ときのこのﾋﾟｻﾞ",
+    "kana": "(Wﾁｰｽﾞ)野菜ときのこのﾋﾟｻﾞ",
+    "price": 500,
+    "category": "ピザ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2256",
+    "name": "(Wﾁｰｽﾞ)たっぷりｺｰﾝのﾋﾟｻﾞ",
+    "kana": "(Wﾁｰｽﾞ)たっぷりｺｰﾝのﾋﾟｻﾞ",
+    "price": 500,
+    "category": "ピザ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2258",
+    "name": "(Wﾁｰｽﾞ)ｿｰｾｰｼﾞﾋﾟｻﾞ",
+    "kana": "(Wﾁｰｽﾞ)ｿｰｾｰｼﾞﾋﾟｻﾞ",
+    "price": 500,
+    "category": "ピザ",
     "tags": [],
     "imageUrl": null
   },
@@ -418,7 +661,61 @@
     "name": "ﾀﾗｺｿｰｽｼｼﾘｰ風",
     "kana": "ﾀﾗｺｿｰｽｼｼﾘｰ風",
     "price": 400,
-    "category": "メニュー",
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2302",
+    "name": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
+    "kana": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
+    "price": 400,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2303",
+    "name": "ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
+    "kana": "ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
+    "price": 300,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2304",
+    "name": "ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
+    "kana": "ﾊﾟﾙﾏ風ｽﾊﾟｹﾞｯﾃｨ",
+    "price": 400,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2305",
+    "name": "ｶﾙﾎﾞﾅｰﾗ",
+    "kana": "ｶﾙﾎﾞﾅｰﾗ",
+    "price": 500,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2306",
+    "name": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
+    "kana": "ﾐｰﾄｿｰｽﾎﾞﾛﾆｱ風",
+    "price": 400,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2307",
+    "name": "ｽﾊﾟｹﾞｯﾃｨﾎﾟﾓﾄﾞｰﾛ",
+    "kana": "ｽﾊﾟｹﾞｯﾃｨﾎﾟﾓﾄﾞｰﾛ",
+    "price": 400,
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
@@ -427,34 +724,43 @@
     "name": "ｽｰﾌﾟ入り塩味ﾎﾞﾝｺﾞﾚ",
     "kana": "ｽｰﾌﾟ入り塩味ﾎﾞﾝｺﾞﾚ",
     "price": 500,
-    "category": "メニュー",
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2317",
-    "name": "半熟卵ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
-    "kana": "半熟卵ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
-    "price": 350,
-    "category": "メニュー",
+    "code": "2311",
+    "name": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
+    "kana": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
+    "price": 500,
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2318",
-    "name": "半熟卵のｶﾙﾎﾞﾅｰﾗ",
-    "kana": "半熟卵のｶﾙﾎﾞﾅｰﾗ",
-    "price": 550,
-    "category": "メニュー",
+    "code": "2312",
+    "name": "半熟卵のﾐｰﾄｿｰｽ",
+    "kana": "半熟卵のﾐｰﾄｿｰｽ",
+    "price": 450,
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2320",
-    "name": "小ｴﾋﾞのﾀﾗｺｿｰｽ",
-    "kana": "小ｴﾋﾞのﾀﾗｺｿｰｽ",
+    "code": "2314",
+    "name": "ｴﾋﾞとｱｽﾊﾟﾗのｵｰﾛﾗｿｰｽ",
+    "kana": "ｴﾋﾞとｱｽﾊﾟﾗのｵｰﾛﾗｿｰｽ",
+    "price": 500,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2315",
+    "name": "ｲﾀﾘｱ野菜のﾄﾏﾄｽﾊﾟｹﾞｯﾃｨ",
+    "kana": "ｲﾀﾘｱ野菜のﾄﾏﾄｽﾊﾟｹﾞｯﾃｨ",
     "price": 540,
-    "category": "メニュー",
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
@@ -463,7 +769,34 @@
     "name": "半熟卵のﾐｰﾄｿｰｽ",
     "kana": "半熟卵のﾐｰﾄｿｰｽ",
     "price": 450,
-    "category": "メニュー",
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2317",
+    "name": "半熟卵ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
+    "kana": "半熟卵ﾍﾟﾍﾟﾛﾝﾁｰﾉ",
+    "price": 350,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2318",
+    "name": "ﾍﾟｺﾘｰﾉﾁｰｽﾞｶﾙﾎﾞ",
+    "kana": "ﾍﾟｺﾘｰﾉﾁｰｽﾞｶﾙﾎﾞ",
+    "price": 600,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2320",
+    "name": "小ｴﾋﾞのﾀﾗｺｿｰｽ",
+    "kana": "小ｴﾋﾞのﾀﾗｺｿｰｽ",
+    "price": 540,
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
@@ -472,196 +805,16 @@
     "name": "きのこのｸﾘｰﾑｽﾊﾟ",
     "kana": "きのこのｸﾘｰﾑｽﾊﾟ",
     "price": 600,
-    "category": "メニュー",
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "2328",
-    "name": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
-    "kana": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
+    "code": "2323",
+    "name": "ﾍﾟｺﾘｰﾉﾁｰｽﾞﾊﾟﾙﾏｽﾊﾟ",
+    "kana": "ﾍﾟｺﾘｰﾉﾁｰｽﾞﾊﾟﾙﾏｽﾊﾟ",
     "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2407",
-    "name": "ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
-    "kana": "ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2402",
-    "name": "若鶏のﾃﾞｨｱﾎﾞﾗ風",
-    "kana": "若鶏のﾃﾞｨｱﾎﾞﾗ風",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2406",
-    "name": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
-    "kana": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
-    "price": 400,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2403",
-    "name": "ｲﾀﾘｱﾝﾊﾝﾊﾞｰｸﾞ",
-    "kana": "ｲﾀﾘｱﾝﾊﾝﾊﾞｰｸﾞ",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2419",
-    "name": "ﾋﾞｰﾌｽﾃｰｷ",
-    "kana": "ﾋﾞｰﾌｽﾃｰｷ",
-    "price": 1090,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2418",
-    "name": "ﾐｯｸｽｸﾞﾘﾙ",
-    "kana": "ﾐｯｸｽｸﾞﾘﾙ",
-    "price": 650,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "2404",
-    "name": "柔らかﾁｷﾝのﾁｰｽﾞ焼き",
-    "kana": "柔らかﾁｷﾝのﾁｰｽﾞ焼き",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3101",
-    "name": "ﾗｲｽ",
-    "kana": "ﾗｲｽ",
-    "price": 150,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3102",
-    "name": "ﾗｰｼﾞﾗｲｽ",
-    "kana": "ﾗｰｼﾞﾗｲｽ",
-    "price": 200,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3103",
-    "name": "ｽﾓｰﾙﾗｲｽ",
-    "kana": "ｽﾓｰﾙﾗｲｽ",
-    "price": 100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3114",
-    "name": "ﾁｰｽﾞﾌｫｯｶﾁｵ",
-    "kana": "ﾁｰｽﾞﾌｫｯｶﾁｵ",
-    "price": 250,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3111",
-    "name": "ｶﾞｰﾘｯｸﾌｫｯｶﾁｵ",
-    "kana": "ｶﾞｰﾘｯｸﾌｫｯｶﾁｵ",
-    "price": 200,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3112",
-    "name": "ｼﾅﾓﾝﾌｫｯｶﾁｵ",
-    "kana": "ｼﾅﾓﾝﾌｫｯｶﾁｵ",
-    "price": 200,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3110",
-    "name": "ﾌｫｯｶﾁｵ",
-    "kana": "ﾌｫｯｶﾁｵ",
-    "price": 150,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3201",
-    "name": "ﾃｨﾗﾐｽｸﾗｼｺ",
-    "kana": "ﾃｨﾗﾐｽｸﾗｼｺ",
-    "price": 300,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3206",
-    "name": "ｲﾀﾘｱﾝﾌﾟﾘﾝ",
-    "kana": "ｲﾀﾘｱﾝﾌﾟﾘﾝ",
-    "price": 250,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3207",
-    "name": "ﾁｮｺﾚｰﾄｹｰｷ",
-    "kana": "ﾁｮｺﾚｰﾄｹｰｷ",
-    "price": 300,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3205",
-    "name": "ﾐﾙｸｼﾞｪﾗｰﾄ",
-    "kana": "ﾐﾙｸｼﾞｪﾗｰﾄ",
-    "price": 250,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3212",
-    "name": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ",
-    "kana": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3213",
-    "name": "ﾄﾘﾌｱｲｽｸﾘｰﾑ",
-    "kana": "ﾄﾘﾌｱｲｽｸﾘｰﾑ",
-    "price": 350,
-    "category": "メニュー",
+    "category": "パスタ",
     "tags": [],
     "imageUrl": null
   },
@@ -670,88 +823,259 @@
     "name": "ｱﾗﾋﾞｱｰﾀ(ﾍﾟﾝﾈ)",
     "kana": "ｱﾗﾋﾞｱｰﾀ(ﾍﾟﾝﾈ)",
     "price": 430,
-    "category": "メニュー",
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2328",
+    "name": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
+    "kana": "ｲｶの墨入りｽﾊﾟｹﾞｯﾃｨ",
+    "price": 500,
+    "category": "パスタ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2401",
+    "name": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
+    "kana": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
+    "price": 400,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2402",
+    "name": "若鶏のﾃﾞｨｱﾎﾞﾗ風",
+    "kana": "若鶏のﾃﾞｨｱﾎﾞﾗ風",
+    "price": 500,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2403",
+    "name": "ｲﾀﾘｱﾝﾊﾝﾊﾞｰｸﾞ",
+    "kana": "ｲﾀﾘｱﾝﾊﾝﾊﾞｰｸﾞ",
+    "price": 500,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2404",
+    "name": "柔らかﾁｷﾝのﾁｰｽﾞ焼き",
+    "kana": "柔らかﾁｷﾝのﾁｰｽﾞ焼き",
+    "price": 500,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2406",
+    "name": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
+    "kana": "ﾊﾝﾊﾞｰｸﾞｽﾃｰｷ",
+    "price": 400,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2407",
+    "name": "ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
+    "kana": "ﾃﾞｨｱﾎﾞﾗ風ﾊﾝﾊﾞｰｸﾞ",
+    "price": 500,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2409",
+    "name": "ﾘﾌﾞｽﾃｰｷ(ﾍﾟｰｽﾄ)",
+    "kana": "ﾘﾌﾞｽﾃｰｷ(ﾍﾟｰｽﾄ)",
+    "price": 1000,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2413",
+    "name": "ﾗﾑと野菜のｸﾞﾘﾙ",
+    "kana": "ﾗﾑと野菜のｸﾞﾘﾙ",
+    "price": 870,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2415",
+    "name": "ﾁｮﾘｿｰとﾊﾝﾊﾞｰｸﾞの盛合せ",
+    "kana": "ﾁｮﾘｿｰとﾊﾝﾊﾞｰｸﾞの盛合せ",
+    "price": 550,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "2418",
+    "name": "ﾁｮﾘｿｰとﾊﾝﾊﾞｰｸﾞの盛合せ",
+    "kana": "ﾁｮﾘｿｰとﾊﾝﾊﾞｰｸﾞの盛合せ",
+    "price": 550,
+    "category": "肉料理",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3101",
+    "name": "ﾗｲｽ",
+    "kana": "ﾗｲｽ",
+    "price": 150,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3102",
+    "name": "ﾗｰｼﾞﾗｲｽ",
+    "kana": "ﾗｰｼﾞﾗｲｽ",
+    "price": 200,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3103",
+    "name": "ｽﾓｰﾙﾗｲｽ",
+    "kana": "ｽﾓｰﾙﾗｲｽ",
+    "price": 100,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3104",
+    "name": "ｼﾅﾓﾝﾌﾟﾁﾌｫｯｶﾁｵ",
+    "kana": "ｼﾅﾓﾝﾌﾟﾁﾌｫｯｶﾁｵ",
+    "price": 200,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3106",
+    "name": "ﾌﾟﾁﾌｫｯｶ",
+    "kana": "ﾌﾟﾁﾌｫｯｶ",
+    "price": 150,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3108",
+    "name": "ﾐﾆﾌｨｾﾙ(ﾊﾟﾝ)",
+    "kana": "ﾐﾆﾌｨｾﾙ(ﾊﾟﾝ)",
+    "price": 150,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3109",
+    "name": "ｶﾞｰﾘｯｸﾄｰｽﾄ",
+    "kana": "ｶﾞｰﾘｯｸﾄｰｽﾄ",
+    "price": 200,
+    "category": "ライス・パン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3201",
+    "name": "ﾃｨﾗﾐｽｸﾗｼｺ",
+    "kana": "ﾃｨﾗﾐｽｸﾗｼｺ",
+    "price": 300,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3204",
+    "name": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌﾟﾁﾌｫｯｶ",
+    "kana": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌﾟﾁﾌｫｯｶ",
+    "price": 450,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3205",
+    "name": "ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ",
+    "kana": "ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ",
+    "price": 250,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3206",
+    "name": "ｲﾀﾘｱﾝﾌﾟﾘﾝ",
+    "kana": "ｲﾀﾘｱﾝﾌﾟﾘﾝ",
+    "price": 250,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3207",
+    "name": "ﾁｮｺﾚｰﾄｹｰｷ",
+    "kana": "ﾁｮｺﾚｰﾄｹｰｷ",
+    "price": 300,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3212",
+    "name": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ",
+    "kana": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ",
+    "price": 500,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3213",
+    "name": "ﾄﾘﾌｱｲｽｸﾘｰﾑ",
+    "kana": "ﾄﾘﾌｱｲｽｸﾘｰﾑ",
+    "price": 350,
+    "category": "デザート",
     "tags": [],
     "imageUrl": null
   },
   {
     "code": "3215",
-    "name": "ｺｰﾋｰｾﾞﾘｰ&ﾐﾙｸｼﾞｪﾗｰﾄ",
-    "kana": "ｺｰﾋｰｾﾞﾘｰ&ﾐﾙｸｼﾞｪﾗｰﾄ",
+    "name": "ｺｰﾋｰｾﾞﾘｰ&ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ",
+    "kana": "ｺｰﾋｰｾﾞﾘｰ&ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ",
     "price": 350,
-    "category": "メニュー",
+    "category": "デザート",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3221",
-    "name": "ﾁｪﾘｰｿｰｽのﾃｨﾗﾐｽ",
-    "kana": "ﾁｪﾘｰｿｰｽのﾃｨﾗﾐｽ",
-    "price": 500,
-    "category": "メニュー",
+    "code": "3225",
+    "name": "ｼﾁﾘｱ産ﾋﾟｽﾀﾁｵのｼﾞｪﾗｰﾄ",
+    "kana": "ｼﾁﾘｱ産ﾋﾟｽﾀﾁｵのｼﾞｪﾗｰﾄ",
+    "price": 350,
+    "category": "デザート",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3216",
-    "name": "ﾁｮｺｹｰｷ＆ﾐﾙｸｼﾞｪﾗｰﾄ",
-    "kana": "ﾁｮｺｹｰｷ＆ﾐﾙｸｼﾞｪﾗｰﾄ",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3214",
-    "name": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌｫｯｶﾁｵ",
-    "kana": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌｫｯｶﾁｵ",
-    "price": 450,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3218",
-    "name": "ﾁｪﾘｰｿｰｽのﾐﾙｸｼﾞｪﾗｰﾄ",
-    "kana": "ﾁｪﾘｰｿｰｽのﾐﾙｸｼﾞｪﾗｰﾄ",
-    "price": 450,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3113",
-    "name": "ﾀﾗｺﾌｫｯｶﾁｵ",
-    "kana": "ﾀﾗｺﾌｫｯｶﾁｵ",
+    "code": "3275",
+    "name": "ｾｰﾙ(ｼﾁﾘｱ産ﾋﾟｽﾀﾁｵｼﾞｪﾗｰﾄ)",
+    "kana": "ｾｰﾙ(ｼﾁﾘｱ産ﾋﾟｽﾀﾁｵｼﾞｪﾗｰﾄ)",
     "price": 250,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3306",
-    "name": "ｸﾞﾗｯﾊﾟ",
-    "kana": "ｸﾞﾗｯﾊﾟ",
-    "price": 300,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3303",
-    "name": "ｱｻﾋﾄﾞﾗｲｾﾞﾛ",
-    "kana": "ｱｻﾋﾄﾞﾗｲｾﾞﾛ",
-    "price": 250,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3302",
-    "name": "ｸﾞﾗｽﾋﾞｰﾙ",
-    "kana": "ｸﾞﾗｽﾋﾞｰﾙ",
-    "price": 280,
-    "category": "メニュー",
+    "category": "デザート",
     "tags": [],
     "imageUrl": null
   },
@@ -760,7 +1084,25 @@
     "name": "中ｼﾞｮｯｷ",
     "kana": "中ｼﾞｮｯｷ",
     "price": 400,
-    "category": "メニュー",
+    "category": "ドリンク",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3302",
+    "name": "ｸﾞﾗｽﾋﾞｰﾙ",
+    "kana": "ｸﾞﾗｽﾋﾞｰﾙ",
+    "price": 300,
+    "category": "ドリンク",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3303",
+    "name": "ｱｻﾋﾄﾞﾗｲｾﾞﾛ",
+    "kana": "ｱｻﾋﾄﾞﾗｲｾﾞﾛ",
+    "price": 250,
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
@@ -769,34 +1111,16 @@
     "name": "氷結ﾚﾓﾝ",
     "kana": "氷結ﾚﾓﾝ",
     "price": 350,
-    "category": "メニュー",
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3419",
-    "name": "ｷｬﾝﾃｨﾙﾌｨｰﾅﾘｾﾞﾙﾊﾞ",
-    "kana": "ｷｬﾝﾃｨﾙﾌｨｰﾅﾘｾﾞﾙﾊﾞ",
-    "price": 2200,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3407",
-    "name": "赤ﾏｸﾞﾅﾑ1.5L",
-    "kana": "赤ﾏｸﾞﾅﾑ1.5L",
-    "price": 1100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3402",
-    "name": "白ｸﾞﾗｽﾜｲﾝ",
-    "kana": "白ｸﾞﾗｽﾜｲﾝ",
-    "price": 100,
-    "category": "メニュー",
+    "code": "3306",
+    "name": "ｸﾞﾗｯﾊﾟ",
+    "kana": "ｸﾞﾗｯﾊﾟ",
+    "price": 300,
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
@@ -805,124 +1129,16 @@
     "name": "赤ｸﾞﾗｽﾜｲﾝ",
     "kana": "赤ｸﾞﾗｽﾜｲﾝ",
     "price": 100,
-    "category": "メニュー",
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3404",
-    "name": "白ﾃﾞｶﾝﾀ小",
-    "kana": "白ﾃﾞｶﾝﾀ小",
-    "price": 200,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3412",
-    "name": "ﾗﾝﾌﾞﾙｽｺﾛｾﾞ",
-    "kana": "ﾗﾝﾌﾞﾙｽｺﾛｾﾞ",
-    "price": 1100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3408",
-    "name": "白ﾏｸﾞﾅﾑ1.5L",
-    "kana": "白ﾏｸﾞﾅﾑ1.5L",
-    "price": 1100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3406",
-    "name": "白ﾃﾞｶﾝﾀ大",
-    "kana": "白ﾃﾞｶﾝﾀ大",
-    "price": 400,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3421",
-    "name": "ﾌﾞﾘｭｾｯﾃﾉｰﾃ",
-    "kana": "ﾌﾞﾘｭｾｯﾃﾉｰﾃ",
-    "price": 1650,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3405",
-    "name": "赤ﾃﾞｶﾝﾀ大",
-    "kana": "赤ﾃﾞｶﾝﾀ大",
-    "price": 400,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3423",
-    "name": "ｲﾝｶﾝﾄﾇﾗｸﾞｽ",
-    "kana": "ｲﾝｶﾝﾄﾇﾗｸﾞｽ",
-    "price": 1650,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3425",
-    "name": "ｵｰﾘ",
-    "kana": "ｵｰﾘ",
-    "price": 2600,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3428",
-    "name": "ﾗﾇｯﾁｮﾊﾞﾙﾍﾞｰﾗ",
-    "kana": "ﾗﾇｯﾁｮﾊﾞﾙﾍﾞｰﾗ",
-    "price": 1650,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3413",
-    "name": "ﾄﾞﾝﾗﾌｧｴﾛ",
-    "kana": "ﾄﾞﾝﾗﾌｧｴﾛ",
-    "price": 1100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3420",
-    "name": "ﾗﾝﾌﾞﾙｽｺﾄﾞﾙﾁｪ",
-    "kana": "ﾗﾝﾌﾞﾙｽｺﾄﾞﾙﾁｪ",
-    "price": 1100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3416",
-    "name": "ｷｬﾝﾃｨ",
-    "kana": "ｷｬﾝﾃｨ",
-    "price": 1100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "3424",
-    "name": "ﾊﾞｹﾚｯﾄ",
-    "kana": "ﾊﾞｹﾚｯﾄ",
-    "price": 2200,
-    "category": "メニュー",
+    "code": "3402",
+    "name": "白ｸﾞﾗｽﾜｲﾝ",
+    "kana": "白ｸﾞﾗｽﾜｲﾝ",
+    "price": 100,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
@@ -931,25 +1147,70 @@
     "name": "赤ﾃﾞｶﾝﾀ小",
     "kana": "赤ﾃﾞｶﾝﾀ小",
     "price": 200,
-    "category": "メニュー",
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3415",
-    "name": "ﾍﾞﾙﾃﾞｯｷｵ",
-    "kana": "ﾍﾞﾙﾃﾞｯｷｵ",
+    "code": "3404",
+    "name": "白ﾃﾞｶﾝﾀ小",
+    "kana": "白ﾃﾞｶﾝﾀ小",
+    "price": 200,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3405",
+    "name": "赤ﾃﾞｶﾝﾀ大",
+    "kana": "赤ﾃﾞｶﾝﾀ大",
+    "price": 400,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3406",
+    "name": "白ﾃﾞｶﾝﾀ大",
+    "kana": "白ﾃﾞｶﾝﾀ大",
+    "price": 400,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3407",
+    "name": "赤ﾏｸﾞﾅﾑ1.5L",
+    "kana": "赤ﾏｸﾞﾅﾑ1.5L",
     "price": 1100,
-    "category": "メニュー",
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3429",
-    "name": "ｻﾘｰﾁｪｻﾚﾝﾃｨｰﾉﾘｾﾞﾙﾊﾞ",
-    "kana": "ｻﾘｰﾁｪｻﾚﾝﾃｨｰﾉﾘｾﾞﾙﾊﾞ",
-    "price": 2200,
-    "category": "メニュー",
+    "code": "3408",
+    "name": "白ﾏｸﾞﾅﾑ1.5L",
+    "kana": "白ﾏｸﾞﾅﾑ1.5L",
+    "price": 1100,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3412",
+    "name": "ﾗﾝﾌﾞﾙｽｺﾛｾﾞ",
+    "kana": "ﾗﾝﾌﾞﾙｽｺﾛｾﾞ",
+    "price": 1100,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3413",
+    "name": "ﾄﾞﾝﾗﾌｧｴﾛ",
+    "kana": "ﾄﾞﾝﾗﾌｧｴﾛ",
+    "price": 1100,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
@@ -958,106 +1219,214 @@
     "name": "ﾗﾝﾌﾞﾙｽｺｾｯｺ",
     "kana": "ﾗﾝﾌﾞﾙｽｺｾｯｺ",
     "price": 1100,
-    "category": "メニュー",
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3907",
-    "name": "ﾁｮｺﾚｰﾄｹｰｷ(あとで)",
-    "kana": "ﾁｮｺﾚｰﾄｹｰｷ(あとで)",
-    "price": 300,
-    "category": "メニュー",
+    "code": "3415",
+    "name": "ﾍﾞﾙﾃﾞｯｷｵ",
+    "kana": "ﾍﾞﾙﾃﾞｯｷｵ",
+    "price": 1100,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3913",
-    "name": "ﾄﾘﾌｱｲｽｸﾘｰﾑ(あとで)",
-    "kana": "ﾄﾘﾌｱｲｽｸﾘｰﾑ(あとで)",
-    "price": 350,
-    "category": "メニュー",
+    "code": "3416",
+    "name": "ｷｬﾝﾃｨ",
+    "kana": "ｷｬﾝﾃｨ",
+    "price": 1100,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3905",
-    "name": "ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "kana": "ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "price": 250,
-    "category": "メニュー",
+    "code": "3419",
+    "name": "ｷｬﾝﾃｨﾙﾌｨｰﾅﾘｾﾞﾙﾊﾞ",
+    "kana": "ｷｬﾝﾃｨﾙﾌｨｰﾅﾘｾﾞﾙﾊﾞ",
+    "price": 2200,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3918",
-    "name": "ﾁｪﾘｰｿｰｽのﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "kana": "ﾁｪﾘｰｿｰｽのﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "price": 450,
-    "category": "メニュー",
+    "code": "3420",
+    "name": "ﾗﾝﾌﾞﾙｽｺﾄﾞﾙﾁｪ",
+    "kana": "ﾗﾝﾌﾞﾙｽｺﾄﾞﾙﾁｪ",
+    "price": 1100,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3914",
-    "name": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌｫｯｶﾁｵ(あとで)",
-    "kana": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌｫｯｶﾁｵ(あとで)",
-    "price": 450,
-    "category": "メニュー",
+    "code": "3421",
+    "name": "ﾌﾞﾘｭｾｯﾃﾉｰﾃ",
+    "kana": "ﾌﾞﾘｭｾｯﾃﾉｰﾃ",
+    "price": 1650,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3916",
-    "name": "ﾁｮｺｹｰｷ＆ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "kana": "ﾁｮｺｹｰｷ＆ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "price": 500,
-    "category": "メニュー",
+    "code": "3423",
+    "name": "ｲﾝｶﾝﾄﾇﾗｸﾞｽ",
+    "kana": "ｲﾝｶﾝﾄﾇﾗｸﾞｽ",
+    "price": 1650,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3912",
-    "name": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ(あとで)",
-    "kana": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ(あとで)",
-    "price": 500,
-    "category": "メニュー",
+    "code": "3424",
+    "name": "ﾊﾞｹﾚｯﾄ",
+    "kana": "ﾊﾞｹﾚｯﾄ",
+    "price": 2200,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3915",
-    "name": "ｺｰﾋｰｾﾞﾘｰ&ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "kana": "ｺｰﾋｰｾﾞﾘｰ&ﾐﾙｸｼﾞｪﾗｰﾄ(あとで)",
-    "price": 350,
-    "category": "メニュー",
+    "code": "3425",
+    "name": "ｵｰﾘ",
+    "kana": "ｵｰﾘ",
+    "price": 2600,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3906",
-    "name": "ｲﾀﾘｱﾝﾌﾟﾘﾝ(あとで)",
-    "kana": "ｲﾀﾘｱﾝﾌﾟﾘﾝ(あとで)",
-    "price": 250,
-    "category": "メニュー",
+    "code": "3428",
+    "name": "ﾗﾇｯﾁｮﾊﾞﾙﾍﾞｰﾗ",
+    "kana": "ﾗﾇｯﾁｮﾊﾞﾙﾍﾞｰﾗ",
+    "price": 1650,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3429",
+    "name": "ｻﾘｰﾁｪｻﾚﾝﾃｨｰﾉﾘｾﾞﾙﾊﾞ",
+    "kana": "ｻﾘｰﾁｪｻﾚﾝﾃｨｰﾉﾘｾﾞﾙﾊﾞ",
+    "price": 2200,
+    "category": "ワイン",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3435",
+    "name": "ﾗｺﾝﾌﾞﾘｯｺﾗ(ﾎﾞﾄﾙ)",
+    "kana": "ﾗｺﾝﾌﾞﾘｯｺﾗ(ﾎﾞﾄﾙ)",
+    "price": 2200,
+    "category": "ワイン",
     "tags": [],
     "imageUrl": null
   },
   {
     "code": "3901",
-    "name": "ﾃｨﾗﾐｽｸﾗｼｺ(あとで)",
-    "kana": "ﾃｨﾗﾐｽｸﾗｼｺ(あとで)",
+    "name": "ﾃｨﾗﾐｽｸﾗｼｺ(食後)",
+    "kana": "ﾃｨﾗﾐｽｸﾗｼｺ(食後)",
     "price": 300,
-    "category": "メニュー",
+    "category": "デザート",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "3921",
-    "name": "ﾁｪﾘｰｿｰｽのﾃｨﾗﾐｽ(あとで)",
-    "kana": "ﾁｪﾘｰｿｰｽのﾃｨﾗﾐｽ(あとで)",
+    "code": "3904",
+    "name": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌﾟﾁﾌｫｯｶ(食後)",
+    "kana": "ｼﾞｪﾗｰﾄ&ｼﾅﾓﾝﾌﾟﾁﾌｫｯｶ(食後)",
+    "price": 450,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3905",
+    "name": "ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ(食後)",
+    "kana": "ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ(食後)",
+    "price": 250,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3906",
+    "name": "ｲﾀﾘｱﾝﾌﾟﾘﾝ(食後)",
+    "kana": "ｲﾀﾘｱﾝﾌﾟﾘﾝ(食後)",
+    "price": 250,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3907",
+    "name": "ﾁｮｺﾚｰﾄｹｰｷ(食後)",
+    "kana": "ﾁｮｺﾚｰﾄｹｰｷ(食後)",
+    "price": 300,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3912",
+    "name": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ(食後)",
+    "kana": "ﾌﾟﾘﾝとﾃｨﾗﾐｽｸﾗｼｺの盛合せ(食後)",
     "price": 500,
-    "category": "メニュー",
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3913",
+    "name": "ﾄﾘﾌｱｲｽｸﾘｰﾑ(食後)",
+    "kana": "ﾄﾘﾌｱｲｽｸﾘｰﾑ(食後)",
+    "price": 350,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3915",
+    "name": "ｺｰﾋｰｾﾞﾘｰ&ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ(食後)",
+    "kana": "ｺｰﾋｰｾﾞﾘｰ&ｲﾀﾘｱﾝｼﾞｪﾗｰﾄ(食後)",
+    "price": 350,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3925",
+    "name": "ｼﾁﾘｱ産ﾋﾟｽﾀﾁｵのｼﾞｪﾗｰﾄ(食後)",
+    "kana": "ｼﾁﾘｱ産ﾋﾟｽﾀﾁｵのｼﾞｪﾗｰﾄ(食後)",
+    "price": 350,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "3975",
+    "name": "ｾｰﾙ(ﾋﾟｽﾀﾁｵｼﾞｪﾗｰﾄ)",
+    "kana": "ｾｰﾙ(ﾋﾟｽﾀﾁｵｼﾞｪﾗｰﾄ)",
+    "price": 250,
+    "category": "デザート",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "4105",
+    "name": "おこさまﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟ",
+    "kana": "おこさまﾎﾟｯﾌﾟｺｰﾝｼｭﾘﾝﾌﾟ",
+    "price": 150,
+    "category": "キッズ",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "4106",
+    "name": "おこさまﾎﾟﾃﾄ",
+    "kana": "おこさまﾎﾟﾃﾄ",
+    "price": 100,
+    "category": "キッズ",
     "tags": [],
     "imageUrl": null
   },
@@ -1066,25 +1435,25 @@
     "name": "ﾄｯﾋﾟﾝｸﾞ半熟卵",
     "kana": "ﾄｯﾋﾟﾝｸﾞ半熟卵",
     "price": 50,
-    "category": "メニュー",
+    "category": "トッピング",
+    "tags": [],
+    "imageUrl": null
+  },
+  {
+    "code": "4302",
+    "name": "ﾍﾟｺﾘｰﾉ･ﾛﾏｰﾉ",
+    "kana": "ﾍﾟｺﾘｰﾉ･ﾛﾏｰﾉ",
+    "price": 100,
+    "category": "トッピング",
     "tags": [],
     "imageUrl": null
   },
   {
     "code": "4304",
-    "name": "ﾄｯﾋﾟﾝｸﾞ野菜ｿｰｽ",
-    "kana": "ﾄｯﾋﾟﾝｸﾞ野菜ｿｰｽ",
+    "name": "野菜ﾍﾟｰｽﾄ",
+    "kana": "野菜ﾍﾟｰｽﾄ",
     "price": 100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "4307",
-    "name": "ﾄｯﾋﾟﾝｸﾞ粉ﾁｰｽﾞ(ｸﾞﾗﾝﾓﾗﾋﾞｱ)",
-    "kana": "ﾄｯﾋﾟﾝｸﾞ粉ﾁｰｽﾞ(ｸﾞﾗﾝﾓﾗﾋﾞｱ)",
-    "price": 100,
-    "category": "メニュー",
+    "category": "トッピング",
     "tags": [],
     "imageUrl": null
   },
@@ -1093,25 +1462,16 @@
     "name": "やみつきｽﾊﾟｲｽ",
     "kana": "やみつきｽﾊﾟｲｽ",
     "price": 50,
-    "category": "メニュー",
+    "category": "トッピング",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "5102",
-    "name": "ｷｯｽﾞﾄﾞﾘﾝｸﾊﾞｰ100",
-    "kana": "ｷｯｽﾞﾄﾞﾘﾝｸﾊﾞｰ100",
+    "code": "4307",
+    "name": "ﾄｯﾋﾟﾝｸﾞ粉ﾁｰｽﾞ(ｸﾞﾗﾝﾓﾗﾋﾞｱ)",
+    "kana": "ﾄｯﾋﾟﾝｸﾞ粉ﾁｰｽﾞ(ｸﾞﾗﾝﾓﾗﾋﾞｱ)",
     "price": 100,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "5103",
-    "name": "単品ﾄﾞﾘﾝｸﾊﾞｰ300",
-    "kana": "単品ﾄﾞﾘﾝｸﾊﾞｰ300",
-    "price": 300,
-    "category": "メニュー",
+    "category": "トッピング",
     "tags": [],
     "imageUrl": null
   },
@@ -1120,43 +1480,34 @@
     "name": "ｾｯﾄﾄﾞﾘﾝｸﾊﾞｰ200",
     "kana": "ｾｯﾄﾄﾞﾘﾝｸﾊﾞｰ200",
     "price": 200,
-    "category": "メニュー",
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "5302",
-    "name": "(TO)ｲﾀﾘｱﾝﾌﾟﾘﾝ",
-    "kana": "(TO)ｲﾀﾘｱﾝﾌﾟﾘﾝ",
-    "price": 240,
-    "category": "メニュー",
+    "code": "5102",
+    "name": "ｷｯｽﾞﾄﾞﾘﾝｸﾊﾞｰ100",
+    "kana": "ｷｯｽﾞﾄﾞﾘﾝｸﾊﾞｰ100",
+    "price": 100,
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "5301",
-    "name": "(TO)冷凍辛味ﾁｷﾝ1.5kg",
-    "kana": "(TO)冷凍辛味ﾁｷﾝ1.5kg",
-    "price": 2200,
-    "category": "メニュー",
+    "code": "5103",
+    "name": "単品ﾄﾞﾘﾝｸﾊﾞｰ300",
+    "kana": "単品ﾄﾞﾘﾝｸﾊﾞｰ300",
+    "price": 300,
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
   {
-    "code": "5305",
-    "name": "(TO)ﾄﾞﾚｯｼﾝｸﾞ",
-    "kana": "(TO)ﾄﾞﾚｯｼﾝｸﾞ",
-    "price": 500,
-    "category": "メニュー",
-    "tags": [],
-    "imageUrl": null
-  },
-  {
-    "code": "5306",
-    "name": "(TO)ｵﾘｰﾌﾞｵｲﾙ",
-    "kana": "(TO)ｵﾘｰﾌﾞｵｲﾙ",
-    "price": 1200,
-    "category": "メニュー",
+    "code": "5104",
+    "name": "ﾗﾝﾁﾄﾞﾘﾝｸﾊﾞｰ100",
+    "kana": "ﾗﾝﾁﾄﾞﾘﾝｸﾊﾞｰ100",
+    "price": 100,
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   },
@@ -1165,7 +1516,7 @@
     "name": "ｸﾞﾗｽ",
     "kana": "ｸﾞﾗｽ",
     "price": 0,
-    "category": "メニュー",
+    "category": "ドリンク",
     "tags": [],
     "imageUrl": null
   }

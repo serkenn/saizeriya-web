@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Menu Image Assets'
+  short_description: 'Generate 4x4 menu image sheets and split them into Betterzeriya item thumbnails'
+  default_prompt: 'Use $menu-image-assets to generate Betterzeriya menu item thumbnails from menu.json.'

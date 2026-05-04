@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import defaultMenuData from '$lib/assets/data/menu.json';
+	import { matchesMenuSearch } from '$lib/menu-search';
 	import { onMount } from 'svelte';
 
 	type MenuItem = {
@@ -82,6 +83,17 @@
 	type ActiveTab = 'add' | 'cart' | 'history' | 'call' | 'checkout';
 	type MenuStatus = 'loading' | 'available' | 'unavailable' | 'error';
 
+	const menuImageModules = import.meta.glob('../../../lib/assets/image/*.webp', {
+		eager: true,
+		query: '?url',
+		import: 'default'
+	}) as Record<string, string>;
+	const menuCoverImages = Object.fromEntries(
+		Object.entries(menuImageModules)
+			.map(([file, source]) => [file.match(/\/([^/]+)\.webp$/)?.[1], source])
+			.filter((entry): entry is [string, string] => Boolean(entry[0]))
+	);
+
 	const normalizeDefaultMenu = (entries: DefaultMenuEntry[]) =>
 		entries
 			.map((entry): MenuItem | null => {
@@ -132,12 +144,7 @@
 	const filteredMenu = $derived(
 		menu.filter((item) => {
 			const categoryMatch = selectedCategory === 'すべて' || item.category === selectedCategory;
-			const query = search.trim().toLowerCase();
-			const queryMatch =
-				!query ||
-				item.code.includes(query) ||
-				item.name.toLowerCase().includes(query) ||
-				item.kana.toLowerCase().includes(query);
+			const queryMatch = matchesMenuSearch(item, search);
 			return categoryMatch && queryMatch;
 		})
 	);
@@ -556,37 +563,39 @@
 					/>
 					<button class="secondary" onclick={addManualCode} disabled={busy || !clientState}>番号で追加</button>
 				</div>
+				<p class="menu-image-note">AIで生成された画像です。この画像は実際の商品と異なる可能性があります。</p>
 
 				{#if filteredMenu.length}
 					<div class="menu-grid">
 						{#each filteredMenu as item}
+							{@const coverImage = menuCoverImages[item.code] ?? item.imageUrl}
 							<button
 								class="menu-card"
 								onclick={() => addItem(item)}
 								disabled={busy || !clientState}
 							>
-								<div class="thumb" aria-hidden="true">
-									{#if item.imageUrl}
-										<img src={item.imageUrl} alt="" loading="lazy" />
-									{:else}
+								{#if coverImage}
+									<img class="menu-card-cover" src={coverImage} alt="" loading="lazy" />
+								{:else}
+									<div class="menu-card-cover menu-card-fallback" aria-hidden="true">
 										<span>{item.category.slice(0, 2)}</span>
-									{/if}
-								</div>
-								<div class="item-main">
-									<span class="code">{item.code}</span>
+									</div>
+								{/if}
+								<div class="menu-card-content">
 									<strong>{item.name}</strong>
-									<small>{item.tags.join(' / ') || item.category}</small>
+									<div class="menu-card-meta">
+										<span
+											class="menu-status"
+											class:status-loading={menuStatuses[item.code] === 'loading'}
+											class:status-available={menuStatuses[item.code] === 'available'}
+											class:status-unavailable={menuStatuses[item.code] === 'unavailable'}
+											class:status-error={menuStatuses[item.code] === 'error'}
+										>
+											{statusLabel(menuStatuses[item.code])}
+										</span>
+										<small class="price">¥{item.price.toLocaleString()}</small>
+									</div>
 								</div>
-								<span
-									class="menu-status"
-									class:status-loading={menuStatuses[item.code] === 'loading'}
-									class:status-available={menuStatuses[item.code] === 'available'}
-									class:status-unavailable={menuStatuses[item.code] === 'unavailable'}
-									class:status-error={menuStatuses[item.code] === 'error'}
-								>
-									{statusLabel(menuStatuses[item.code])}
-								</span>
-								<div class="price">¥{item.price.toLocaleString()}</div>
 							</button>
 						{/each}
 					</div>
