@@ -6,54 +6,52 @@ export type AlcoholClassifiableMenuItem = {
   alcoholCheck?: number
 }
 
-// const normalizeClassificationText = (value: string) =>
-//   value.normalize('NFKC').replace(/\s+/g, '').toUpperCase()
+const normalizeClassificationText = (value: string) =>
+  value.normalize('NFKC').replace(/\s+/g, '').toUpperCase()
 
-// const nonAlcoholKeywords = ['ノンアルコール', 'ノンアル', 'NONALCOHOL', 'NON-ALCOHOL'].map(
-//   normalizeClassificationText,
-// )
+const nonAlcoholKeywords = ['ノンアルコール', 'ノンアル', 'NONALCOHOL', 'NON-ALCOHOL'].map(
+  normalizeClassificationText,
+)
 
-// const alcoholKeywords = [
-// 	'アルコール',
-// 	'お酒',
-// 	'酒類',
-// 	'ワイン',
-// 	'ビール',
-// 	'ジョッキ',
-// 	'サワー',
-// 	'ハイボール',
-// 	'ウイスキー',
-// 	'ウィスキー',
-// 	'焼酎',
-// 	'日本酒',
-// 	'カクテル',
-// 	'シャンパン',
-// 	'スパークリング',
-// 	'デカンタ',
-// 	'マグナム',
-// 	'ランブルスコ',
-// 	'キャンティ',
-// 	'ベルデッキオ',
-// 	'ドンラファエロ',
-// 	'グラッパ',
-// 	'氷結',
-// ].map(normalizeClassificationText)
+const alcoholKeywords = [
+  'アルコール',
+  'お酒',
+  '酒類',
+  'ワイン',
+  'ビール',
+  'ジョッキ',
+  'サワー',
+  'ハイボール',
+  'ウイスキー',
+  'ウィスキー',
+  '焼酎',
+  '日本酒',
+  'カクテル',
+  'シャンパン',
+  'スパークリング',
+  'デカンタ',
+  'マグナム',
+  'ランブルスコ',
+  'キャンティ',
+  'ベルデッキオ',
+  'ドンラファエロ',
+  'グラッパ',
+  '氷結',
+].map(normalizeClassificationText)
 
 export const isAlcoholMenuItem = (item: AlcoholClassifiableMenuItem) => {
-  return item.alcoholCheck === 1
+  if (item.alcoholCheck !== undefined) {
+    return item.alcoholCheck === 1
+  }
 
-  // if (item.alcoholCheck !== undefined) {
-  //   return item.alcoholCheck === 1
-  // }
+  const text = [item.name, item.kana, item.category, ...(item.tags ?? [])]
+    .filter((value): value is string => Boolean(value))
+    .map(normalizeClassificationText)
+    .join(' ')
 
-  // const text = [item.name, item.kana, item.category, ...(item.tags ?? [])]
-  //   .filter((value): value is string => Boolean(value))
-  //   .map(normalizeClassificationText)
-  //   .join(' ')
+  if (!text || nonAlcoholKeywords.some((keyword) => text.includes(keyword))) {
+    return false
+  }
 
-  // if (!text || nonAlcoholKeywords.some((keyword) => text.includes(keyword))) {
-  //   return false
-  // }
-
-  // return alcoholKeywords.some((keyword) => text.includes(keyword))
+  return alcoholKeywords.some((keyword) => text.includes(keyword))
 }
