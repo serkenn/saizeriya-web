@@ -83,6 +83,7 @@
 		category?: string;
 		tags?: string[];
 		imageUrl?: string | null;
+		alcoholCheck?: number;
 	};
 
 	type ActiveTab = 'add' | 'cart' | 'history' | 'call' | 'checkout';
@@ -115,6 +116,7 @@
 					category: entry.category ?? 'メニュー',
 					tags: entry.tags ?? [],
 					imageUrl: entry.imageUrl ?? null,
+					...(entry.alcoholCheck !== undefined && { alcoholCheck: entry.alcoholCheck }),
 					source: 'seed'
 				};
 			})
