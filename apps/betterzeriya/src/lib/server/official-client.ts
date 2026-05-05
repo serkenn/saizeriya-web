@@ -230,10 +230,10 @@ export const hydrateOfficialMenu = async (
           name: result.item_data.name || seed.name,
           price: result.item_data.price || seed.price,
           tags: [...new Set([...seed.tags, '公式同期'])],
-          alcoholCheck: result.alcohol_check,
+          ...(result.alcohol_check !== undefined && { alcoholCheck: result.alcohol_check }),
           source: 'official' as const,
           available: true,
-        }
+        } as HydratedMenuItem
       } catch {
         failedCodes.push(seed.code)
         return null
@@ -242,7 +242,7 @@ export const hydrateOfficialMenu = async (
   )
 
   return {
-    items: results.filter((item): item is HydratedMenuItem => item !== null),
+    items: results.filter((item) => item !== null) as HydratedMenuItem[],
     failedCodes,
   }
 }
