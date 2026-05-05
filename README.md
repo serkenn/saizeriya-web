@@ -113,3 +113,9 @@ wrangler deploy
    <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=pnsk-lab/saizeriya&type=date&legend=top-left" />
  </picture>
 </a>
+
+## Contributors
+
+<a href="https://github.com/pnsk-lab/saizeriya/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=pnsk-lab/saizeriya" />
+</a>
