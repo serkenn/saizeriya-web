@@ -15,6 +15,7 @@
 		category: string;
 		tags: string[];
 		imageUrl: string | null;
+		alcoholCheck?: number;
 		source?: 'official' | 'seed';
 	};
 
@@ -65,6 +66,7 @@
 
 	type LookupItemResult = {
 		result: string;
+		alcohol_check?: number;
 		item_data?: {
 			id: string;
 			name: string;
@@ -310,6 +312,7 @@
 			category: menu.find((item) => item.code === code)?.category ?? '入力済み',
 			tags: [...new Set([...(menu.find((item) => item.code === code)?.tags ?? []), '公式確認済み'])],
 			imageUrl: menu.find((item) => item.code === code)?.imageUrl ?? null,
+			alcoholCheck: result.alcohol_check,
 			source: 'official'
 		} satisfies MenuItem;
 	};

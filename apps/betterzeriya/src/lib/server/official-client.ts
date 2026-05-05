@@ -17,6 +17,7 @@ export interface MenuSeedItem {
   category: string
   tags: string[]
   imageUrl: string | null
+  alcoholCheck?: number
 }
 
 export interface HydratedMenuItem extends MenuSeedItem {
@@ -229,6 +230,7 @@ export const hydrateOfficialMenu = async (
           name: result.item_data.name || seed.name,
           price: result.item_data.price || seed.price,
           tags: [...new Set([...seed.tags, '公式同期'])],
+          alcoholCheck: result.alcohol_check,
           source: 'official' as const,
           available: true,
         }
