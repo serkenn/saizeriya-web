@@ -1,5 +1,9 @@
 # saizeriya
 
+> [!Warning]
+>
+> This is not officially endorsed by Saizeriya. It has no connection to the Saizeriya organization. Please use it with caution.
+
 This repository includes a saizeriya-compatible server, client library, and client app.
 
 ## Setup
