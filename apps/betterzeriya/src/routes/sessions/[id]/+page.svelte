@@ -887,6 +887,10 @@
 				{/if}
 			</button>
 		{/each}
+		<a href={`/sessions/${sessionId}/ai`}>
+			<span class="i-tabler-sparkles" aria-hidden="true"></span>
+			<span>zeriyaGPT</span>
+		</a>
 	</nav>
 </main>
 

@@ -101,7 +101,7 @@ bun run betterzeriya:build # build packages/client & betterzeriya
 bun run betterzeriya:start # node apps/betterzeriya/build
 ```
 
-### Deploy to Cloudflare
+### Deploy to Cloudflare Workers
 
 ```bash
 bun i
@@ -109,6 +109,41 @@ cd apps/betterzeriya
 CLOUDFLARE=1 bun run build
 wrangler deploy
 ```
+
+### Deploy to Cloudflare Pages
+
+#### Via Wrangler CLI
+
+```bash
+bun i
+bun run betterzeriya:deploy:pages
+# or step by step:
+#   bun run betterzeriya:build:pages
+#   bun run --cwd apps/betterzeriya deploy:pages
+```
+
+The first run will prompt you to create a Pages project. Subsequent deploys reuse it.
+
+To preview locally with the Pages runtime:
+
+```bash
+bun run betterzeriya:build:pages
+bun run --cwd apps/betterzeriya preview:pages
+```
+
+#### Via Git integration (Cloudflare dashboard)
+
+Connect this repository on the Cloudflare Pages dashboard and use the following settings:
+
+| Field                  | Value                                             |
+| ---------------------- | ------------------------------------------------- |
+| Framework preset       | SvelteKit                                         |
+| Build command          | `bun install && bun run betterzeriya:build:pages` |
+| Build output directory | `apps/betterzeriya/.svelte-kit/cloudflare`        |
+| Root directory         | `/` (repository root)                             |
+| Environment variables  | `CLOUDFLARE=1`, `BUN_VERSION=1.3.10`              |
+
+`BUN_VERSION` makes the Cloudflare build environment install bun. `bun install` must be run explicitly in the build command — Cloudflare does not auto-install dependencies for bun projects, and npm cannot resolve the `workspace:*` protocol used by this monorepo.
 
 ### Deploy to Vercel
 

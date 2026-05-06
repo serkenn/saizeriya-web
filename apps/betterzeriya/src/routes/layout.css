@@ -208,7 +208,8 @@ button:disabled {
   backdrop-filter: blur(16px);
 }
 
-.scanner-tabs button {
+.scanner-tabs button,
+.scanner-tabs a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,9 +221,11 @@ button:disabled {
   color: rgba(255, 255, 255, 0.66);
   font-size: 13px;
   font-weight: 800;
+  text-decoration: none;
 }
 
-.scanner-tabs button.active {
+.scanner-tabs button.active,
+.scanner-tabs a.active {
   background: rgba(0, 0, 0, 0.3);
   color: #ffffff;
 }
@@ -292,6 +295,7 @@ button:disabled {
   font-size: 13px;
   font-weight: 800;
   backdrop-filter: blur(14px);
+  text-decoration: none;
 }
 
 .scanner-alert {
@@ -1066,7 +1070,8 @@ input:focus {
   gap: 8px;
 }
 
-.bottom-tabs button {
+.bottom-tabs button,
+.bottom-tabs a {
   position: relative;
   display: flex;
   align-items: center;
@@ -1078,6 +1083,7 @@ input:focus {
   background: transparent;
   color: #374151;
   font-weight: 800;
+  text-decoration: none;
   text-align: left;
   transition:
     background 140ms ease,
@@ -1085,12 +1091,14 @@ input:focus {
 }
 
 .bottom-tabs button:hover,
-.bottom-tabs button.active {
+.bottom-tabs button.active,
+.bottom-tabs a:hover {
   background: #111827;
   color: #ffffff;
 }
 
-.bottom-tabs button > span:first-child {
+.bottom-tabs button > span:first-child,
+.bottom-tabs a > span:first-child {
   font-size: 22px;
 }
 
@@ -1134,7 +1142,8 @@ input:focus {
     padding: 8px 14px 8px 0;
   }
 
-  .shell:has(.session-header) > .bottom-tabs button {
+  .shell:has(.session-header) > .bottom-tabs button,
+  .shell:has(.session-header) > .bottom-tabs a {
     width: 100%;
     justify-content: flex-start;
     padding-inline: 16px;
@@ -1169,7 +1178,7 @@ input:focus {
     left: 0;
     z-index: 18;
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 4px;
     border-top: 1px solid rgba(17, 24, 39, 0.1);
     background: rgba(255, 255, 255, 0.94);
@@ -1178,7 +1187,8 @@ input:focus {
     backdrop-filter: blur(16px);
   }
 
-  .bottom-tabs button {
+  .bottom-tabs button,
+  .bottom-tabs a {
     justify-content: center;
     gap: 4px;
     min-height: 54px;
@@ -1189,11 +1199,14 @@ input:focus {
   }
 
   .bottom-tabs button > span:first-child,
-  .bottom-tabs button > span:nth-child(2) {
+  .bottom-tabs button > span:nth-child(2),
+  .bottom-tabs a > span:first-child,
+  .bottom-tabs a > span:nth-child(2) {
     display: block;
   }
 
-  .bottom-tabs button > span:first-child {
+  .bottom-tabs button > span:first-child,
+  .bottom-tabs a > span:first-child {
     font-size: 22px;
   }
 
