@@ -492,6 +492,7 @@ const useSession = async (args: string[]) => {
             await loadBrowserClient()
           ).createBrowserClient({
             qrURLSource: snapshot.qrURLSource,
+            peopleCount: snapshot.state.peopleCount > 0 ? snapshot.state.peopleCount : undefined,
           })
         })()
       : await createClient({

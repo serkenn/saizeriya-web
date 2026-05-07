@@ -557,56 +557,29 @@ export const createBrowserClient = async ({
   }
 
   const readVisibleCart = async (): Promise<CartItem[]> => {
-    const rows = page.locator('#body-section div.list table tbody tr')
-    const rowCount = await rows.count()
-    const items: CartItem[] = []
-    for (let index = 0; index < rowCount; index++) {
-      const row = rows.nth(index)
-      const id = await row
-        .locator('input[name="item[id][]"]')
-        .inputValue({ timeout: 500 })
-        .catch(() => '')
-      const count = textNumber(
-        await row
-          .locator('input[name="item[count][]"]')
-          .inputValue({ timeout: 500 })
-          .catch(() => row.locator('td').nth(1).textContent({ timeout: 500 })),
+    const rows = await page.evaluate(() => {
+      const parseNum = (s: string | null | undefined) =>
+        Number.parseInt(String(s ?? '0').replace(/[^\d-]/g, ''), 10)
+      return Array.from(document.querySelectorAll('#body-section div.list table tbody tr')).map(
+        (row) => {
+          const inp = (name: string) =>
+            row.querySelector<HTMLInputElement>(`input[name="${name}"]`)?.value ?? ''
+          const cell = (n: number) => row.querySelectorAll('td')[n]?.textContent ?? ''
+          const rawCount = inp('item[count][]')
+          const rawModCount = inp('item[mod_count][]')
+          return {
+            id: inp('item[id][]'),
+            name: cell(0).trim(),
+            price: parseNum(cell(2)),
+            count: parseNum(rawCount || cell(1)),
+            reorder: inp('item[reorder][]') === '1' ? 1 : 0,
+            modId: inp('item[mod_id][]'),
+            modCount: rawModCount ? parseNum(rawModCount) : '',
+          }
+        },
       )
-      const modId = await row
-        .locator('input[name="item[mod_id][]"]')
-        .inputValue({ timeout: 500 })
-        .catch(() => '')
-      const rawModCount = await row
-        .locator('input[name="item[mod_count][]"]')
-        .inputValue({ timeout: 500 })
-        .catch(() => '')
-      const reorderValue = await row
-        .locator('input[name="item[reorder][]"]')
-        .inputValue({ timeout: 500 })
-        .catch(() => '0')
-      items.push({
-        id,
-        name: (
-          await row
-            .locator('td')
-            .nth(0)
-            .textContent({ timeout: 500 })
-            .catch(() => '')
-        )?.trim(),
-        price: normalizePrice(
-          await row
-            .locator('td')
-            .nth(2)
-            .textContent({ timeout: 500 })
-            .catch(() => '0'),
-        ),
-        count,
-        reorder: reorderValue === '1' ? 1 : 0,
-        modId,
-        modCount: rawModCount ? textNumber(rawModCount) : '',
-      })
-    }
-    return items
+    })
+    return rows as CartItem[]
   }
 
   await page.goto(qrURLSource, { waitUntil: 'domcontentloaded' })
