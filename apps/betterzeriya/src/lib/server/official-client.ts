@@ -48,8 +48,10 @@ interface SessionRecord {
 const sessions = new Map<string, SessionRecord>()
 const sessionTtlMs = 1000 * 60 * 60 * 6
 const useBrowserMode = () => env.BROWSER === '1'
-const browserLaunchOptions = () =>
-  env.CHROME_EXECUTABLE ? { executablePath: env.CHROME_EXECUTABLE } : undefined
+const browserLaunchOptions = () => ({
+  headless: true,
+  ...(env.CHROME_EXECUTABLE ? { executablePath: env.CHROME_EXECUTABLE } : {}),
+})
 
 const pruneSessions = () => {
   const now = Date.now()
