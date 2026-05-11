@@ -5,6 +5,7 @@ import {
   type ClientState,
   type LookupItemResult,
 } from './src/client'
+import menuData from '../server/src/data/menu.json'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -20,6 +21,20 @@ type CookieEntry = [string, string]
 type FetchSource = (request: Request) => Promise<Response> | Response
 type ClientMode = 'fetch' | 'browser'
 
+interface StaticMenuItem {
+  id: string
+  name: string
+  price: number
+  state: number
+  mod_id?: string
+  mod_name?: string
+}
+
+interface StaticMenuEntry {
+  result: string
+  item_data?: StaticMenuItem
+}
+
 interface SessionSnapshot {
   name: string
   state: ClientState
@@ -32,12 +47,14 @@ interface SessionSnapshot {
 
 const cliHome = process.env.SAIZERIYA_CLI_HOME ?? join(homedir(), '.saizeriya-cli')
 const sessionsPath = join(cliHome, 'sessions.json')
+const officialGetItemURL = 'https://ioes.saizeriya.co.jp/saizeriya2/src/cmd/get_item.php'
 
 const usage = `Usage:
   saizeriya start <name> <qrurl> [--people <count>] [--browser] [--headless]
   saizeriya use <name>
   saizeriya list
   saizeriya rm <name>
+  saizeriya menu [query|code] [--shop <id> --table <id>] [--json]
 
 After start/use, available commands:
   state
@@ -150,6 +167,11 @@ const parseNumberOption = (args: string[], name: string) => {
 
 const hasFlag = (args: string[], name: string) => args.includes(name)
 
+const getOptionValue = (args: string[], name: string) => {
+  const index = args.indexOf(name)
+  return index === -1 ? undefined : args[index + 1]
+}
+
 const stripCliOptions = (args: string[]) => {
   const stripped: string[] = []
   for (let index = 0; index < args.length; index++) {
@@ -249,6 +271,125 @@ const printLookupItem = (result: LookupItemResult) => {
   for (const message of item.messages) {
     console.log(message)
   }
+}
+
+const staticMenuItems = (menuData as StaticMenuEntry[])
+  .map((entry) => entry.item_data)
+  .filter((item): item is StaticMenuItem => Boolean(item))
+
+const normalizeSearchText = (value: string) => value.normalize('NFKC').toLowerCase()
+
+const stripMenuOptions = (args: string[]) => {
+  const stripped: string[] = []
+  for (let index = 0; index < args.length; index++) {
+    const arg = args[index]
+    if (arg === undefined) {
+      continue
+    }
+    if (arg === '--json') {
+      continue
+    }
+    if (arg === '--shop' || arg === '--table') {
+      index++
+      continue
+    }
+    stripped.push(arg)
+  }
+  return stripped
+}
+
+const printStaticMenuItem = (item: StaticMenuItem) => {
+  const availability = item.state === 0 ? 'sold out' : 'available'
+  console.log(`${item.id} ${item.name} ${item.price}yen ${availability}`)
+  if (item.mod_id && item.mod_name) {
+    console.log(`  modifier: ${item.mod_id} ${item.mod_name}`)
+  }
+}
+
+const showStaticMenu = (args: string[]) => {
+  const json = hasFlag(args, '--json')
+  const query = stripMenuOptions(args).join(' ').trim()
+  const normalizedQuery = normalizeSearchText(query)
+  const items = normalizedQuery
+    ? staticMenuItems.filter((item) => {
+        return (
+          item.id.includes(query) ||
+          normalizeSearchText(item.name).includes(normalizedQuery) ||
+          normalizeSearchText(item.mod_name ?? '').includes(normalizedQuery)
+        )
+      })
+    : staticMenuItems
+
+  if (json) {
+    console.log(JSON.stringify(items, null, 2))
+    return
+  }
+
+  if (items.length === 0) {
+    console.log('No menu items found.')
+    return
+  }
+
+  for (const item of items) {
+    printStaticMenuItem(item)
+  }
+}
+
+const lookupOfficialMenuItem = async (args: string[]) => {
+  const json = hasFlag(args, '--json')
+  const shopId = getOptionValue(args, '--shop')
+  const tableNo = getOptionValue(args, '--table')
+  const code = stripMenuOptions(args).join(' ').trim()
+
+  if (!shopId) {
+    throw new Error('--shop is required when using --table')
+  }
+  if (!tableNo) {
+    throw new Error('--table is required when using --shop')
+  }
+  if (!/^\d{4}$/.test(code)) {
+    throw new Error('Official menu lookup requires a 4 digit item code')
+  }
+
+  const response = await fetch(officialGetItemURL, {
+    method: 'POST',
+    headers: {
+      accept: 'application/json, text/javascript, */*; q=0.01',
+      'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      origin: 'https://ioes.saizeriya.co.jp',
+      referer: 'https://ioes.saizeriya.co.jp/saizeriya2/',
+      'x-requested-with': 'XMLHttpRequest',
+    },
+    body: new URLSearchParams({
+      sid: shopId.replace(/^0+/, ''),
+      tno: tableNo,
+      lng: '1',
+      id: code,
+      num: '3',
+    }),
+  })
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch menu item: ${response.status} ${response.statusText}`)
+  }
+
+  const result = (await response.json()) as LookupItemResult
+  if (json) {
+    console.log(JSON.stringify(result, null, 2))
+  } else {
+    printLookupItem(result)
+  }
+}
+
+const showMenu = async (args: string[]) => {
+  const hasShop = hasFlag(args, '--shop')
+  const hasTable = hasFlag(args, '--table')
+  if (hasShop || hasTable) {
+    await lookupOfficialMenuItem(args)
+    return
+  }
+
+  showStaticMenu(args)
 }
 
 const printCart = (state: ClientState) => {
@@ -543,6 +684,9 @@ const main = async () => {
       break
     case 'rm':
       await removeSession(args)
+      break
+    case 'menu':
+      await showMenu(args)
       break
     case 'help':
     case '--help':
