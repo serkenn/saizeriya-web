@@ -1189,6 +1189,7 @@ input:focus {
 
   .bottom-tabs button,
   .bottom-tabs a {
+    flex-direction: column;
     justify-content: center;
     gap: 4px;
     min-height: 54px;
