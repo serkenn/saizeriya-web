@@ -127,7 +127,7 @@
 				},
 				appConfig: {
 					...prebuiltAppConfig,
-					useIndexedDBCache: true
+					cacheBackend: 'indexeddb'
 				}
 			});
 			engine = next;
@@ -265,17 +265,17 @@
 	<meta name="description" content="ブラウザ内で動くサイゼリヤ提案 AI (WebGPU)" />
 </svelte:head>
 
-<div class="zg-app">
-	<header class="zg-header">
-		<a href={sessionHref} class="zg-back" aria-label="戻る">
+<div class="mx-auto grid min-h-svh max-w-[860px] grid-rows-[auto_auto_auto_auto_minmax(0,1fr)_auto] bg-slate-50 px-4">
+	<header class="sticky top-0 z-10 grid grid-cols-[40px_minmax(0,1fr)_40px] items-center gap-3 border-b border-slate-900/5 bg-slate-50/95 py-3.5 backdrop-blur-xl">
+		<a href={sessionHref} class="grid h-10 w-10 place-items-center rounded-full border border-slate-900/10 bg-white text-xl text-slate-950 no-underline" aria-label="戻る">
 			<span class="i-tabler-arrow-left"></span>
 		</a>
-		<div class="zg-title">
-			<strong>zeriyaGPT</strong>
-			<small>WebGPU で動くブラウザ完結型アシスタント</small>
+		<div class="grid justify-items-center gap-0.5 text-center">
+			<strong class="text-base font-extrabold text-slate-950">zeriyaGPT</strong>
+			<small class="text-xs font-bold text-slate-500">WebGPU で動くブラウザ完結型アシスタント</small>
 		</div>
 		<button
-			class="zg-icon-button"
+			class="grid h-10 w-10 place-items-center rounded-full border border-slate-900/10 bg-white text-xl text-slate-950 disabled:opacity-40"
 			type="button"
 			onclick={resetChat}
 			disabled={generating || messages.length === 0}
@@ -285,60 +285,65 @@
 		</button>
 	</header>
 
-	<div class="zg-model-bar">
+	<div class="flex gap-2 overflow-x-auto pt-3 pb-1">
 		{#each modelOptions as opt (opt.id)}
 			<button
-				class="zg-model-chip"
-				class:active={opt.id === selectedModel}
+				class={opt.id === selectedModel
+					? 'grid flex-none gap-0.5 rounded-full border border-green-800 bg-green-50 px-3.5 py-2 text-left font-bold text-green-800 disabled:cursor-not-allowed disabled:opacity-50'
+					: 'grid flex-none gap-0.5 rounded-full border border-slate-900/10 bg-white px-3.5 py-2 text-left font-bold text-slate-700 disabled:cursor-not-allowed disabled:opacity-50'}
 				type="button"
 				onclick={() => switchModel(opt.id)}
 				disabled={generating || engineLoading}
 			>
-				<strong>{opt.label}</strong>
-				<small>{opt.hint}</small>
+				<strong class="text-[13px]">{opt.label}</strong>
+				<small class={opt.id === selectedModel ? 'text-xs font-bold text-green-800' : 'text-xs font-bold text-slate-500'}>{opt.hint}</small>
 			</button>
 		{/each}
 	</div>
 
 	{#if engineLoading}
-		<div class="zg-loading" role="status">
-			<div class="zg-loading-track">
-				<div class="zg-loading-bar" style="width: {Math.round(loadProgress * 100)}%"></div>
+		<div class="my-2 grid gap-1.5 rounded-xl border border-green-800/20 bg-green-50 px-3.5 py-3 font-bold text-green-800" role="status">
+			<div class="h-1.5 overflow-hidden rounded-full bg-green-800/15">
+				<div class="h-full bg-green-600 transition-[width] duration-200" style="width: {Math.round(loadProgress * 100)}%"></div>
 			</div>
-			<small>{loadText}</small>
+			<small class="text-xs text-green-800">{loadText}</small>
 		</div>
 	{/if}
 
 	{#if error}
-		<div class="zg-alert" role="alert">{error}</div>
+		<div class="my-2 rounded-xl bg-red-50 px-3.5 py-3 font-bold text-red-800" role="alert">{error}</div>
 	{/if}
 
-	<div class="zg-list" bind:this={listEl}>
+	<div class="grid content-start gap-4 overflow-y-auto px-1 py-5" bind:this={listEl}>
 		{#if messages.length === 0}
-			<div class="zg-empty">
-				<div class="zg-empty-mark">Z</div>
-				<h1>今日はどんなサイゼ？</h1>
-				<p>予算・気分・人数を伝えてくれれば、メニューから提案します。</p>
-				<div class="zg-samples">
+			<div class="grid justify-items-center gap-2.5 px-2 pt-10 text-center text-slate-700">
+				<div class="grid h-14 w-14 place-items-center rounded-[18px] bg-gradient-to-br from-green-600 to-green-800 text-3xl font-black text-white">Z</div>
+				<h1 class="m-0 mt-1.5 text-[22px] font-extrabold text-slate-950">今日はどんなサイゼ？</h1>
+				<p class="m-0 text-sm text-slate-500">予算・気分・人数を伝えてくれれば、メニューから提案します。</p>
+				<div class="mt-3.5 grid w-full max-w-[540px] grid-cols-1 gap-2 min-[541px]:grid-cols-2">
 					{#each samplePrompts as prompt (prompt)}
-						<button type="button" onclick={() => fillSample(prompt)}>{prompt}</button>
+						<button class="rounded-xl border border-slate-900/10 bg-white px-3.5 py-3 text-left text-[13px] leading-normal font-bold text-slate-950 hover:border-green-800/40 hover:bg-green-50" type="button" onclick={() => fillSample(prompt)}>{prompt}</button>
 					{/each}
 				</div>
-				<p class="zg-note">
+				<p class="mt-3.5 text-xs text-slate-400">
 					※ モデルは初回のみダウンロード(~750MB〜)。以降はブラウザにキャッシュされます。
 				</p>
 			</div>
 		{:else}
 			{#each messages as message, index (index)}
-				<div class="zg-row" class:user={message.role === 'user'}>
-					<div class="zg-avatar" aria-hidden="true">
+				<div class={message.role === 'user' ? 'grid grid-cols-[minmax(0,1fr)_32px] gap-3' : 'grid grid-cols-[32px_minmax(0,1fr)] gap-3'}>
+					<div class={message.role === 'user' ? 'col-start-2 row-start-1 grid h-8 w-8 place-items-center rounded-full bg-slate-950 text-xs font-black text-white' : 'grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-green-600 to-green-800 text-xs font-black text-white'} aria-hidden="true">
 						{message.role === 'user' ? 'You' : 'Z'}
 					</div>
-					<div class="zg-bubble">
+					<div class={message.role === 'user' ? 'col-start-1 row-start-1 max-w-[84%] justify-self-end rounded-2xl bg-slate-950 px-3.5 py-3 text-white' : 'max-w-[84%] rounded-2xl border border-slate-900/5 bg-white px-3.5 py-3 leading-relaxed text-slate-950 shadow-sm'}>
 						{#if message.content}
-							<p>{message.content}</p>
+							<p class="m-0 whitespace-pre-wrap break-words text-[14.5px]">{message.content}</p>
 						{:else}
-							<span class="zg-typing"><i></i><i></i><i></i></span>
+							<span class="inline-flex gap-1">
+								<i class="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400"></i>
+								<i class="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:0.15s]"></i>
+								<i class="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:0.3s]"></i>
+							</span>
 						{/if}
 					</div>
 				</div>
@@ -346,9 +351,10 @@
 		{/if}
 	</div>
 
-	<div class="zg-composer">
-		<div class="zg-composer-inner">
+	<div class="sticky bottom-0 bg-[linear-gradient(180deg,rgba(248,250,252,0)_0%,#f8fafc_24%)] pt-2.5 pb-[max(14px,env(safe-area-inset-bottom))]">
+		<div class="grid grid-cols-[minmax(0,1fr)_44px] items-end gap-2 rounded-[22px] border border-slate-900/10 bg-white p-2 shadow-[0_14px_40px_rgba(17,24,39,0.08)]">
 			<textarea
+				class="max-h-[220px] min-h-8 w-full resize-none border-0 bg-transparent px-2.5 py-2 text-[15px] leading-normal text-slate-950 outline-none disabled:text-slate-400"
 				bind:this={textareaEl}
 				bind:value={input}
 				oninput={autoGrow}
@@ -362,12 +368,12 @@
 				rows="1"
 			></textarea>
 			{#if generating}
-				<button class="zg-send stop" type="button" onclick={handleInterrupt} aria-label="停止">
+				<button class="grid h-11 w-11 place-items-center rounded-full bg-red-700 text-xl text-white" type="button" onclick={handleInterrupt} aria-label="停止">
 					<span class="i-tabler-player-stop-filled"></span>
 				</button>
 			{:else}
 				<button
-					class="zg-send"
+					class="grid h-11 w-11 place-items-center rounded-full bg-slate-950 text-xl text-white disabled:bg-slate-300"
 					type="button"
 					onclick={handleSend}
 					disabled={!input.trim() || engineLoading || !webgpuSupported}
@@ -377,396 +383,8 @@
 				</button>
 			{/if}
 		</div>
-		<small class="zg-hint">
+		<small class="mt-2 block text-center text-xs font-bold text-slate-400">
 			ブラウザ内で完結 · 入力内容はサーバーに送信されません
 		</small>
 	</div>
 </div>
-
-<style>
-	:global(body) {
-		background: #f6f7f9;
-	}
-
-	.zg-app {
-		display: grid;
-		grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
-		min-height: 100svh;
-		max-width: 860px;
-		margin: 0 auto;
-		padding: 0 16px;
-	}
-
-	.zg-header {
-		position: sticky;
-		top: 0;
-		z-index: 4;
-		display: grid;
-		grid-template-columns: 40px minmax(0, 1fr) 40px;
-		align-items: center;
-		gap: 12px;
-		padding: 14px 0;
-		background: rgba(246, 247, 249, 0.92);
-		backdrop-filter: blur(12px);
-		border-bottom: 1px solid rgba(17, 24, 39, 0.06);
-	}
-
-	.zg-back,
-	.zg-icon-button {
-		display: grid;
-		place-items: center;
-		width: 40px;
-		height: 40px;
-		border: 1px solid rgba(17, 24, 39, 0.1);
-		border-radius: 999px;
-		background: #ffffff;
-		color: #111827;
-		font-size: 20px;
-		text-decoration: none;
-	}
-
-	.zg-icon-button:disabled {
-		opacity: 0.4;
-	}
-
-	.zg-title {
-		display: grid;
-		gap: 2px;
-		justify-items: center;
-		text-align: center;
-	}
-
-	.zg-title strong {
-		font-size: 16px;
-		font-weight: 800;
-		color: #111827;
-	}
-
-	.zg-title small {
-		font-size: 11px;
-		color: #6b7280;
-		font-weight: 700;
-	}
-
-	.zg-model-bar {
-		display: flex;
-		gap: 8px;
-		overflow-x: auto;
-		padding: 12px 0 4px;
-	}
-
-	.zg-model-chip {
-		flex: 0 0 auto;
-		display: grid;
-		gap: 2px;
-		padding: 8px 14px;
-		border: 1px solid rgba(17, 24, 39, 0.12);
-		border-radius: 999px;
-		background: #ffffff;
-		color: #374151;
-		text-align: left;
-		font-weight: 700;
-	}
-
-	.zg-model-chip strong {
-		font-size: 13px;
-	}
-
-	.zg-model-chip small {
-		font-size: 11px;
-		color: #6b7280;
-		font-weight: 700;
-	}
-
-	.zg-model-chip.active {
-		border-color: #166534;
-		background: #ecfdf5;
-		color: #166534;
-	}
-
-	.zg-model-chip.active small {
-		color: #166534;
-	}
-
-	.zg-model-chip:disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
-
-	.zg-loading {
-		display: grid;
-		gap: 6px;
-		padding: 12px 14px;
-		margin: 8px 0;
-		border: 1px solid rgba(22, 101, 52, 0.18);
-		border-radius: 12px;
-		background: #ecfdf5;
-		color: #166534;
-		font-weight: 700;
-	}
-
-	.zg-loading-track {
-		height: 6px;
-		border-radius: 999px;
-		background: rgba(22, 101, 52, 0.16);
-		overflow: hidden;
-	}
-
-	.zg-loading-bar {
-		height: 100%;
-		background: #16a34a;
-		transition: width 240ms ease;
-	}
-
-	.zg-loading small {
-		font-size: 12px;
-		color: #166534;
-	}
-
-	.zg-alert {
-		padding: 12px 14px;
-		margin: 8px 0;
-		border-radius: 12px;
-		background: #fef2f2;
-		color: #991b1b;
-		font-weight: 700;
-	}
-
-	.zg-list {
-		display: grid;
-		align-content: start;
-		gap: 18px;
-		padding: 18px 4px 24px;
-		overflow-y: auto;
-	}
-
-	.zg-empty {
-		display: grid;
-		justify-items: center;
-		gap: 10px;
-		padding: 40px 8px 8px;
-		text-align: center;
-		color: #374151;
-	}
-
-	.zg-empty-mark {
-		display: grid;
-		place-items: center;
-		width: 56px;
-		height: 56px;
-		border-radius: 18px;
-		background: linear-gradient(135deg, #16a34a, #166534);
-		color: #ffffff;
-		font-weight: 900;
-		font-size: 26px;
-		letter-spacing: 0.5px;
-	}
-
-	.zg-empty h1 {
-		margin: 6px 0 0;
-		font-size: 22px;
-		color: #111827;
-	}
-
-	.zg-empty p {
-		margin: 0;
-		font-size: 14px;
-		color: #6b7280;
-	}
-
-	.zg-samples {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 8px;
-		width: 100%;
-		max-width: 540px;
-		margin-top: 14px;
-	}
-
-	.zg-samples button {
-		padding: 12px 14px;
-		border: 1px solid rgba(17, 24, 39, 0.1);
-		border-radius: 12px;
-		background: #ffffff;
-		color: #111827;
-		font-size: 13px;
-		font-weight: 700;
-		text-align: left;
-		line-height: 1.4;
-	}
-
-	.zg-samples button:hover {
-		border-color: rgba(22, 101, 52, 0.4);
-		background: #f0fdf4;
-	}
-
-	.zg-note {
-		margin-top: 14px;
-		font-size: 11px;
-		color: #9ca3af;
-	}
-
-	.zg-row {
-		display: grid;
-		grid-template-columns: 32px minmax(0, 1fr);
-		gap: 12px;
-	}
-
-	.zg-row.user {
-		grid-template-columns: minmax(0, 1fr) 32px;
-	}
-
-	.zg-row.user .zg-avatar {
-		grid-column: 2;
-		grid-row: 1;
-	}
-
-	.zg-row.user .zg-bubble {
-		grid-column: 1;
-		grid-row: 1;
-		justify-self: end;
-		background: #111827;
-		color: #ffffff;
-	}
-
-	.zg-avatar {
-		display: grid;
-		place-items: center;
-		width: 32px;
-		height: 32px;
-		border-radius: 999px;
-		background: linear-gradient(135deg, #16a34a, #166534);
-		color: #ffffff;
-		font-size: 11px;
-		font-weight: 900;
-	}
-
-	.zg-row.user .zg-avatar {
-		background: #111827;
-	}
-
-	.zg-bubble {
-		max-width: 84%;
-		border-radius: 16px;
-		padding: 12px 14px;
-		background: #ffffff;
-		border: 1px solid rgba(17, 24, 39, 0.06);
-		color: #111827;
-		line-height: 1.55;
-		box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
-	}
-
-	.zg-bubble p {
-		margin: 0;
-		white-space: pre-wrap;
-		word-break: break-word;
-		font-size: 14.5px;
-	}
-
-	.zg-typing {
-		display: inline-flex;
-		gap: 4px;
-	}
-
-	.zg-typing i {
-		width: 6px;
-		height: 6px;
-		border-radius: 999px;
-		background: #9ca3af;
-		animation: zg-blink 1.2s infinite ease-in-out;
-	}
-
-	.zg-typing i:nth-child(2) {
-		animation-delay: 0.2s;
-	}
-
-	.zg-typing i:nth-child(3) {
-		animation-delay: 0.4s;
-	}
-
-	@keyframes zg-blink {
-		0%, 80%, 100% {
-			opacity: 0.25;
-			transform: translateY(0);
-		}
-		40% {
-			opacity: 1;
-			transform: translateY(-2px);
-		}
-	}
-
-	.zg-composer {
-		position: sticky;
-		bottom: 0;
-		padding: 10px 0 max(14px, env(safe-area-inset-bottom));
-		background: linear-gradient(180deg, rgba(246, 247, 249, 0) 0%, #f6f7f9 24%);
-	}
-
-	.zg-composer-inner {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) 44px;
-		gap: 8px;
-		align-items: end;
-		padding: 8px;
-		border: 1px solid rgba(17, 24, 39, 0.12);
-		border-radius: 22px;
-		background: #ffffff;
-		box-shadow: 0 14px 40px rgba(17, 24, 39, 0.08);
-	}
-
-	.zg-composer-inner textarea {
-		width: 100%;
-		min-height: 32px;
-		max-height: 220px;
-		border: 0;
-		padding: 8px 10px;
-		background: transparent;
-		color: #111827;
-		font-size: 15px;
-		font-family: inherit;
-		resize: none;
-		outline: none;
-		line-height: 1.5;
-	}
-
-	.zg-composer-inner textarea:disabled {
-		color: #9ca3af;
-	}
-
-	.zg-send {
-		display: grid;
-		place-items: center;
-		width: 44px;
-		height: 44px;
-		border: 0;
-		border-radius: 50%;
-		background: #111827;
-		color: #ffffff;
-		font-size: 20px;
-	}
-
-	.zg-send:disabled {
-		background: #d1d5db;
-		color: #ffffff;
-	}
-
-	.zg-send.stop {
-		background: #b91c1c;
-	}
-
-	.zg-hint {
-		display: block;
-		margin-top: 8px;
-		font-size: 11px;
-		color: #9ca3af;
-		text-align: center;
-		font-weight: 700;
-	}
-
-	@media (max-width: 540px) {
-		.zg-samples {
-			grid-template-columns: 1fr;
-		}
-	}
-
-</style>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import AppDialog from '$lib/components/AppDialog.svelte';
 	import defaultMenuData from '$lib/assets/data/menu.json';
 	import { calculateExactBudgetGacha, type ExactBudgetSelection } from '$lib/gacha';
 	import { filterMenuForServicePeriod, getMenuServicePeriod } from '$lib/menu-availability';
@@ -145,7 +146,7 @@
 	let error = $state('');
 	let busy = $state(false);
 	let activeTab = $state<ActiveTab>('add');
-	let gachaDialog: HTMLDialogElement | null = null;
+	let gachaDialogOpen = $state(false);
 	let gachaResults = $state<ExactBudgetSelection<MenuItem>[]>([]);
 	let gachaBudget = $state(1000);
 	let gachaCount = $state(0n);
@@ -523,9 +524,7 @@
 			gachaCount = result.count;
 			gachaResults = result.sample ?? [];
 			gachaHasRun = true;
-			if (!gachaDialog?.open) {
-				gachaDialog?.showModal();
-			}
+				gachaDialogOpen = true;
 		} catch (caught) {
 			error = caught instanceof Error ? caught.message : 'ガチャの計算に失敗しました';
 		}
@@ -560,7 +559,7 @@
 		}
 
 		commitCart(nextCart);
-		gachaDialog?.close();
+		gachaDialogOpen = false;
 		notify('ガチャ結果をカートに入れました');
 	};
 
@@ -582,56 +581,58 @@
 	<title>注文 | Betterzeriya</title>
 </svelte:head>
 
-<main class="shell">
-	<header class="session-header">
+<main class="mx-auto grid w-[min(1180px,calc(100%_-_32px))] grid-cols-1 gap-y-0 px-4 pt-6 pb-28 text-slate-950 min-[901px]:w-[min(1240px,calc(100%_-_32px))] min-[901px]:grid-cols-[220px_minmax(0,1fr)] min-[901px]:gap-x-6 min-[901px]:pb-10">
+	<header class="mb-5 grid items-center gap-3 min-[901px]:col-start-2 min-[561px]:grid-cols-[minmax(0,1fr)_auto_auto]">
 		<div>
-			<p class="eyebrow">Order</p>
-			<h1>注文</h1>
+			<p class="m-0 mb-2 text-xs font-extrabold uppercase text-green-700">Order</p>
+			<h1 class="m-0 text-[22px] leading-tight font-extrabold tracking-normal">注文</h1>
 		</div>
 		{#if clientState}
-			<div class="table-chip">
+			<div class="flex flex-col gap-2 rounded-lg bg-green-50 p-3 text-green-800 min-[561px]:flex-row min-[561px]:items-center min-[561px]:justify-between">
 				<span>Shop {clientState.shopId}</span>
 				<strong>Table {clientState.tableNo}</strong>
 				<span>{clientState.peopleCount} 名</span>
 			</div>
 		{/if}
-		<div class="header-actions">
-			<button class="secondary" onclick={loadState} disabled={busy}>更新</button>
-			<button class="secondary" onclick={() => goto('/')}>QR</button>
+		<div class="grid grid-cols-2 gap-2.5 min-[561px]:flex">
+			<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:opacity-55" onclick={loadState} disabled={busy}>更新</button>
+			<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950" onclick={() => goto('/')}>QR</button>
 		</div>
 	</header>
 
 	{#if error}
-		<div class="alert" role="alert">{error}</div>
+		<div class="sticky top-3 z-10 mb-3.5 rounded-lg bg-red-50 px-3.5 py-3 font-bold text-red-800 min-[901px]:col-start-2" role="alert">{error}</div>
 	{/if}
 	{#if toast}
-		<div class="toast" role="status">{toast}</div>
+		<div class="fixed top-[max(16px,env(safe-area-inset-top))] right-[max(16px,env(safe-area-inset-right))] z-20 w-[min(360px,calc(100%_-_32px))] rounded-lg bg-slate-950 px-3.5 py-3 font-bold text-white shadow-[0_18px_50px_rgba(17,24,39,0.22)]" role="status">{toast}</div>
 	{/if}
 
-	<section class="tab-workspace">
+	<section class="min-w-0 min-[901px]:col-start-2">
 		{#if activeTab === 'add'}
-			<div class="menu-area">
-				<div class="toolbar">
+			<div class="min-w-0">
+				<div class="mb-3.5 flex flex-col gap-3 min-[561px]:flex-row min-[561px]:items-end min-[561px]:justify-between">
 					<div>
-						<p class="eyebrow">Add</p>
-						<h2>注文追加</h2>
+						<p class="m-0 mb-2 text-xs font-extrabold uppercase text-green-700">Add</p>
+						<h2 class="m-0 text-[22px] leading-tight font-extrabold tracking-normal">注文追加</h2>
 					</div>
-				<div class="toolbar-actions">
-						<button class="secondary" onclick={() => runGacha()} disabled={busy || !clientState}>
+					<div class="flex flex-wrap items-center gap-2.5 min-[561px]:justify-end">
+						<button class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:opacity-55" onclick={() => runGacha()} disabled={busy || !clientState}>
 							<span class="i-tabler-dice-3"></span>
 							ガチャ
 						</button>
-						<label class="search">
-							<span>検索</span>
-							<input bind:value={search} placeholder="メニューを検索" />
+						<label class="w-[min(360px,100%)]">
+							<span class="mb-1.5 block text-xs font-bold text-slate-500">検索</span>
+							<input class="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-slate-950 outline-none focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10" bind:value={search} placeholder="メニューを検索" />
 						</label>
 					</div>
 				</div>
 
-				<div class="segments" aria-label="カテゴリ">
+				<div class="flex gap-2 overflow-x-auto pb-2.5" aria-label="カテゴリ">
 					{#each categories as category}
 						<button
-							class:selected={selectedCategory === category}
+							class={selectedCategory === category
+								? 'min-h-9 flex-none rounded-full border border-slate-950 bg-slate-950 px-3 font-bold text-white'
+								: 'min-h-9 flex-none rounded-full border border-slate-300 bg-white px-3 font-bold text-slate-700'}
 							onclick={() => (selectedCategory = category)}
 						>
 							{category}
@@ -639,79 +640,86 @@
 					{/each}
 				</div>
 
-				<div class="manual-add">
+				<div class="my-3.5 flex gap-2.5">
 					<input
+						class="min-h-11 w-full max-w-36 rounded-lg border border-slate-300 bg-white px-3 text-slate-950 outline-none focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10"
 						bind:value={manualCode}
 						placeholder="4 桁番号"
 						inputmode="numeric"
 						maxlength="4"
 						onkeydown={(event) => event.key === 'Enter' && addManualCode()}
 					/>
-					<button class="secondary" onclick={addManualCode} disabled={busy || !clientState}>番号で追加</button>
+					<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:opacity-55" onclick={addManualCode} disabled={busy || !clientState}>番号で追加</button>
 				</div>
-				<p class="menu-image-note">AIで生成された画像です。この画像は実際の商品と異なる可能性があります。</p>
+				<p class="mt-[-4px] mb-3.5 text-xs leading-normal text-slate-500">AIで生成された画像です。この画像は実際の商品と異なる可能性があります。</p>
 
 				{#if filteredMenu.length}
-					<div class="menu-grid">
+					<div class="grid grid-cols-1 gap-3 min-[561px]:grid-cols-[repeat(auto-fill,minmax(190px,1fr))]">
 						{#each filteredMenu as item}
 							{@const coverImage = menuCoverImages[item.code] ?? item.imageUrl}
 							<button
-								class="menu-card"
+								class="group relative block aspect-[4/3] min-h-44 w-full overflow-hidden rounded-lg border border-slate-900/10 bg-slate-200 p-0 text-left text-white transition hover:-translate-y-px hover:border-slate-900/30 hover:shadow-[0_10px_24px_rgba(17,24,39,0.08)] disabled:cursor-not-allowed disabled:opacity-55"
 								onclick={() => addItem(item)}
 								disabled={busy || !clientState}
 							>
 								{#if coverImage}
-									<img class="menu-card-cover" src={coverImage} alt="" loading="lazy" />
+									<img class="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:scale-[1.03]" src={coverImage} alt="" loading="lazy" />
 								{:else}
-									<div class="menu-card-cover menu-card-fallback" aria-hidden="true">
+									<div class="absolute inset-0 grid place-items-center bg-[linear-gradient(135deg,rgba(22,101,52,0.86),rgba(30,64,175,0.72)),#166534] text-3xl font-black text-white/90" aria-hidden="true">
 										<span>{item.category.slice(0, 2)}</span>
 									</div>
 								{/if}
-								<div class="menu-card-content">
-									<strong>{item.name}</strong>
-									<div class="menu-card-meta">
+								<div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,24,39,0)_34%,rgba(17,24,39,0.84)_100%)]"></div>
+								<div class="absolute right-0 bottom-0 left-0 z-[1] p-3.5">
+									<strong class="line-clamp-2 text-[15px] leading-snug font-extrabold [text-shadow:0_1px_8px_rgba(0,0,0,0.42)]">{item.name}</strong>
+									<div class="mt-2.5 flex items-center justify-between gap-2">
 										<span
-											class="menu-status"
-											class:status-loading={menuStatuses[item.code] === 'loading'}
-											class:status-available={menuStatuses[item.code] === 'available'}
-											class:status-unavailable={menuStatuses[item.code] === 'unavailable'}
-											class:status-error={menuStatuses[item.code] === 'error'}
+											class={menuStatuses[item.code] === 'loading'
+												? 'inline-grid min-h-6 place-items-center rounded-full bg-indigo-50/95 px-2.5 text-xs font-black whitespace-nowrap text-indigo-800'
+												: menuStatuses[item.code] === 'available'
+													? 'inline-grid min-h-6 place-items-center rounded-full bg-green-50/95 px-2.5 text-xs font-black whitespace-nowrap text-emerald-700'
+													: menuStatuses[item.code] === 'unavailable'
+														? 'inline-grid min-h-6 place-items-center rounded-full bg-red-50/95 px-2.5 text-xs font-black whitespace-nowrap text-red-800'
+														: menuStatuses[item.code] === 'error'
+															? 'inline-grid min-h-6 place-items-center rounded-full bg-orange-50/95 px-2.5 text-xs font-black whitespace-nowrap text-orange-800'
+															: 'inline-grid min-h-6 place-items-center rounded-full bg-white/90 px-2.5 text-xs font-black whitespace-nowrap text-slate-700'}
 										>
 											{statusLabel(menuStatuses[item.code])}
 										</span>
-										<small class="price">¥{item.price.toLocaleString()}</small>
+										<small class="text-xs font-black whitespace-nowrap text-white/90">¥{item.price.toLocaleString()}</small>
 									</div>
 								</div>
 							</button>
 						{/each}
 					</div>
 				{:else}
-					<div class="empty">
-						<strong>表示できるメニューがありません</strong>
+					<div class="grid gap-1.5 rounded-lg border border-dashed border-slate-300 p-5 text-slate-500">
+						<strong class="text-slate-950">表示できるメニューがありません</strong>
 						<span>検索条件を変えるか、4 桁番号で追加してください。</span>
 					</div>
 				{/if}
 			</div>
 		{:else if activeTab === 'cart'}
-			<div class="cart-panel">
-				<div class="cart-head">
+			<div class="rounded-lg border border-slate-900/10 bg-white/90 p-4 min-[901px]:sticky min-[901px]:top-3.5">
+				<div class="mb-3.5 flex items-end justify-between gap-4">
 					<div>
-						<p class="eyebrow">Cart</p>
-						<h2>注文かご</h2>
+						<p class="m-0 mb-2 text-xs font-extrabold uppercase text-green-700">Cart</p>
+						<h2 class="m-0 text-[22px] leading-tight font-extrabold tracking-normal">注文かご</h2>
 					</div>
-					<strong>{totalCount} 点</strong>
+					<strong class="text-xl">{totalCount} 点</strong>
 				</div>
 
 				{#if localCart.length}
-					<div class="cart-list">
+					<div class="grid max-h-[360px] gap-2 overflow-auto pr-0.5">
 						{#each localCart as item, index}
-							<div class="cart-row">
+							<div class="grid grid-cols-[minmax(0,1fr)_104px_82px_36px] items-center gap-2.5 border-b border-slate-200 py-2.5 max-[560px]:grid-cols-[minmax(0,1fr)_96px_36px]">
 								<div>
-									<strong>{item.name ?? item.id}</strong>
-									<span>{item.id}</span>
+									<strong class="block">{item.name ?? item.id}</strong>
+									<span class="block text-xs text-slate-500">{item.id}</span>
 								</div>
-								<div class="quantity-stepper" aria-label={`${item.name ?? item.id} の数量`}>
+								<div class="grid grid-cols-[30px_minmax(32px,1fr)_30px] items-center overflow-hidden rounded-lg border border-slate-200 bg-white" aria-label={`${item.name ?? item.id} の数量`}>
 									<button
+										class="h-[34px] min-w-0 bg-transparent text-center font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:text-slate-400"
 										aria-label="数量を減らす"
 										onclick={() => updateItemCount(index, item, item.count - 1)}
 										disabled={busy}
@@ -719,6 +727,7 @@
 										-
 									</button>
 									<input
+										class="h-[34px] min-h-0 min-w-0 border-0 border-x border-slate-200 bg-transparent text-center font-extrabold text-slate-950 outline-none"
 										aria-label="数量"
 										value={item.count}
 										inputmode="numeric"
@@ -730,6 +739,7 @@
 											)}
 									/>
 									<button
+										class="h-[34px] min-w-0 bg-transparent text-center font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:text-slate-400"
 										aria-label="数量を増やす"
 										onclick={() => updateItemCount(index, item, item.count + 1)}
 										disabled={busy || item.count >= 99}
@@ -737,9 +747,9 @@
 										+
 									</button>
 								</div>
-								<span>¥{((item.price ?? 0) * item.count).toLocaleString()}</span>
+								<span class="block text-right font-extrabold max-[560px]:hidden">¥{((item.price ?? 0) * item.count).toLocaleString()}</span>
 								<button
-									class="icon-button danger"
+									class="grid h-9 w-9 place-items-center rounded-lg border border-slate-200 bg-white text-lg text-red-800 disabled:cursor-not-allowed disabled:opacity-55"
 									aria-label={`${item.name ?? item.id} を削除`}
 									onclick={() => removeItem(index, item)}
 									disabled={busy}
@@ -750,100 +760,100 @@
 						{/each}
 					</div>
 				{:else}
-					<div class="empty">
-						<strong>まだ空です</strong>
+					<div class="grid gap-1.5 rounded-lg border border-dashed border-slate-300 p-5 text-slate-500">
+						<strong class="text-slate-950">まだ空です</strong>
 						<span>注文追加タブから 4 桁番号を入力して追加できます。</span>
 					</div>
 				{/if}
 
-				<div class="total">
+				<div class="mt-[18px] mb-3 flex items-center justify-between border-t border-slate-200 pt-4">
 					<span>合計</span>
-					<strong>¥{totalPrice.toLocaleString()}</strong>
+					<strong class="text-3xl">¥{totalPrice.toLocaleString()}</strong>
 				</div>
 
-				<div class="cart-actions">
-					<button class="secondary" onclick={() => (activeTab = 'add')}>注文追加</button>
-					<button class="primary" onclick={submitOrder} disabled={!canOrder}>注文送信</button>
+				<div class="grid grid-cols-2 gap-2.5">
+					<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950" onclick={() => (activeTab = 'add')}>注文追加</button>
+					<button class="min-h-11 rounded-lg bg-slate-950 px-4 font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-55" onclick={submitOrder} disabled={!canOrder}>注文送信</button>
 				</div>
 			</div>
 		{:else if activeTab === 'history'}
-			<div class="tab-panel">
-				<div class="checkout-head">
+			<div class="min-w-0 rounded-lg border border-slate-900/10 bg-white/90 p-[18px]">
+				<div class="mb-3 flex items-end justify-between gap-3">
 					<div>
-						<p class="eyebrow">History</p>
-						<h2>注文履歴</h2>
+						<p class="m-0 mb-2 text-xs font-extrabold uppercase text-green-700">History</p>
+						<h2 class="m-0 text-[22px] leading-tight font-extrabold tracking-normal">注文履歴</h2>
 					</div>
-					<strong>¥{accountTotal.toLocaleString()}</strong>
+					<strong class="text-[22px]">¥{accountTotal.toLocaleString()}</strong>
 				</div>
 
-				<div class="cart-actions">
-					<button class="secondary" onclick={loadAccount} disabled={busy || !clientState}>履歴を更新</button>
+				<div class="grid grid-cols-2 gap-2.5">
+					<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:opacity-55" onclick={loadAccount} disabled={busy || !clientState}>履歴を更新</button>
 				</div>
 
 				{#if checkout && accountCount > 0}
-					<div class="account-list">
+					<div class="mt-3 grid max-h-[220px] gap-1.5 overflow-auto">
 						{#each checkout.account.lines as line}
-							<div class="account-row">
-								<span>{line.name}</span>
-								<span>{line.count}</span>
-								<strong>¥{line.price.toLocaleString()}</strong>
+							<div class="grid grid-cols-[minmax(0,1fr)_32px_76px] items-center gap-2 border-b border-slate-100 py-2 text-[13px]">
+								<span class="overflow-hidden text-ellipsis whitespace-nowrap text-left">{line.name}</span>
+								<span class="text-right">{line.count}</span>
+								<strong class="text-right">¥{line.price.toLocaleString()}</strong>
 							</div>
 						{/each}
 					</div>
 				{:else}
-					<div class="empty compact">
-						<strong>注文履歴はまだありません</strong>
+					<div class="mt-3 grid gap-1.5 rounded-lg border border-dashed border-slate-300 p-4 text-slate-500">
+						<strong class="text-slate-950">注文履歴はまだありません</strong>
 						<span>注文送信後にここへ反映されます。</span>
 					</div>
 				{/if}
 			</div>
 		{:else if activeTab === 'call'}
-			<div class="tab-panel action-panel">
+			<div class="grid min-h-80 justify-items-center gap-5 rounded-lg border border-slate-900/10 bg-white/90 p-[18px] text-center content-center">
 				<div>
-					<p class="eyebrow">Call</p>
-					<h2>店員呼び出し</h2>
+					<p class="m-0 mb-2 text-xs font-extrabold uppercase text-green-700">Call</p>
+					<h2 class="m-0 text-[22px] leading-tight font-extrabold tracking-normal">店員呼び出し</h2>
 				</div>
-				<button class="primary call-button" onclick={() => callStaff()} disabled={busy || !clientState}>
-					<span class="i-tabler-bell"></span>
+				<button class="inline-flex min-h-14 w-[min(100%,340px)] items-center justify-center gap-2.5 rounded-lg bg-slate-950 px-4 text-[17px] font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-55" onclick={() => callStaff()} disabled={busy || !clientState}>
+					<span class="i-tabler-bell text-[22px]"></span>
 					店員を呼ぶ
 				</button>
-				<button class="secondary call-button" onclick={() => callStaff(true)} disabled={busy || !clientState}>
-					<span class="i-tabler-ice-cream-2"></span>
+				<button class="inline-flex min-h-14 w-[min(100%,340px)] items-center justify-center gap-2.5 rounded-lg border border-slate-300 bg-white px-4 text-[17px] font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:opacity-55" onclick={() => callStaff(true)} disabled={busy || !clientState}>
+					<span class="i-tabler-ice-cream-2 text-[22px]"></span>
 					デザートを持ってきてもらう
 				</button>
 			</div>
 		{:else}
-			<div class="tab-panel">
-				<div class="checkout-head">
+			<div class="min-w-0 rounded-lg border border-slate-900/10 bg-white/90 p-4">
+				<div class="mb-3 flex items-end justify-between gap-3">
 					<div>
-						<p class="eyebrow">Checkout</p>
-						<h2>会計</h2>
+						<p class="m-0 mb-2 text-xs font-extrabold uppercase text-green-700">Checkout</p>
+						<h2 class="m-0 text-[22px] leading-tight font-extrabold tracking-normal">会計</h2>
 					</div>
-					<strong>¥{accountTotal.toLocaleString()}</strong>
+					<strong class="text-[22px]">¥{accountTotal.toLocaleString()}</strong>
 				</div>
 
 				{#if checkout?.receiptShown}
-					<div class="receipt-ticket" aria-live="polite">
-						<div>
-							<span>Table {clientState?.tableNo}</span>
-							<strong>{checkout.barcodeValue}</strong>
+					<div class="my-3 grid gap-3 rounded-lg border border-green-200 bg-green-50 p-[18px] text-center text-green-950" aria-live="polite">
+						<div class="grid gap-1.5">
+							<span class="text-[13px] font-extrabold">Table {clientState?.tableNo}</span>
+							<strong class="[overflow-wrap:anywhere] text-[clamp(22px,6vw,40px)] tracking-normal">{checkout.barcodeValue}</strong>
 						</div>
 						{#if checkout.barcodeImageSrc}
 							<img
-								class="receipt-barcode"
+								class="mx-auto my-1 block h-[92px] w-[min(100%,420px)] border-[12px] border-white bg-white object-fill shadow-[inset_0_0_0_1px_rgba(17,24,39,0.08)]"
 								src={checkout.barcodeImageSrc}
 								alt={`会計バーコード ${checkout.barcodeValue}`}
 							/>
 						{/if}
-						<p>この画面をレジで提示してください。</p>
+						<p class="m-0 font-extrabold">この画面をレジで提示してください。</p>
 					</div>
 				{:else}
-					<div class="cart-actions">
-						<button class="secondary" onclick={loadAccount} disabled={busy || !clientState}>
+					<div class="grid grid-cols-2 gap-2.5">
+						<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950 disabled:cursor-not-allowed disabled:opacity-55" onclick={loadAccount} disabled={busy || !clientState}>
 							明細を更新
 						</button>
 						<button
-							class="primary"
+							class="min-h-11 rounded-lg bg-slate-950 px-4 font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-55"
 							onclick={settleCheckout}
 							disabled={busy || !clientState || accountCount === 0}
 						>
@@ -853,57 +863,64 @@
 				{/if}
 
 				{#if checkout && accountCount > 0}
-					<div class="account-list checkout-lines">
+					<div class="mt-3 grid max-h-80 gap-1.5 overflow-auto">
 						{#each checkout.account.lines as line}
-							<div class="account-row">
-								<span>{line.name}</span>
-								<span>{line.count}</span>
-								<strong>¥{line.price.toLocaleString()}</strong>
+							<div class="grid grid-cols-[minmax(0,1fr)_32px_76px] items-center gap-2 border-b border-slate-100 py-2 text-[13px]">
+								<span class="overflow-hidden text-ellipsis whitespace-nowrap text-left">{line.name}</span>
+								<span class="text-right">{line.count}</span>
+								<strong class="text-right">¥{line.price.toLocaleString()}</strong>
 							</div>
 						{/each}
 					</div>
 				{:else}
-					<div class="empty compact">
-						<strong>会計できる注文がありません</strong>
+					<div class="mt-3 grid gap-1.5 rounded-lg border border-dashed border-slate-300 p-4 text-slate-500">
+						<strong class="text-slate-950">会計できる注文がありません</strong>
 						<span>注文を送信すると、ここで明細確認と会計確定ができます。</span>
 					</div>
 				{/if}
 
-				<div class="total checkout-total">
+				<div class="mt-[18px] mb-0 flex items-center justify-between border-t border-slate-200 pt-4">
 					<span>{accountCount} 点</span>
-					<strong>¥{accountTotal.toLocaleString()}</strong>
+					<strong class="text-3xl">¥{accountTotal.toLocaleString()}</strong>
 				</div>
 			</div>
 		{/if}
 	</section>
 
-	<nav class="bottom-tabs" aria-label="注文ナビゲーション">
+	<nav
+		class="fixed right-0 bottom-0 left-0 z-20 grid grid-cols-6 gap-1 border-t border-slate-900/10 bg-white/95 px-[max(8px,env(safe-area-inset-left))] pt-2 pb-[max(8px,env(safe-area-inset-bottom))] backdrop-blur-2xl min-[901px]:sticky min-[901px]:top-6 min-[901px]:right-auto min-[901px]:bottom-auto min-[901px]:left-auto min-[901px]:col-start-1 min-[901px]:row-start-1 min-[901px]:row-span-4 min-[901px]:flex min-[901px]:min-h-[calc(100svh-48px)] min-[901px]:flex-col min-[901px]:self-start min-[901px]:border-t-0 min-[901px]:border-r min-[901px]:bg-transparent min-[901px]:p-0 min-[901px]:pr-3.5 min-[901px]:backdrop-blur-none"
+		aria-label="注文ナビゲーション"
+	>
 		{#each tabItems as tab}
-			<button class:active={activeTab === tab.id} onclick={() => (activeTab = tab.id)}>
-				<span class={tab.icon} aria-hidden="true"></span>
+			<button
+				class={activeTab === tab.id
+					? 'relative flex min-h-[54px] flex-col items-center justify-center gap-1 rounded-lg bg-slate-950 p-1 text-center text-[11px] font-extrabold text-white min-[901px]:min-h-[46px] min-[901px]:w-full min-[901px]:flex-row min-[901px]:justify-start min-[901px]:gap-3 min-[901px]:rounded-full min-[901px]:px-4 min-[901px]:text-left min-[901px]:text-sm'
+					: 'relative flex min-h-[54px] flex-col items-center justify-center gap-1 rounded-lg p-1 text-center text-[11px] font-extrabold text-slate-700 transition hover:bg-slate-950 hover:text-white min-[901px]:min-h-[46px] min-[901px]:w-full min-[901px]:flex-row min-[901px]:justify-start min-[901px]:gap-3 min-[901px]:rounded-full min-[901px]:px-4 min-[901px]:text-left min-[901px]:text-sm'}
+				onclick={() => (activeTab = tab.id)}
+			>
+				<span class={`${tab.icon} text-[22px]`} aria-hidden="true"></span>
 				<span>{tab.label}</span>
 				{#if tab.id === 'cart' && tab.count && tab.count > 0}
-					<strong>{tab.count > 99 ? '99+' : tab.count}</strong>
+					<strong class="absolute top-1 right-[calc(50%-24px)] grid h-[22px] min-w-[22px] place-items-center rounded-full bg-red-600 px-1.5 text-xs leading-none text-white min-[901px]:static">{tab.count > 99 ? '99+' : tab.count}</strong>
 				{/if}
 			</button>
 		{/each}
-		<a href={`/sessions/${sessionId}/ai`}>
-			<span class="i-tabler-sparkles" aria-hidden="true"></span>
+		<a class="relative flex min-h-[54px] flex-col items-center justify-center gap-1 rounded-lg p-1 text-center text-[11px] font-extrabold text-slate-700 no-underline transition hover:bg-slate-950 hover:text-white min-[901px]:min-h-[46px] min-[901px]:w-full min-[901px]:flex-row min-[901px]:justify-start min-[901px]:gap-3 min-[901px]:rounded-full min-[901px]:px-4 min-[901px]:text-left min-[901px]:text-sm" href={`/sessions/${sessionId}/ai`}>
+			<span class="i-tabler-sparkles text-[22px]" aria-hidden="true"></span>
 			<span>zeriyaGPT</span>
 		</a>
 	</nav>
 </main>
 
-<dialog bind:this={gachaDialog} class="app-dialog">
-	<form method="dialog" class="dialog-body" onsubmit={(event) => event.preventDefault()}>
-		<p class="eyebrow">Gacha</p>
-		<h2>1000円ガチャ結果</h2>
-		<label class="gacha-budget-label">
-			<span>予算 (円)</span>
-			<input bind:value={gachaBudget} type="number" min="100" max="9999" step="100" />
+<AppDialog bind:open={gachaDialogOpen} eyebrow="Gacha" title={`${gachaBudget}円ガチャ結果`}>
+	<form class="grid gap-3" onsubmit={(event) => event.preventDefault()}>
+		<label class="flex items-center gap-2.5">
+			<span class="text-xs font-bold text-slate-500">予算 (円)</span>
+			<input class="min-h-11 w-[100px] rounded-lg border border-slate-300 bg-white px-3 text-slate-950 outline-none focus:border-slate-950 focus:ring-4 focus:ring-slate-950/10" bind:value={gachaBudget} type="number" min="100" max="9999" step="100" />
 		</label>
-		<label class="checkbox-option">
+		<label class="inline-flex min-h-11 items-center gap-2 font-extrabold text-slate-950">
 				<input
+					class="m-0 h-[18px] min-h-0 w-[18px] accent-slate-950"
 					type="checkbox"
 					bind:checked={excludeAlcoholFromGacha}
 					onchange={(event) => {
@@ -916,34 +933,34 @@
 			<span>お酒を抽選から除外</span>
 		</label>
 			{#if gachaHasRun}
-				<p class="gacha-note">
+				<p class="m-0 text-sm leading-relaxed text-slate-600">
 					予算ちょうどの組み合わせは <strong>{gachaCount.toLocaleString()}</strong> 通りです。
 				</p>
 			{/if}
 		{#if gachaResults.length}
-			<div class="gacha-list">
+			<div class="grid gap-1.5">
 				{#each gachaResults as item}
-					<div class="gacha-row">
+					<div class="flex items-center justify-between gap-2 rounded-md bg-slate-50 px-2.5 py-2 text-sm">
 							<span>{item.item.name} × {item.quantity}</span>
 							<strong>¥{item.subtotal.toLocaleString()}</strong>
 					</div>
 				{/each}
 			</div>
-			<div class="gacha-total">
+			<div class="flex items-center justify-between gap-2 border-t border-slate-900/10 px-2.5 pt-2.5 font-bold">
 				<span>合計</span>
 					<strong>¥{gachaResults.reduce((sum, item) => sum + item.subtotal, 0).toLocaleString()}</strong>
 			</div>
 		{:else}
-				<p class="gacha-empty">予算ちょうどの組み合わせがありません。</p>
+				<p class="m-0 py-3 text-center text-sm text-slate-500">予算ちょうどの組み合わせがありません。</p>
 		{/if}
-		<div class="dialog-actions three">
-			<button class="secondary" type="button" onclick={() => gachaDialog?.close()}>閉じる</button>
-			<button class="secondary" type="button" onclick={() => runGacha()}>もう一度</button>
+		<div class="grid grid-cols-3 gap-2.5">
+			<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950" type="button" onclick={() => (gachaDialogOpen = false)}>閉じる</button>
+			<button class="min-h-11 rounded-lg border border-slate-300 bg-white px-4 font-extrabold text-slate-950" type="button" onclick={() => runGacha()}>もう一度</button>
 			{#if gachaResults.length}
-				<button class="primary" type="button" onclick={addGachaToCart} disabled={busy || !clientState}>
+				<button class="min-h-11 rounded-lg bg-slate-950 px-4 font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-55" type="button" onclick={addGachaToCart} disabled={busy || !clientState}>
 					カートに追加
 				</button>
 			{/if}
 		</div>
 	</form>
-</dialog>
+</AppDialog>
